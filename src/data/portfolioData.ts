@@ -57,7 +57,7 @@ export const portfolioMeta: PortfolioMeta = {
     description: 'Fiscal monitoring, public transparency ledger, and real-time student treasury management platform.',
     tags: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Supabase'],
     image: '/kaban-dashboard-dark.jpg',
-    link: '#'
+    link: 'https://treasurer-system.vercel.app/'
   },
   skillsSummary: [
     'AI-Assisted Workflows',
