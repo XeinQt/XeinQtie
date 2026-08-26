@@ -13,6 +13,7 @@ import { FeaturedBuildCard } from '../components/FeaturedBuildCard';
 import { ExperienceSimpleList } from '../components/ExperienceSimpleList';
 import { ProjectsSection } from '../components/ProjectsSection';
 import { TechnologiesSection } from '../components/TechnologiesSection';
+import { TestimonialsSection } from '../components/TestimonialsSection';
 import { EducationSection } from '../components/EducationSection';
 import { OutsideTheIDESection } from '../components/OutsideTheIDESection';
 import { GithubActivitySection } from '../components/GithubActivitySection';
@@ -150,22 +151,27 @@ export const HomePage: React.FC<HomePageProps> = ({
         <TechnologiesSection />
       </section>
 
-      {/* 6. Education Section */}
+      {/* 6. Testimonials Section */}
+      <section id="testimonials" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
+        <TestimonialsSection />
+      </section>
+
+      {/* 7. Education Section */}
       <section id="education" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
         <EducationSection />
       </section>
 
-      {/* 7. Outside the IDE Section */}
+      {/* 8. Outside the IDE Section */}
       <section id="outside-ide" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
         <OutsideTheIDESection />
       </section>
 
-      {/* 8. GitHub Activity Section */}
+      {/* 9. GitHub Activity Section */}
       <section id="github" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
         <GithubActivitySection />
       </section>
 
-      {/* 9. Get in Touch / Contact Section */}
+      {/* 10. Get in Touch / Contact Section */}
       <section id="contact" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
         <ContactSection />
       </section>

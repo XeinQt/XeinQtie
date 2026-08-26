@@ -88,6 +88,14 @@ export const Footer: React.FC<{ onNavigate?: (sectionId: string) => void }> = ()
               </li>
               <li>
                 <button 
+                  onClick={() => scrollToSection('testimonials')} 
+                  className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition cursor-pointer"
+                >
+                  Testimonials
+                </button>
+              </li>
+              <li>
+                <button 
                   onClick={() => scrollToSection('education')} 
                   className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition cursor-pointer"
                 >
