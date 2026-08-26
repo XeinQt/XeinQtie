@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+﻿/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -31,19 +31,15 @@ export default {
           light: '#f4f4f5',
           muted: '#a1a1aa',
           dark: '#27272a',
-        },
-        ink: {
-          950: '#050505',
-          900: '#09090b',
-          850: '#121215',
-          800: '#18181b',
-          700: '#27272a',
-          600: '#3f3f46',
         }
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+        header: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        content: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        body: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"Inter"', 'monospace']
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
