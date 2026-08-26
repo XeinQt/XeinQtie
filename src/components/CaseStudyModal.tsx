@@ -1,6 +1,6 @@
-﻿import React from 'react';
-import { X, ShieldCheck, Lock, Cpu, Database } from 'lucide-react';
-import { portfolioMeta } from '../data/portfolioData';
+﻿import React, { useState } from 'react';
+import { X, ArrowUpRight, CheckCircle2, Cpu, Image as ImageIcon } from 'lucide-react';
+import { projectsData } from '../data/projectsData';
 import { TechBadge } from './TechBadge';
 
 interface CaseStudyModalProps {
@@ -9,27 +9,33 @@ interface CaseStudyModalProps {
 }
 
 export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose }) => {
+  const [selectedScreenshotIdx, setSelectedScreenshotIdx] = useState<number>(0);
+
   if (!isOpen) return null;
 
-  const { featuredBuild } = portfolioMeta;
+  // Use KABAN as the featured project
+  const kabanProject = projectsData.find(p => p.id === 'kaban') || projectsData[0];
+  const screenshots = kabanProject.screenshots || [];
+  const currentImage = screenshots.length > 0 ? screenshots[selectedScreenshotIdx]?.url : kabanProject.image;
+  const currentCaption = screenshots.length > 0 ? screenshots[selectedScreenshotIdx]?.caption : kabanProject.description;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fade-in">
-      <div className="relative w-full max-w-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+      <div className="relative w-full max-w-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-3xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
         
         {/* Header */}
-        <div className="p-5 border-b border-zinc-100 dark:border-zinc-800 flex items-center justify-between bg-zinc-50/70 dark:bg-zinc-950/50">
+        <div className="p-5 sm:p-6 border-b border-zinc-100 dark:border-zinc-800 flex items-center justify-between bg-zinc-50/70 dark:bg-zinc-950/50">
           <div>
             <span className="text-[10px] font-mono font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
-              CASE STUDY
+              FEATURED CASE STUDY · {kabanProject.year}
             </span>
-            <h3 className="text-lg font-bold text-zinc-900 dark:text-white">
-              {featuredBuild.title}
+            <h3 className="text-xl font-bold text-zinc-900 dark:text-white">
+              {kabanProject.title}
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition"
+            className="p-2 rounded-xl text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -38,88 +44,172 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose 
         {/* Scrollable Content */}
         <div className="p-6 sm:p-8 overflow-y-auto space-y-6 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 font-sans">
           
-          {/* Mockup Display */}
-          <div className="rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-950 flex items-center justify-center max-h-60">
-            <img 
-              src={featuredBuild.image} 
-              alt={featuredBuild.title} 
-              className="w-full object-cover" 
-            />
+          {/* Interactive Multi-Screenshot Gallery */}
+          <div className="space-y-3">
+            <div className="rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-950 flex items-center justify-center max-h-80 shadow-sm relative group">
+              <img 
+                src={currentImage} 
+                alt={kabanProject.title} 
+                className="w-full h-auto object-contain max-h-80 transition-all duration-300" 
+              />
+            </div>
+
+            {/* Screenshot Caption */}
+            {currentCaption && (
+              <p className="text-[11px] sm:text-xs text-zinc-500 dark:text-zinc-400 italic text-center px-2">
+                {currentCaption}
+              </p>
+            )}
+
+            {/* Screenshot Thumbnail Switcher */}
+            {screenshots.length > 1 && (
+              <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+                {screenshots.map((s, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedScreenshotIdx(idx)}
+                    className={`px-3 py-1.5 rounded-xl text-xs transition-all flex items-center gap-1.5 cursor-pointer ${
+                      selectedScreenshotIdx === idx
+                        ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 font-semibold shadow-xs'
+                        : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700'
+                    }`}
+                  >
+                    <ImageIcon className="w-3 h-3" />
+                    <span>{s.title}</span>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          <div>
-            <h4 className="font-bold text-sm text-zinc-900 dark:text-white">Overview</h4>
-            <p className="mt-1 leading-relaxed">
-              KeepR is an offline-first desktop vault built to store sensitive credentials, API keys, and workflow secrets locally on your hardware without reliance on centralized third-party servers.
+          {/* Overview */}
+          <div className="space-y-1.5 pt-2 border-t border-zinc-100 dark:border-zinc-800/80">
+            <h4 className="font-bold text-sm text-zinc-900 dark:text-white">Executive Summary</h4>
+            <p className="leading-relaxed text-zinc-600 dark:text-zinc-300">
+              {kabanProject.caseStudy.overview}
             </p>
           </div>
 
-          {/* Architecture Highlights */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-850 border border-zinc-200/70 dark:border-zinc-800 space-y-1">
-              <div className="flex items-center gap-2 font-bold text-zinc-900 dark:text-white text-xs">
-                <Lock className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
-                <span>Zero-Knowledge Security</span>
+          {/* Metrics Highlight Row */}
+          {kabanProject.caseStudy.metrics && kabanProject.caseStudy.metrics.length > 0 && (
+            <div className="grid grid-cols-3 gap-3">
+              {kabanProject.caseStudy.metrics.map((m, idx) => (
+                <div key={idx} className="p-3.5 rounded-2xl bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200/80 dark:border-zinc-800 text-center">
+                  <div className="text-base sm:text-lg font-bold font-mono text-zinc-900 dark:text-white">
+                    {m.value}
+                  </div>
+                  <div className="text-[10px] text-zinc-500 font-mono mt-0.5">
+                    {m.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Challenge & Solution Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200/80 dark:border-zinc-800 space-y-1.5">
+              <div className="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-wider">
+                The Problem & Challenge
               </div>
-              <p className="text-[11px] text-zinc-500 dark:text-zinc-400">
-                AES-256-GCM encryption with Argon2id master passphrase derivation.
+              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                {kabanProject.caseStudy.challenge}
               </p>
             </div>
 
-            <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-850 border border-zinc-200/70 dark:border-zinc-800 space-y-1">
-              <div className="flex items-center gap-2 font-bold text-zinc-900 dark:text-white text-xs">
-                <Cpu className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
-                <span>Lightweight Tauri & Rust Core</span>
+            <div className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200/80 dark:border-zinc-800 space-y-1.5">
+              <div className="font-bold text-zinc-900 dark:text-white text-xs uppercase tracking-wider">
+                The Architectural Solution
               </div>
-              <p className="text-[11px] text-zinc-500 dark:text-zinc-400">
-                Sub-15MB binary size and low RAM footprint compared to standard Electron apps.
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-850 border border-zinc-200/70 dark:border-zinc-800 space-y-1">
-              <div className="flex items-center gap-2 font-bold text-zinc-900 dark:text-white text-xs">
-                <Database className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
-                <span>Local SQLite Storage</span>
-              </div>
-              <p className="text-[11px] text-zinc-500 dark:text-zinc-400">
-                Fast indexing and full-text search capability directly from local encrypted database.
-              </p>
-            </div>
-
-            <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-850 border border-zinc-200/70 dark:border-zinc-800 space-y-1">
-              <div className="flex items-center gap-2 font-bold text-zinc-900 dark:text-white text-xs">
-                <ShieldCheck className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
-                <span>Biometric & Auto-Lock</span>
-              </div>
-              <p className="text-[11px] text-zinc-500 dark:text-zinc-400">
-                OS-level biometric authentication and configurable auto-locking timers.
+              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                {kabanProject.caseStudy.solution}
               </p>
             </div>
           </div>
 
-          {/* Tech Stack Badges */}
+          {/* Architecture Highlights */}
+          {kabanProject.caseStudy.architecture && (
+            <div className="space-y-3">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5">
+                <Cpu className="w-4 h-4 text-zinc-900 dark:text-zinc-100" />
+                <span>Architecture & Technical Highlights</span>
+              </h4>
+              <div className="space-y-2">
+                {kabanProject.caseStudy.architecture.map((arch, i) => (
+                  <div key={i} className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-950/40 border border-zinc-200/70 dark:border-zinc-800">
+                    <div className="font-semibold text-xs text-zinc-900 dark:text-white font-mono">
+                      {arch.title}
+                    </div>
+                    <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-0.5">
+                      {arch.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Key Features List */}
+          <div className="space-y-2">
+            <h4 className="font-bold text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+              Key Capabilities Delivered:
+            </h4>
+            <ul className="space-y-1.5">
+              {kabanProject.caseStudy.keyFeatures.map((feat, i) => (
+                <li key={i} className="flex items-start gap-2 text-xs text-zinc-600 dark:text-zinc-300">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-zinc-700 dark:text-zinc-300 shrink-0 mt-0.5" />
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Tech Stack Badges with Official Logos */}
           <div>
             <h4 className="font-bold text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-2">
               Technologies Utilized:
             </h4>
             <div className="flex flex-wrap gap-1.5">
-              {featuredBuild.tags.concat(['Tailwind CSS', 'TypeScript']).map((tech, i) => (
+              {kabanProject.tags.map((tech, i) => (
                 <TechBadge key={i} name={tech} size="sm" />
               ))}
             </div>
           </div>
 
-          <div className="pt-2 flex justify-end">
+          {/* Credits */}
+          <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-850 border border-zinc-200/70 dark:border-zinc-800 text-[11px] text-zinc-500 dark:text-zinc-400">
+            <strong>Engineered & Designed by:</strong> Archie Baisas & Rico Alentijo · Built for student fiscal transparency.
+          </div>
+
+          {/* Action Footer */}
+          <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              {kabanProject.liveUrl && (
+                <a
+                  href={kabanProject.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-zinc-900 dark:text-white hover:underline"
+                >
+                  <span>Visit Live App</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              )}
+            </div>
+
             <button
               onClick={onClose}
-              className="px-4 py-2 text-xs font-semibold rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 hover:bg-black dark:hover:bg-zinc-200 transition shadow-sm"
+              className="px-4 py-2 text-xs font-semibold rounded-xl bg-zinc-900 text-white dark:bg-white dark:text-zinc-950 hover:bg-black dark:hover:bg-zinc-200 transition shadow-sm cursor-pointer"
             >
               Close
             </button>
           </div>
+
         </div>
 
       </div>
     </div>
   );
 };
+
+export default CaseStudyModal;

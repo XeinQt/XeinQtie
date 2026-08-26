@@ -53,10 +53,10 @@ export const portfolioMeta: PortfolioMeta = {
   },
   featuredBuild: {
     badge: 'FEATURED BUILD',
-    title: 'KeepR: a private vault I built.',
-    description: 'Local-first password vault and personal workflow desktop app.',
-    tags: ['Tauri', 'Rust', 'React', 'SQLite'],
-    image: '/keepr-mockup.png',
+    title: 'KABAN: Student Council Financial Hub',
+    description: 'Fiscal monitoring, public transparency ledger, and real-time student treasury management platform.',
+    tags: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Supabase'],
+    image: '/kaban-dashboard-dark.jpg',
     link: '#'
   },
   skillsSummary: [
