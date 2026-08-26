@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+﻿import React from 'react';
 import { 
   Github, 
   Linkedin, 
@@ -15,19 +15,18 @@ import { EducationSection } from '../components/EducationSection';
 import { OutsideTheIDESection } from '../components/OutsideTheIDESection';
 import { GithubActivitySection } from '../components/GithubActivitySection';
 import { ContactSection } from '../components/ContactSection';
-import { CaseStudyModal } from '../components/CaseStudyModal';
 import { TechBadge } from '../components/TechBadge';
 
 interface HomePageProps {
   onOpenResume: () => void;
   onOpenContact?: () => void;
+  onOpenCaseStudy: (projectId: string) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
-  onOpenResume
+  onOpenResume,
+  onOpenCaseStudy
 }) => {
-  const [isCaseStudyOpen, setIsCaseStudyOpen] = useState<boolean>(false);
-
   return (
     <div className="pt-24 pb-20 px-4 sm:px-6 max-w-4xl mx-auto space-y-16">
       
@@ -129,9 +128,9 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       </section>
 
-      {/* 2. Featured Build Hero Card */}
+      {/* 2. Featured Build Hero Card (Navigates to dedicated page) */}
       <section>
-        <FeaturedBuildCard onOpenCaseStudy={() => setIsCaseStudyOpen(true)} />
+        <FeaturedBuildCard onOpenCaseStudy={() => onOpenCaseStudy('kaban')} />
       </section>
 
       {/* 3. Experience Section */}
@@ -141,7 +140,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       {/* 4. Projects Section */}
       <section id="projects" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
-        <ProjectsSection />
+        <ProjectsSection onOpenCaseStudy={onOpenCaseStudy} />
       </section>
 
       {/* 5. Technologies Section (Moving marquee with AI assistants) */}
@@ -173,12 +172,6 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section id="contact" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
         <ContactSection />
       </section>
-
-      {/* KeepR Case Study Modal */}
-      <CaseStudyModal 
-        isOpen={isCaseStudyOpen} 
-        onClose={() => setIsCaseStudyOpen(false)} 
-      />
 
     </div>
   );

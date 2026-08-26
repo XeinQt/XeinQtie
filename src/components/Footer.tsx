@@ -8,15 +8,23 @@ import {
 } from 'lucide-react';
 import { portfolioMeta } from '../data/portfolioData';
 
-export const Footer: React.FC<{ onNavigate?: (sectionId: string) => void }> = () => {
-  const scrollToSection = (sectionId: string) => {
-    if (sectionId === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+interface FooterProps {
+  onNavigate?: (sectionId: string) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const handleNavClick = (sectionId: string) => {
+    if (onNavigate) {
+      onNavigate(sectionId);
+    } else {
+      if (sectionId === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
@@ -56,7 +64,7 @@ export const Footer: React.FC<{ onNavigate?: (sectionId: string) => void }> = ()
             <ul className="space-y-2 text-sm">
               <li>
                 <button 
-                  onClick={() => scrollToSection('home')} 
+                  onClick={() => handleNavClick('home')} 
                   className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition cursor-pointer"
                 >
                   Home
@@ -64,7 +72,7 @@ export const Footer: React.FC<{ onNavigate?: (sectionId: string) => void }> = ()
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection('experience')} 
+                  onClick={() => handleNavClick('experience')} 
                   className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition cursor-pointer"
                 >
                   Experience
@@ -72,7 +80,7 @@ export const Footer: React.FC<{ onNavigate?: (sectionId: string) => void }> = ()
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection('projects')} 
+                  onClick={() => handleNavClick('projects')} 
                   className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition cursor-pointer"
                 >
                   Featured Projects
@@ -80,7 +88,7 @@ export const Footer: React.FC<{ onNavigate?: (sectionId: string) => void }> = ()
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection('skills')} 
+                  onClick={() => handleNavClick('skills')} 
                   className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition cursor-pointer"
                 >
                   Technologies
@@ -88,7 +96,7 @@ export const Footer: React.FC<{ onNavigate?: (sectionId: string) => void }> = ()
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection('testimonials')} 
+                  onClick={() => handleNavClick('testimonials')} 
                   className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition cursor-pointer"
                 >
                   Testimonials
@@ -96,7 +104,7 @@ export const Footer: React.FC<{ onNavigate?: (sectionId: string) => void }> = ()
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection('education')} 
+                  onClick={() => handleNavClick('education')} 
                   className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition cursor-pointer"
                 >
                   Education
@@ -104,7 +112,7 @@ export const Footer: React.FC<{ onNavigate?: (sectionId: string) => void }> = ()
               </li>
               <li>
                 <button 
-                  onClick={() => scrollToSection('contact')} 
+                  onClick={() => handleNavClick('contact')} 
                   className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition cursor-pointer"
                 >
                   Get in Touch

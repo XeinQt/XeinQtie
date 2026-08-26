@@ -4,11 +4,11 @@ import { portfolioMeta } from '../data/portfolioData';
 
 interface NavbarProps {
   activeSection?: string;
-  onNavigate?: (sectionId: string) => void;
+  onNavigateSection?: (sectionId: string) => void;
   onOpenResume?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = () => {
+export const Navbar: React.FC<NavbarProps> = ({ onNavigateSection }) => {
   const [isDark, setIsDark] = useState<boolean>(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -22,7 +22,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
       setIsScrolled(window.scrollY > 15);
 
       // Scroll Spy to detect current active section
-      const sections = ['home', 'experience', 'projects', 'skills', 'contact'];
+      const sections = ['home', 'experience', 'projects', 'skills', 'testimonials', 'contact'];
       const scrollPosition = window.scrollY + 140;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -54,18 +54,21 @@ export const Navbar: React.FC<NavbarProps> = () => {
     }
   };
 
-  const scrollToSection = (sectionId: string) => {
+  const handleNavClick = (sectionId: string) => {
     setIsMobileMenuOpen(false);
-    if (sectionId === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setActiveSection('home');
-      return;
-    }
-
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setActiveSection(sectionId);
+    if (onNavigateSection) {
+      onNavigateSection(sectionId);
+    } else {
+      if (sectionId === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setActiveSection('home');
+        return;
+      }
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setActiveSection(sectionId);
+      }
     }
   };
 
@@ -89,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
         
         {/* Brand / Logo */}
         <button 
-          onClick={() => scrollToSection('home')}
+          onClick={() => handleNavClick('home')}
           className="text-base font-bold text-zinc-900 dark:text-white tracking-widest hover:opacity-75 transition-opacity cursor-pointer"
         >
           {portfolioMeta.brandInitials}
@@ -102,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
             return (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item.id)}
                 className={`transition-colors cursor-pointer ${
                   isActive 
                     ? 'text-zinc-900 dark:text-white font-semibold' 
@@ -157,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = () => {
           {navItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => scrollToSection(item.id)}
+              onClick={() => handleNavClick(item.id)}
               className={`w-full text-left px-3 py-2 rounded-lg text-sm transition cursor-pointer ${
                 activeSection === item.id 
                   ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-semibold' 

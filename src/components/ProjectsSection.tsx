@@ -1,10 +1,17 @@
-﻿import React, { useState } from 'react';
+﻿import React from 'react';
 import { projectsData, ProjectItem } from '../data/projectsData';
 import { ProjectCard } from './ProjectCard';
-import { ProjectCaseStudyModal } from './ProjectCaseStudyModal';
 
-export const ProjectsSection: React.FC = () => {
-  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+interface ProjectsSectionProps {
+  onOpenCaseStudy?: (projectId: string) => void;
+}
+
+export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStudy }) => {
+  const handleOpen = (project: ProjectItem) => {
+    if (onOpenCaseStudy) {
+      onOpenCaseStudy(project.id);
+    }
+  };
 
   return (
     <div className="w-full max-w-4xl mx-auto py-8 space-y-8">
@@ -30,16 +37,10 @@ export const ProjectsSection: React.FC = () => {
           <ProjectCard
             key={project.id}
             project={project}
-            onOpenCaseStudy={(p) => setSelectedProject(p)}
+            onOpenCaseStudy={handleOpen}
           />
         ))}
       </div>
-
-      {/* Project Case Study Deep-Dive Modal */}
-      <ProjectCaseStudyModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
-      />
 
     </div>
   );
