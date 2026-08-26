@@ -1,4 +1,4 @@
-export type EmploymentType = 'Full-Time' | 'Contract' | 'Freelance' | 'Part-Time' | 'Internship';
+﻿export type EmploymentType = 'Full-Time' | 'Contract' | 'Freelance' | 'Part-Time' | 'Internship';
 export type ExperienceCategory = 'all' | 'engineering' | 'freelance' | 'leadership' | 'consulting';
 
 export interface TechSkill {
@@ -37,169 +37,142 @@ export interface ExperienceItem {
   };
 }
 
-/**
- * ============================================================================
- * EXPERIENCE DATA (Updated to match exact portfolio history)
- * ============================================================================
- */
 export const experiences: ExperienceItem[] = [
   {
     id: 'exp-1',
-    role: 'WordPress Developer & SEO Specialist',
-    company: 'Freelance',
+    role: 'Full-Stack Developer & UI/UX Designer',
+    company: 'Freelance / Independent',
     companyInitials: 'FL',
     companyLogoBg: 'from-zinc-700 to-zinc-950',
     companyUrl: 'https://example.com',
-    location: 'Australia (Remote)',
+    location: 'Remote / Independent',
     type: 'Freelance',
-    category: 'freelance',
-    startDate: 'Apr 2024',
+    category: 'engineering',
+    startDate: 'July 2026',
     endDate: 'Present',
     isCurrent: true,
     duration: 'Present',
-    summary: 'Developing custom high-performance WordPress themes, speed optimization, and technical SEO architecture for Australian and international clients.',
+    summary: 'Designed and developed end-to-end web applications, ensuring a seamless integration between front-end interfaces and scalable back-end databases.',
     highlights: [
-      { label: 'Organic Traffic', value: '+120%' },
-      { label: 'PageSpeed Score', value: '98/100' }
+      { label: 'Integration', value: 'End-to-End' },
+      { label: 'Architecture', value: 'Full-Stack' }
     ],
     bullets: [
-      'Developed bespoke WordPress themes and plugins adhering to clean code standards and Core Web Vitals.',
-      'Conducted comprehensive technical SEO audits, structured schema markups, and indexing optimizations.',
-      'Configured Google Analytics 4, Tag Manager, and Search Console telemetry pipelines.'
+      'Designed and developed end-to-end web applications, ensuring a seamless integration between front-end interfaces and scalable back-end databases.',
+      'Created intuitive, user-centered wireframes and interactive prototypes with a strong focus on premium visual aesthetics.',
+      'Implemented responsive design systems to guarantee visual and functional consistency across all mobile, tablet, and desktop viewports.'
     ],
     skills: [
-      { name: 'WordPress', category: 'backend' },
-      { name: 'Technical SEO', category: 'tool' },
-      { name: 'PHP', category: 'backend' },
-      { name: 'JavaScript', category: 'frontend' },
-      { name: 'Core Web Vitals', category: 'tool' }
+      { name: 'Next.js 14', category: 'frontend' },
+      { name: 'React', category: 'frontend' },
+      { name: 'TypeScript', category: 'frontend' },
+      { name: 'Tailwind CSS', category: 'frontend' },
+      { name: 'Figma', category: 'tool' },
+      { name: 'PostgreSQL', category: 'database' },
+      { name: 'Supabase', category: 'backend' }
     ]
   },
   {
     id: 'exp-2',
-    role: 'IT Specialist',
-    company: 'One Clique Studio',
-    companyInitials: 'OC',
+    role: 'Virtual Assistant & Lead Generation Specialist',
+    company: 'Freelance / Independent',
+    companyInitials: 'VA',
     companyLogoBg: 'from-zinc-800 to-black',
     companyUrl: 'https://example.com',
-    location: 'San Juan City, Philippines',
-    type: 'Full-Time',
-    category: 'engineering',
-    startDate: 'Sept 2025',
-    endDate: 'Jan 2026',
+    location: 'Remote / Independent',
+    type: 'Contract',
+    category: 'consulting',
+    startDate: 'April 2026',
+    endDate: 'May 2026',
     isCurrent: false,
-    duration: '5 mos',
-    summary: 'Managed studio IT infrastructure, internal networks, data storage servers, and hardware systems.',
+    duration: '2 mos',
+    summary: 'Conducted targeted B2B lead generation campaigns, market research, and automated outreach operations.',
     highlights: [
-      { label: 'System Uptime', value: '99.9%' },
-      { label: 'Workflows Automated', value: '15+' }
+      { label: 'Prospect Data', value: '100% Verified' },
+      { label: 'Outreach', value: 'Targeted B2B' }
     ],
     bullets: [
-      'Maintained enterprise workstations, local area network switching, firewall security, and cloud storage.',
-      'Automated digital asset management workflows and daily incremental server backups.',
-      'Provided tier-2/3 technical diagnostics and hardware repairs for studio production team.'
+      'Conducted targeted B2B lead generation campaigns and market research to construct high-quality, verified prospect databases.',
+      'Managed email outreach initiatives, qualified client leads, and optimized administrative task flows.',
+      'Provided scheduling coordination and communications support to improve outreach efficiency.'
     ],
     skills: [
-      { name: 'IT Infrastructure', category: 'devops' },
-      { name: 'System Administration', category: 'tool' },
-      { name: 'Network Security', category: 'devops' },
-      { name: 'Hardware Diagnostics', category: 'tool' }
+      { name: 'B2B Lead Generation', category: 'tool' },
+      { name: 'Market Research', category: 'tool' },
+      { name: 'Email Outreach', category: 'tool' },
+      { name: 'Data Verification', category: 'tool' },
+      { name: 'Workflow Optimization', category: 'tool' }
     ]
   },
   {
     id: 'exp-3',
-    role: 'Marketing Analyst',
-    company: 'JG Superstore',
-    companyInitials: 'JG',
+    role: 'Assistant UI/UX Designer',
+    company: 'KamAI, BizCard, and Champion',
+    companyInitials: 'UI',
     companyLogoBg: 'from-zinc-600 to-zinc-900',
     companyUrl: 'https://example.com',
-    location: 'San Juan City, Philippines',
-    type: 'Full-Time',
-    category: 'consulting',
-    startDate: 'Jun 2023',
-    endDate: 'Aug 2023',
+    location: 'Remote / Project-Based',
+    type: 'Contract',
+    category: 'freelance',
+    startDate: 'February 2025',
+    endDate: 'July 2025',
     isCurrent: false,
-    duration: '3 mos',
-    summary: 'Analyzed marketplace multi-channel sales performance, advertising spend efficiency, and campaign conversions.',
+    duration: '6 mos',
+    summary: 'Designed high-fidelity web and mobile prototypes in Figma for healthcare EMR (KamAI), referral platform (Champion), and BizCard.',
     highlights: [
-      { label: 'Ad ROI Growth', value: '+35%' },
-      { label: 'Reports Automated', value: '40+' }
+      { label: 'Design Systems', value: 'Multi-Product' },
+      { label: 'Prototypes', value: 'Web & Mobile' }
     ],
     bullets: [
-      'Evaluated e-commerce checkout funnel data across major marketplace platforms.',
-      'Created automated sales performance dashboards for commercial leadership.',
-      'Identified top-performing search keywords and customer demographic patterns.'
+      'Designed high-fidelity web and mobile prototypes in Figma for diverse platforms including KamAI (healthcare EMR), Champion (referral app), and BizCard.',
+      'Developed and maintained reusable UI component libraries to establish standard design systems and accelerate frontend implementation.',
+      'Mapped interactive user flows and wireframes based on design specs and stakeholder feedback.'
     ],
     skills: [
-      { name: 'Data Analysis', category: 'tool' },
-      { name: 'E-Commerce Analytics', category: 'tool' },
-      { name: 'Conversion Optimization', category: 'tool' }
+      { name: 'Figma', category: 'tool' },
+      { name: 'UI/UX Design', category: 'tool' },
+      { name: 'Design Systems', category: 'tool' },
+      { name: 'Wireframing', category: 'tool' },
+      { name: 'Mobile & Web Prototyping', category: 'tool' }
     ]
   },
   {
     id: 'exp-4',
-    role: 'Content Associate',
-    company: 'JG Superstore',
-    companyInitials: 'JG',
+    role: 'Freelance UI/UX Designer',
+    company: 'Independent / Freelance',
+    companyInitials: 'FL',
     companyLogoBg: 'from-zinc-700 to-zinc-950',
     companyUrl: 'https://example.com',
-    location: 'San Juan City, Philippines',
-    type: 'Full-Time',
-    category: 'consulting',
-    startDate: 'Apr 2023',
-    endDate: 'Jun 2023',
+    location: 'Remote / Freelance',
+    type: 'Freelance',
+    category: 'freelance',
+    startDate: 'August 2024',
+    endDate: 'December 2024',
     isCurrent: false,
-    duration: '3 mos',
-    summary: 'Produced and optimized technical product listings, catalog indexing, and digital merchandising copy.',
+    duration: '5 mos',
+    summary: 'Designed custom responsive UI/UX mockups, wireframes, and friction-free user journeys in Figma tailored to custom client requirements.',
     highlights: [
-      { label: 'SKUs Cataloged', value: '1,200+' }
+      { label: 'Deliverables', value: 'Custom UI Assets' },
+      { label: 'User Journeys', value: 'Friction-Free' }
     ],
     bullets: [
-      'Authored search-optimized product specifications and commercial descriptions for consumer electronics.',
-      'Coordinated catalog updates across e-commerce storefronts and verified inventory accuracy.',
-      'Managed digital promotional assets and featured product collections.'
+      'Designed responsive UI/UX mockups, wireframes, and prototypes in Figma tailored to custom client requirements.',
+      'Developed structured user flows to outline clean, friction-free user journeys.',
+      'Iterated quickly on client feedback to deliver modern and accessible UI assets.'
     ],
     skills: [
-      { name: 'Content Strategy', category: 'tool' },
-      { name: 'Catalog Management', category: 'tool' },
-      { name: 'Copywriting', category: 'tool' }
-    ]
-  },
-  {
-    id: 'exp-5',
-    role: 'Technical Support Representative',
-    company: 'Startek Philippines',
-    companyInitials: 'SP',
-    companyLogoBg: 'from-zinc-800 to-black',
-    companyUrl: 'https://example.com',
-    location: 'Pasig City, Philippines',
-    type: 'Full-Time',
-    category: 'engineering',
-    startDate: 'Aug 2022',
-    endDate: 'Jan 2023',
-    isCurrent: false,
-    duration: '6 mos',
-    summary: 'Delivered technical support and troubleshooting for telecommunications, internet routing, and hardware systems.',
-    highlights: [
-      { label: 'Resolution Rate', value: '94%' },
-      { label: 'Avg Handle Time', value: '<12m' }
-    ],
-    bullets: [
-      'Diagnosed client broadband routing, DNS configurations, modems, and VoIP communication systems.',
-      'Resolved complex hardware and connection failures with high customer satisfaction scores.',
-      'Documented troubleshooting workflows and ticket resolution summaries.'
-    ],
-    skills: [
-      { name: 'Network Troubleshooting', category: 'devops' },
-      { name: 'Technical Support', category: 'tool' },
-      { name: 'Customer Service', category: 'tool' }
+      { name: 'Figma', category: 'tool' },
+      { name: 'UI/UX Mockups', category: 'tool' },
+      { name: 'User Flow Mapping', category: 'tool' },
+      { name: 'Prototyping', category: 'tool' },
+      { name: 'Responsive Design', category: 'tool' }
     ]
   }
 ];
 
 export const careerStats = {
-  totalYears: '3+',
-  totalProjects: '25+',
+  totalYears: '2+',
+  totalProjects: '20+',
   companiesWorked: '4',
   satisfiedClients: '100%',
   currentStatus: 'Open to New Opportunities & Freelance Projects'
