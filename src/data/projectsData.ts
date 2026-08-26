@@ -66,7 +66,7 @@ export const projectsData: ProjectItem[] = [
       'Web Crypto API (3FA)',
       'SheetJS & PapaParse'
     ],
-    liveUrl: 'https://kaban-preview.vercel.app',
+    liveUrl: 'https://treasurer-system.vercel.app/',
     githubUrl: 'https://github.com/XeinQt/XeinQtie',
     screenshots: [
       {
