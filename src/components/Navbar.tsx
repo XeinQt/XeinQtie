@@ -22,7 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateSection }) => {
       setIsScrolled(window.scrollY > 15);
 
       // Scroll Spy to detect current active section
-      const sections = ['home', 'experience', 'projects', 'skills', 'testimonials', 'contact'];
+      const sections = ['experience', 'projects', 'contact'];
       const scrollPosition = window.scrollY + 140;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -73,10 +73,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateSection }) => {
   };
 
   const navItems: { id: string; label: string }[] = [
-    { id: 'home', label: 'Home' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
     { id: 'contact', label: 'Contact' },
   ];
 
