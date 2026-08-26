@@ -95,25 +95,24 @@ export const HomePage: React.FC<HomePageProps> = ({
 
         {/* Headline */}
         <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
-          {portfolioMeta.headlineMain} — <span className="text-zinc-400 dark:text-zinc-500 font-light">{portfolioMeta.headlineSub}</span>
+          AI-Assisted Full-Stack Developer <span className="text-zinc-400 dark:text-zinc-500 font-light">& UI/UX Designer</span>
         </h2>
 
-        {/* Bio paragraph with interactive AI & tech badges */}
+        {/* Bio paragraph with exact user requested introduction */}
         <div className="space-y-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
           <p>
-            I'm an AI-assisted full-stack developer and UI/UX designer building high-performance web applications, intuitive design systems, and robust backend architectures.
+            {portfolioMeta.bio}
           </p>
 
-          <p>
-            I supercharge development by integrating advanced AI engineering workflows with{' '}
-            <TechBadge name="Claude" size="sm" variant="dashed" className="align-middle inline-flex" />{' '}
-            <TechBadge name="GPT-4o" size="sm" variant="dashed" className="align-middle inline-flex" />{' '}
-            <TechBadge name="Gemini" size="sm" variant="dashed" className="align-middle inline-flex" />{' '}
-            <TechBadge name="Cursor" size="sm" variant="dashed" className="align-middle inline-flex" />{' '}
-            <TechBadge name="Codex" size="sm" variant="dashed" className="align-middle inline-flex" />{' '}
-            and <TechBadge name="Antigravity" size="sm" variant="dashed" className="align-middle inline-flex" />{' '}
-            to rapidly prototype in Figma, write reliable full-stack code (Laravel, React 19, TypeScript, PostgreSQL), and ship scalable production platforms with speed and precision.
-          </p>
+          {/* AI Workflow Badges */}
+          <div className="flex flex-wrap items-center gap-2 pt-1">
+            <TechBadge name="Claude" size="sm" variant="dashed" />
+            <TechBadge name="GPT-4o" size="sm" variant="dashed" />
+            <TechBadge name="Gemini" size="sm" variant="dashed" />
+            <TechBadge name="Cursor" size="sm" variant="dashed" />
+            <TechBadge name="Codex" size="sm" variant="dashed" />
+            <TechBadge name="Antigravity" size="sm" variant="dashed" />
+          </div>
         </div>
 
         {/* View Resume Button */}
