@@ -49,9 +49,9 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Name & Socials */}
-          <div className="space-y-1.5">
+          <div className="space-y-1">
             <div className="flex items-center gap-1.5">
-              <h1 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
+              <h1 className="text-lg sm:text-xl font-semibold text-zinc-900 dark:text-white tracking-tight">
                 {portfolioMeta.name}
               </h1>
               {/* Verified Badge Icon */}
@@ -63,7 +63,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
 
             {/* Social Icons row */}
-            <div className="flex items-center gap-3 text-zinc-600 dark:text-zinc-400">
+            <div className="flex items-center gap-3 text-zinc-500 dark:text-zinc-400">
               <a 
                 href={portfolioMeta.socials.github} 
                 target="_blank" 
@@ -93,13 +93,14 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
         </div>
 
-        {/* Headline */}
-        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
-          AI-Assisted Full-Stack Developer <span className="text-zinc-400 dark:text-zinc-500 font-light">& UI/UX Designer</span>
+        {/* Clean, Simple-weight Headline */}
+        <h2 className="text-xl sm:text-2xl font-normal text-zinc-900 dark:text-zinc-100 tracking-tight leading-snug">
+          <span>AI-Assisted Full-Stack Developer</span>{' '}
+          <span className="text-zinc-400 dark:text-zinc-500 font-light">& UI/UX Designer</span>
         </h2>
 
         {/* Bio paragraph with exact user requested introduction */}
-        <div className="space-y-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
+        <div className="space-y-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal">
           <p>
             {portfolioMeta.bio}
           </p>
@@ -119,7 +120,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div>
           <button
             onClick={onOpenResume}
-            className="inline-flex items-center gap-1 px-4 py-2.5 rounded-lg text-xs font-semibold bg-zinc-950 hover:bg-black text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-zinc-950 shadow-sm transition cursor-pointer"
+            className="inline-flex items-center gap-1 px-4 py-2.5 rounded-lg text-xs font-medium bg-zinc-950 hover:bg-black text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-zinc-950 shadow-sm transition cursor-pointer"
           >
             <span>View Resume</span>
             <ChevronRight className="w-3.5 h-3.5" />
