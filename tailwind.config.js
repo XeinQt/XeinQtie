@@ -34,10 +34,10 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Poppins"', 'system-ui', '-apple-system', 'sans-serif'],
-        heading: ['"Poppins"', 'system-ui', '-apple-system', 'sans-serif'],
-        body: ['"Poppins"', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"Poppins"', 'monospace'],
+        sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        body: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"Inter"', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
