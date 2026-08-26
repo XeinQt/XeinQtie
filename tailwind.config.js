@@ -34,12 +34,10 @@ export default {
         }
       },
       fontFamily: {
-        header: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-        content: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
-        sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
-        heading: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
-        body: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['"Inter"', 'monospace']
+        sans: ['"Poppins"', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['"Poppins"', 'system-ui', '-apple-system', 'sans-serif'],
+        body: ['"Poppins"', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['"Poppins"', 'monospace'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
