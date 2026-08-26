@@ -10,6 +10,81 @@ interface TechBadgeProps {
 export const TechIcon: React.FC<{ name: string; className?: string }> = ({ name, className = 'w-4 h-4 shrink-0' }) => {
   const norm = name.toLowerCase().trim();
 
+  // Claude (Anthropic)
+  if (norm.includes('claude') || norm.includes('anthropic')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L14.4 8.6L21 11L14.4 13.4L12 20L9.6 13.4L3 11L9.6 8.6L12 2Z" fill="#D97706" />
+        <circle cx="12" cy="11" r="2" fill="#FEF3C7" />
+      </svg>
+    );
+  }
+
+  // Gemini (Google AI)
+  if (norm.includes('gemini')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M12 2C12 7.523 7.523 12 2 12C7.523 12 12 16.477 12 22C12 16.477 16.477 12 22 12C16.477 12 12 7.523 12 2Z" fill="url(#gemini-grad)" />
+        <defs>
+          <linearGradient id="gemini-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#4285F4" />
+            <stop offset="0.5" stopColor="#9B72CB" />
+            <stop offset="1" stopColor="#D96570" />
+          </linearGradient>
+        </defs>
+      </svg>
+    );
+  }
+
+  // Cursor AI
+  if (norm.includes('cursor')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect width="24" height="24" rx="5" fill="#18181B" />
+        <path d="M6 6L16 11.5L11.5 13L10 17.5L6 6Z" fill="#A855F7" stroke="white" strokeWidth="1.2" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  // Antigravity (Google DeepMind AI)
+  if (norm.includes('anti') || norm.includes('garcity') || norm.includes('antigravity')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="9" stroke="url(#antigrav-grad)" strokeWidth="2" strokeDasharray="3 3" />
+        <circle cx="12" cy="12" r="4" fill="url(#antigrav-grad)" />
+        <path d="M12 4V2M12 22V20M4 12H2M22 12H20" stroke="url(#antigrav-grad)" strokeWidth="2" strokeLinecap="round" />
+        <defs>
+          <linearGradient id="antigrav-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#6366F1" />
+            <stop offset="1" stopColor="#06B6D4" />
+          </linearGradient>
+        </defs>
+      </svg>
+    );
+  }
+
+  // OpenAI / ChatGPT / Codex / GPT
+  if (norm.includes('gpt') || norm.includes('openai') || norm.includes('codex') || norm.includes('chatgpt')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M22.28 9.37a5.98 5.98 0 0 0-.52-4.99 6.09 6.09 0 0 0-6.52-2.86 6.06 6.06 0 0 0-4.7-2.12c-3.1 0-5.69 2.33-6.04 5.4A6.08 6.08 0 0 0 1.1 9.42a6.04 6.04 0 0 0 .99 6.94 6.09 6.09 0 0 0 .52 4.99 6.09 6.09 0 0 0 6.52 2.86 6.06 6.06 0 0 0 4.7 2.12c3.1 0 5.69-2.33 6.04-5.4a6.08 6.08 0 0 0 3.4-4.62 6.04 6.04 0 0 0-.99-6.94zM13.4 22.14a4.57 4.57 0 0 1-2.92-1.05l.14-.08 4.8-2.77a.8.8 0 0 0 .4-.68v-6.78l2.03 1.17a.08.08 0 0 1 .04.06v5.57a4.6 4.6 0 0 1-4.49 4.56zM3.48 18.06a4.58 4.58 0 0 1-.58-3.05.08.08 0 0 1 .04-.07l4.83-2.79 2.03 1.17v6.78a.8.8 0 0 0 .4.68l-4.8 2.77a4.6 4.6 0 0 1-1.92-5.49zm-1.34-8.8a4.58 4.58 0 0 1 2.34-2l.14.08 4.8 2.77a.8.8 0 0 0 .79 0l5.88-3.39V4.38a.08.08 0 0 1 .04-.07 4.6 4.6 0 0 1-6.42 1.54l-4.8 2.77a4.6 4.6 0 0 1-2.77-.42zm16.5-1.57l-4.83 2.79-2.03-1.17V2.59a.8.8 0 0 0-.4-.68l4.8-2.77a4.6 4.6 0 0 1 6.83 4.96.08.08 0 0 1-.04.07l-4.36 2.52zm3.22 6.94a4.58 4.58 0 0 1-2.34 2l-.14-.08-4.8-2.77a.8.8 0 0 0-.79 0l-5.88 3.39v2.34a.08.08 0 0 1-.04.07 4.6 4.6 0 0 1 6.42-1.54l4.8-2.77a4.6 4.6 0 0 1 2.77.42zM8.52 14.86l2.94-1.7 2.94 1.7v3.39l-2.94 1.7-2.94-1.7v-3.39z" fill="#10A37F" />
+      </svg>
+    );
+  }
+
+  // Figma / UI/UX
+  if (norm.includes('figma') || norm.includes('ui/ux') || norm.includes('design')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M8 24C10.2091 24 12 22.2091 12 20V16H8C5.79086 16 4 17.7909 4 20C4 22.2091 5.79086 24 8 24Z" fill="#0ACF83" />
+        <path d="M4 12C4 9.79086 5.79086 8 8 8H12V16H8C5.79086 16 4 14.2091 4 12Z" fill="#A259FF" />
+        <path d="M4 4C4 1.79086 5.79086 0 8 0H12V8H8C5.79086 8 4 6.20914 4 4Z" fill="#F24E1E" />
+        <path d="M12 0H16C18.2091 0 20 1.79086 20 4C20 6.20914 18.2091 8 16 8H12V0Z" fill="#FF7262" />
+        <path d="M20 12C20 14.2091 18.2091 16 16 16C13.7909 16 12 14.2091 12 12C12 9.79086 13.7909 8 16 8C18.2091 8 20 9.79086 20 12Z" fill="#1ABCFE" />
+      </svg>
+    );
+  }
+
   // Vite
   if (norm === 'vite' || norm.includes('vite')) {
     return (
@@ -183,15 +258,6 @@ export const TechIcon: React.FC<{ name: string; className?: string }> = ({ name,
     );
   }
 
-  // Java
-  if (norm.includes('java') && !norm.includes('javascript')) {
-    return (
-      <svg className={className} viewBox="0 0 24 24" fill="none">
-        <path d="M8.8 18.2s-.7.2-1.3.4c-2.3.8-1.5 2.3 1.2 2.3 3.6 0 7.7-1.3 7.7-1.3s-1.8.8-4.8 1.1c-3.6.4-5.9-.6-2.8-2.5zm-.8-3.4s-1.1.3-1.8.6c-2.4.9-1.2 2.1 1.6 2 4.1-.1 8.5-1.5 8.5-1.5s-2.1.8-5.3 1.1c-4.1.4-6.8-.7-3-2.2zm4.3-11.2s-2.9 2.8-1.2 5.9c2 3.6 1 5.3 1 5.3s.7-1.1.2-2.5c-.8-2-1.6-3 0-5.4 1.2-1.8.5-3.3 0-3.3zm-2.2 4.1s-2.2 1.6-1.5 3.6c.9 2.5 2.6 3.8 2.6 3.8s-.3-.9-.9-2.1c-.8-1.5-.7-2.6-.2-5.3z" fill="#E76F00" />
-      </svg>
-    );
-  }
-
   // Canva
   if (norm.includes('canva')) {
     return (
@@ -208,26 +274,6 @@ export const TechIcon: React.FC<{ name: string; className?: string }> = ({ name,
       <svg className={className} viewBox="0 0 24 24" fill="none">
         <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm-1.5 3.5c3.59 0 6.5 2.91 6.5 6.5s-2.91 6.5-6.5 6.5a6.48 6.48 0 0 1-4.84-2.16 4.5 4.5 0 0 0 2.84-3.84c0-2.485-2.015-4.5-4.5-4.5-.63 0-1.226.13-1.767.365A6.475 6.475 0 0 1 10.5 5.5z" fill="#24C8D8" />
         <circle cx="8.5" cy="12.5" r="2.5" fill="#FFC131" />
-      </svg>
-    );
-  }
-
-  // OpenAI API
-  if (norm.includes('openai')) {
-    return (
-      <svg className={className} viewBox="0 0 24 24" fill="none">
-        <path d="M22.28 9.37a5.98 5.98 0 0 0-.52-4.99 6.09 6.09 0 0 0-6.52-2.86 6.06 6.06 0 0 0-4.7-2.12c-3.1 0-5.69 2.33-6.04 5.4A6.08 6.08 0 0 0 1.1 9.42a6.04 6.04 0 0 0 .99 6.94 6.09 6.09 0 0 0 .52 4.99 6.09 6.09 0 0 0 6.52 2.86 6.06 6.06 0 0 0 4.7 2.12c3.1 0 5.69-2.33 6.04-5.4a6.08 6.08 0 0 0 3.4-4.62 6.04 6.04 0 0 0-.99-6.94zM13.4 22.14a4.57 4.57 0 0 1-2.92-1.05l.14-.08 4.8-2.77a.8.8 0 0 0 .4-.68v-6.78l2.03 1.17a.08.08 0 0 1 .04.06v5.57a4.6 4.6 0 0 1-4.49 4.56zM3.48 18.06a4.58 4.58 0 0 1-.58-3.05.08.08 0 0 1 .04-.07l4.83-2.79 2.03 1.17v6.78a.8.8 0 0 0 .4.68l-4.8 2.77a4.6 4.6 0 0 1-1.92-5.49zm-1.34-8.8a4.58 4.58 0 0 1 2.34-2l.14.08 4.8 2.77a.8.8 0 0 0 .79 0l5.88-3.39V4.38a.08.08 0 0 1 .04-.07 4.6 4.6 0 0 1-6.42 1.54l-4.8 2.77a4.6 4.6 0 0 1-2.77-.42zm16.5-1.57l-4.83 2.79-2.03-1.17V2.59a.8.8 0 0 0-.4-.68l4.8-2.77a4.6 4.6 0 0 1 6.83 4.96.08.08 0 0 1-.04.07l-4.36 2.52zm3.22 6.94a4.58 4.58 0 0 1-2.34 2l-.14-.08-4.8-2.77a.8.8 0 0 0-.79 0l-5.88 3.39v2.34a.08.08 0 0 1-.04.07 4.6 4.6 0 0 1 6.42-1.54l4.8-2.77a4.6 4.6 0 0 1 2.77.42zM8.52 14.86l2.94-1.7 2.94 1.7v3.39l-2.94 1.7-2.94-1.7v-3.39z" fill="#10A37F" />
-      </svg>
-    );
-  }
-
-  // Groq API
-  if (norm.includes('groq')) {
-    return (
-      <svg className={className} viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="10" stroke="#F55036" strokeWidth="2" fill="none" />
-        <path d="M12 7v5l3.5 2" stroke="#F55036" strokeWidth="2" strokeLinecap="round" />
-        <circle cx="12" cy="12" r="2" fill="#F55036" />
       </svg>
     );
   }
@@ -347,7 +393,7 @@ export const TechBadge: React.FC<TechBadgeProps> = ({
 
   return (
     <span 
-      className={`inline-flex items-center rounded-xl font-mono text-zinc-800 dark:text-zinc-200 transition-all duration-200 hover:scale-[1.02] cursor-default select-none ${variantClass} ${sizeClasses} ${className}`}
+      className={`inline-flex items-center rounded-xl text-zinc-800 dark:text-zinc-200 transition-all duration-200 hover:scale-[1.02] cursor-default select-none ${variantClass} ${sizeClasses} ${className}`}
     >
       <TechIcon name={name} className={`${iconSizes} shrink-0`} />
       <span className="leading-none">{name}</span>

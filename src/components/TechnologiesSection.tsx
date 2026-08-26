@@ -3,60 +3,63 @@ import { LayoutGrid, ChevronRight } from 'lucide-react';
 import { TechBadge } from './TechBadge';
 
 const row1 = [
-  'Vite',
+  'Claude',
+  'Cursor',
+  'Gemini',
+  'Antigravity',
+  'Codex',
+  'GPT-4o',
   'React',
-  'HTML5',
-  'CSS3',
-  'JavaScript',
+  'Next.js 14',
   'TypeScript',
   'Tailwind CSS',
-  'Next.js 14',
-  'Flutter',
-  'Dart'
+  'UI/UX & Figma'
 ];
 
 const row2 = [
-  'Python',
-  'Rust',
-  'MySQL',
-  'PostgreSQL',
-  'SQLite',
-  'Supabase',
-  'Java',
   'Laravel',
   'WordPress',
-  'Docker'
+  'Python',
+  'PostgreSQL',
+  'Supabase',
+  'MySQL',
+  'SQLite',
+  'Node.js',
+  'Tauri',
+  'Rust',
+  'Flutter'
 ];
 
 const row3 = [
-  'Canva',
-  'Tauri',
   'OpenAI API',
   'Groq API',
+  'Docker',
   'Git',
   'GitHub',
-  'Node.js',
-  'FastAPI',
-  'PyTorch',
-  'Redis Cache'
+  'Vite',
+  'HTML5',
+  'CSS3',
+  'JavaScript',
+  'Dart',
+  'Canva'
 ];
 
 const categorizedTech = [
   {
-    category: 'Frontend & UI',
-    items: ['React', 'Next.js 14', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'Vite']
+    category: 'AI Assistants & Workflows',
+    items: ['Claude', 'Cursor', 'Gemini', 'Antigravity', 'Codex', 'GPT-4o', 'OpenAI API', 'Groq API']
   },
   {
-    category: 'Backend & Core Systems',
-    items: ['Laravel', 'WordPress', 'Node.js', 'Python', 'Java', 'Dart', 'Flutter', 'Tauri', 'Rust']
+    category: 'UI/UX & Frontend Architecture',
+    items: ['UI/UX & Figma', 'React', 'Next.js 14', 'TypeScript', 'Tailwind CSS', 'JavaScript', 'HTML5', 'CSS3', 'Vite']
   },
   {
-    category: 'Databases & Cloud',
-    items: ['PostgreSQL', 'MySQL', 'Supabase', 'SQLite', 'Redis Cache']
+    category: 'Full-Stack & Backend Systems',
+    items: ['Laravel', 'WordPress', 'Node.js', 'Python', 'Flutter', 'Dart', 'Tauri', 'Rust']
   },
   {
-    category: 'AI & Developer Tooling',
-    items: ['OpenAI API', 'Groq API', 'Git', 'GitHub', 'Docker', 'Canva', 'FastAPI', 'PyTorch']
+    category: 'Databases & Infrastructure',
+    items: ['PostgreSQL', 'Supabase', 'MySQL', 'SQLite', 'Docker', 'Git', 'GitHub']
   }
 ];
 
@@ -68,9 +71,14 @@ export const TechnologiesSection: React.FC<{ onNavigateToSkills?: () => void }> 
       
       {/* Header matching exact layout in reference image */}
       <div className="flex items-center justify-between">
-        <h2 className="text-3xl sm:text-4xl font-light text-zinc-900 dark:text-zinc-100 tracking-tight font-sans">
-          Technologies
-        </h2>
+        <div>
+          <h2 className="text-3xl sm:text-4xl font-light text-zinc-900 dark:text-zinc-100 tracking-tight font-sans">
+            Technologies & AI Stack
+          </h2>
+          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+            Foundation models, AI development tools, and full-stack engineering frameworks.
+          </p>
+        </div>
 
         <button
           onClick={() => {
@@ -80,10 +88,10 @@ export const TechnologiesSection: React.FC<{ onNavigateToSkills?: () => void }> 
               setIsCategorized(!isCategorized);
             }
           }}
-          className="text-xs sm:text-sm text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 flex items-center gap-1.5 transition font-normal"
+          className="text-xs sm:text-sm text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 flex items-center gap-1.5 transition font-normal cursor-pointer"
         >
           <LayoutGrid className="w-3.5 h-3.5" />
-          <span>{isCategorized ? 'View Animated Marquee' : 'View All'}</span>
+          <span>{isCategorized ? 'View Animated Stream' : 'View Categorized'}</span>
           <ChevronRight className="w-3.5 h-3.5" />
         </button>
       </div>
@@ -146,7 +154,7 @@ export const TechnologiesSection: React.FC<{ onNavigateToSkills?: () => void }> 
               key={gIdx} 
               className="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 space-y-3 shadow-xs"
             >
-              <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">

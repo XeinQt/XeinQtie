@@ -3,10 +3,7 @@ import {
   Github, 
   Linkedin, 
   Mail, 
-  ChevronRight,
-  Database,
-  Globe,
-  Layers
+  ChevronRight
 } from 'lucide-react';
 import { portfolioMeta } from '../data/portfolioData';
 import { FeaturedBuildCard } from '../components/FeaturedBuildCard';
@@ -19,6 +16,7 @@ import { OutsideTheIDESection } from '../components/OutsideTheIDESection';
 import { GithubActivitySection } from '../components/GithubActivitySection';
 import { ContactSection } from '../components/ContactSection';
 import { CaseStudyModal } from '../components/CaseStudyModal';
+import { TechBadge } from '../components/TechBadge';
 
 interface HomePageProps {
   onOpenResume: () => void;
@@ -97,26 +95,26 @@ export const HomePage: React.FC<HomePageProps> = ({
 
         {/* Headline */}
         <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
-          Full-Stack Web Developer — <span className="text-zinc-400 dark:text-zinc-500 font-light">Laravel & WordPress</span>
+          {portfolioMeta.headlineMain} — <span className="text-zinc-400 dark:text-zinc-500 font-light">{portfolioMeta.headlineSub}</span>
         </h2>
 
-        {/* Bio paragraph with inline badges */}
-        <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
-          I'm a full-stack web developer building websites and backend systems with{' '}
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md border border-dashed border-red-300 dark:border-red-900/60 bg-red-50/60 dark:bg-red-950/30 text-red-700 dark:text-red-400 text-xs font-mono font-medium align-middle">
-            <Layers className="w-3 h-3 text-red-500" />
-            Laravel
-          </span>{' '}
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 text-xs font-mono font-medium align-middle">
-            <Globe className="w-3 h-3 text-zinc-600 dark:text-zinc-400" />
-            WordPress
-          </span>{' '}
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md border border-zinc-200 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 text-xs font-mono font-medium align-middle">
-            <Database className="w-3 h-3 text-zinc-600 dark:text-zinc-400" />
-            PostgreSQL
-          </span>{' '}
-          with SEO experience from client work. I'm currently leading architecture on a pet identification system using Siamese neural networks and EfficientNetV2B0, and an SMS-based order platform with LLM integration (OpenAI, Laravel, Flutter).
-        </p>
+        {/* Bio paragraph with interactive AI & tech badges */}
+        <div className="space-y-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed">
+          <p>
+            I'm an AI-assisted full-stack developer and UI/UX designer building high-performance web applications, intuitive design systems, and robust backend architectures.
+          </p>
+
+          <p>
+            I supercharge development by integrating advanced AI engineering workflows with{' '}
+            <TechBadge name="Claude" size="sm" variant="dashed" className="align-middle inline-flex" />{' '}
+            <TechBadge name="GPT-4o" size="sm" variant="dashed" className="align-middle inline-flex" />{' '}
+            <TechBadge name="Gemini" size="sm" variant="dashed" className="align-middle inline-flex" />{' '}
+            <TechBadge name="Cursor" size="sm" variant="dashed" className="align-middle inline-flex" />{' '}
+            <TechBadge name="Codex" size="sm" variant="dashed" className="align-middle inline-flex" />{' '}
+            and <TechBadge name="Antigravity" size="sm" variant="dashed" className="align-middle inline-flex" />{' '}
+            to rapidly prototype in Figma, write reliable full-stack code (Laravel, React 19, TypeScript, PostgreSQL), and ship scalable production platforms with speed and precision.
+          </p>
+        </div>
 
         {/* View Resume Button */}
         <div>
@@ -146,7 +144,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <ProjectsSection />
       </section>
 
-      {/* 5. Technologies Section (Smooth moving marquee) */}
+      {/* 5. Technologies Section (Moving marquee with AI assistants) */}
       <section id="skills" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
         <TechnologiesSection />
       </section>

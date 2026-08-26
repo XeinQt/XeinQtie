@@ -1,4 +1,4 @@
-export interface SocialLink {
+﻿export interface SocialLink {
   name: string;
   url: string;
   iconName: string;
@@ -34,21 +34,21 @@ export interface PortfolioMeta {
 }
 
 export const portfolioMeta: PortfolioMeta = {
-  brandInitials: 'RBL',
-  name: 'Renielyn Lenon',
-  title: 'Full-Stack Web Developer — Laravel & WordPress',
-  headlineMain: 'Full-Stack Web Developer',
-  headlineSub: 'Laravel & WordPress',
-  tagline: 'Building websites, robust backend systems, and AI-driven platforms.',
-  bio: "I'm a full-stack web developer building websites and backend systems with Laravel, WordPress, and PostgreSQL with SEO experience from client work. I'm currently leading architecture on a pet identification system using Siamese neural networks and EfficientNetV2B0, and an SMS-based order platform with LLM integration (OpenAI, Laravel, Flutter).",
+  brandInitials: 'RA',
+  name: 'Rico Alentijo',
+  title: 'AI-Assisted Full-Stack Developer & UI/UX Designer',
+  headlineMain: 'AI-Assisted Full-Stack Developer',
+  headlineSub: 'UI/UX Designer',
+  tagline: 'Building AI-accelerated web applications, intuitive design systems, and robust full-stack architectures.',
+  bio: "I'm an AI-assisted full-stack developer and UI/UX designer crafting high-performance web applications and intuitive interfaces. I leverage modern AI tools and foundation models—including Claude, GPT-4o, Gemini, Cursor, Codex, and Antigravity—to accelerate software engineering, refine UI/UX design systems, and build scalable production platforms with Laravel, React, TypeScript, and PostgreSQL.",
   location: 'San Juan City, Philippines',
-  email: 'hello@example.com',
-  availability: 'Available for full-time roles & projects',
+  email: 'ricoalentijo.dev@gmail.com',
+  availability: 'Available for full-time roles & AI-driven projects',
   isAvailable: true,
   socials: {
-    github: 'https://github.com',
+    github: 'https://github.com/XeinQt',
     linkedin: 'https://linkedin.com',
-    email: 'mailto:hello@example.com',
+    email: 'mailto:ricoalentijo.dev@gmail.com',
     twitter: 'https://twitter.com'
   },
   featuredBuild: {
@@ -60,14 +60,14 @@ export const portfolioMeta: PortfolioMeta = {
     link: '#'
   },
   skillsSummary: [
+    'AI-Assisted Workflows',
+    'Cursor & Codex',
+    'Claude & GPT-4o',
+    'Gemini & Antigravity',
+    'UI/UX Design & Figma',
     'Laravel',
-    'WordPress',
+    'React & TypeScript',
     'PostgreSQL',
-    'React',
-    'TypeScript',
-    'Tailwind CSS',
-    'Technical SEO',
-    'Flutter',
-    'Python & AI/ML'
+    'Tailwind CSS'
   ]
 };
