@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { 
   Github, 
   Linkedin, 
@@ -34,13 +34,13 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section id="home" className="space-y-5 scroll-mt-24">
         
         {/* Avatar + Name + Socials */}
-        <div className="flex items-center gap-4 sm:gap-5">
+        <div className="flex items-center gap-4 sm:gap-5.5">
           {/* Avatar */}
-          <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm shrink-0 bg-zinc-100 dark:bg-zinc-900">
+          <div className="w-18 h-18 sm:w-22 sm:h-22 md:w-24 md:h-24 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xs shrink-0 bg-zinc-100 dark:bg-zinc-900 aspect-square ring-2 ring-zinc-100 dark:ring-zinc-850">
             <img 
               src="/avatar.png" 
               alt={portfolioMeta.name} 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
               onError={(e) => {
                 (e.target as HTMLElement).style.display = 'none';
               }}
