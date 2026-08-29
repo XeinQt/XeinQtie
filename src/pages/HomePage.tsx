@@ -38,7 +38,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           {/* Avatar */}
           <div className="w-18 h-18 sm:w-22 sm:h-22 md:w-24 md:h-24 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xs shrink-0 bg-zinc-100 dark:bg-zinc-900 aspect-square ring-2 ring-zinc-100 dark:ring-zinc-850">
             <img 
-              src="/avatar.png" 
+              src="/rico-alentijo-profile.jpg" 
               alt={portfolioMeta.name} 
               className="w-full h-full object-cover object-center"
               onError={(e) => {
