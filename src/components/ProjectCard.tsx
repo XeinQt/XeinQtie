@@ -37,7 +37,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenCaseStu
             <span className="font-mono">{project.year}</span>
           </div>
 
-          {/* Project Title (Clean, simple weight) */}
+          {/* Project Title */}
           <h3 
             onClick={() => onOpenCaseStudy(project)}
             className="text-base sm:text-lg font-semibold text-zinc-900 dark:text-white tracking-tight cursor-pointer hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors line-clamp-1"
@@ -91,6 +91,18 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenCaseStu
                 className="hover:text-zinc-900 dark:hover:text-white transition flex items-center gap-0.5 font-normal"
               >
                 <span>GitHub</span>
+                <ArrowUpRight className="w-3 h-3" />
+              </a>
+            )}
+
+            {project.figmaUrl && (
+              <a
+                href={project.figmaUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-zinc-900 dark:hover:text-white transition flex items-center gap-0.5 font-normal"
+              >
+                <span>Figma</span>
                 <ArrowUpRight className="w-3 h-3" />
               </a>
             )}
