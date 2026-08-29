@@ -1,4 +1,5 @@
 ﻿import React, { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { projectsData, ProjectItem } from '../data/projectsData';
 import { ProjectCard } from './ProjectCard';
 
@@ -8,6 +9,7 @@ interface ProjectsSectionProps {
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStudy }) => {
   const [filter, setFilter] = useState<'all' | 'fullstack' | 'uiux'>('all');
+  const [showAll, setShowAll] = useState<boolean>(false);
 
   const handleOpen = (project: ProjectItem) => {
     if (onOpenCaseStudy) {
@@ -19,6 +21,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
     if (filter === 'all') return true;
     return p.typeCategory === filter;
   });
+
+  const displayedProjects = (filter === 'all' && !showAll) 
+    ? filteredProjects.slice(0, 4) 
+    : filteredProjects;
 
   const fullstackCount = projectsData.filter(p => p.typeCategory === 'fullstack').length;
   const uiuxCount = projectsData.filter(p => p.typeCategory === 'uiux').length;
@@ -40,7 +46,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
         {/* Filter Pills */}
         <div className="flex items-center gap-1.5 p-1 rounded-xl bg-zinc-100 dark:bg-zinc-850 border border-zinc-200/70 dark:border-zinc-800 text-xs font-normal">
           <button
-            onClick={() => setFilter('all')}
+            onClick={() => { setFilter('all'); }}
             className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
               filter === 'all'
                 ? 'bg-white dark:bg-zinc-750 text-zinc-950 dark:text-white font-medium shadow-2xs'
@@ -50,7 +56,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
             All ({projectsData.length})
           </button>
           <button
-            onClick={() => setFilter('fullstack')}
+            onClick={() => { setFilter('fullstack'); }}
             className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
               filter === 'fullstack'
                 ? 'bg-white dark:bg-zinc-750 text-zinc-950 dark:text-white font-medium shadow-2xs'
@@ -60,7 +66,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
             Full-Stack ({fullstackCount})
           </button>
           <button
-            onClick={() => setFilter('uiux')}
+            onClick={() => { setFilter('uiux'); }}
             className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
               filter === 'uiux'
                 ? 'bg-white dark:bg-zinc-750 text-zinc-950 dark:text-white font-medium shadow-2xs'
@@ -74,7 +80,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
 
       {/* 2-Column Minimalist Card Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 animate-fade-in">
-        {filteredProjects.map((project) => (
+        {displayedProjects.map((project) => (
           <ProjectCard
             key={project.id}
             project={project}
@@ -82,6 +88,23 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
           />
         ))}
       </div>
+
+      {/* View All / Show Less Button */}
+      {filter === 'all' && projectsData.length > 4 && (
+        <div className="flex justify-center pt-2">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-850 text-zinc-800 dark:text-zinc-200 shadow-2xs transition-all duration-200 cursor-pointer active:scale-[0.98]"
+          >
+            <span>{showAll ? 'Show Less' : `View All Projects (${projectsData.length})`}</span>
+            {showAll ? (
+              <ChevronUp className="w-4 h-4 text-zinc-400" />
+            ) : (
+              <ChevronDown className="w-4 h-4 text-zinc-400" />
+            )}
+          </button>
+        </div>
+      )}
 
     </div>
   );
