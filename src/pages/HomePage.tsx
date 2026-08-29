@@ -28,15 +28,15 @@ export const HomePage: React.FC<HomePageProps> = ({
   onOpenCaseStudy
 }) => {
   return (
-    <div className="pt-24 pb-20 px-4 sm:px-6 max-w-4xl mx-auto space-y-16">
+    <div className="pt-20 pb-16 px-4 sm:px-6 max-w-4xl mx-auto space-y-10">
       
       {/* 1. Profile / Hero Section */}
-      <section id="home" className="space-y-6 scroll-mt-28">
+      <section id="home" className="space-y-5 scroll-mt-24">
         
         {/* Avatar + Name + Socials */}
-        <div className="flex items-center gap-5 sm:gap-6">
+        <div className="flex items-center gap-4 sm:gap-5">
           {/* Avatar */}
-          <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm shrink-0 bg-zinc-100 dark:bg-zinc-900">
+          <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm shrink-0 bg-zinc-100 dark:bg-zinc-900">
             <img 
               src="/avatar.png" 
               alt={portfolioMeta.name} 
@@ -99,13 +99,13 @@ export const HomePage: React.FC<HomePageProps> = ({
         </h2>
 
         {/* Bio paragraph with exact user requested introduction */}
-        <div className="space-y-4 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal">
+        <div className="space-y-3.5 text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal">
           <p>
             {portfolioMeta.bio}
           </p>
 
           {/* AI Workflow Badges */}
-          <div className="flex flex-wrap items-center gap-2 pt-1">
+          <div className="flex flex-wrap items-center gap-2 pt-0.5">
             <TechBadge name="Claude" size="sm" variant="dashed" />
             <TechBadge name="GPT-4o" size="sm" variant="dashed" />
             <TechBadge name="Gemini" size="sm" variant="dashed" />
@@ -119,7 +119,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div>
           <button
             onClick={onOpenResume}
-            className="inline-flex items-center gap-1 px-4 py-2.5 rounded-lg text-xs font-medium bg-zinc-950 hover:bg-black text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-zinc-950 shadow-sm transition cursor-pointer"
+            className="inline-flex items-center gap-1 px-3.5 py-2 rounded-lg text-xs font-medium bg-zinc-950 hover:bg-black text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-zinc-950 shadow-sm transition cursor-pointer"
           >
             <span>View Resume</span>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -134,42 +134,42 @@ export const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* 3. Experience Section */}
-      <section id="experience" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
+      <section id="experience" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
         <ExperienceSimpleList />
       </section>
 
       {/* 4. Projects Section */}
-      <section id="projects" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
+      <section id="projects" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
         <ProjectsSection onOpenCaseStudy={onOpenCaseStudy} />
       </section>
 
       {/* 5. Technologies Section (Moving marquee with AI assistants) */}
-      <section id="skills" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
+      <section id="skills" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
         <TechnologiesSection />
       </section>
 
       {/* 6. Testimonials Section */}
-      <section id="testimonials" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
+      <section id="testimonials" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
         <TestimonialsSection />
       </section>
 
       {/* 7. Education Section */}
-      <section id="education" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
+      <section id="education" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
         <EducationSection />
       </section>
 
       {/* 8. Outside the IDE Section */}
-      <section id="outside-ide" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
+      <section id="outside-ide" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
         <OutsideTheIDESection />
       </section>
 
       {/* 9. GitHub Activity Section */}
-      <section id="github" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
+      <section id="github" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
         <GithubActivitySection />
       </section>
 
       {/* 10. Get in Touch / Contact Section */}
-      <section id="contact" className="pt-6 border-t border-zinc-100 dark:border-zinc-800/80 scroll-mt-24">
+      <section id="contact" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
         <ContactSection />
       </section>
 

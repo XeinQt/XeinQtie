@@ -67,15 +67,15 @@ export const TechnologiesSection: React.FC<{ onNavigateToSkills?: () => void }> 
   const [isCategorized, setIsCategorized] = useState<boolean>(false);
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-6 space-y-8">
+    <div className="w-full max-w-4xl mx-auto space-y-6">
       
-      {/* Header matching exact layout in reference image */}
+      {/* Header */}
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-3xl sm:text-4xl font-light text-zinc-900 dark:text-zinc-100 tracking-tight font-sans">
             Technologies & AI Stack
           </h2>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
+          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
             Foundation models, AI development tools, and full-stack engineering frameworks.
           </p>
         </div>
@@ -96,9 +96,9 @@ export const TechnologiesSection: React.FC<{ onNavigateToSkills?: () => void }> 
         </button>
       </div>
 
-      {/* 1. Animated Moving Marquee View (With Left & Right Blurry Gradient Effect) */}
+      {/* 1. Animated Moving Marquee View */}
       {!isCategorized ? (
-        <div className="relative w-full overflow-hidden marquee-container py-3 space-y-3.5 marquee-mask">
+        <div className="relative w-full overflow-hidden marquee-container py-1 space-y-3 marquee-mask">
           
           {/* Left Blurry Gradient Edge Mask */}
           <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#fafafa] via-[#fafafa]/80 dark:from-[#09090b] dark:via-[#09090b]/80 to-transparent z-20" />
@@ -107,7 +107,7 @@ export const TechnologiesSection: React.FC<{ onNavigateToSkills?: () => void }> 
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#fafafa] via-[#fafafa]/80 dark:from-[#09090b] dark:via-[#09090b]/80 to-transparent z-20" />
 
           {/* Row 1 - Sliding Left */}
-          <div className="flex gap-3 animate-marquee-left">
+          <div className="flex gap-2.5 animate-marquee-left">
             {[...row1, ...row1, ...row1].map((tech, idx) => (
               <TechBadge
                 key={`r1-${idx}`}
@@ -120,7 +120,7 @@ export const TechnologiesSection: React.FC<{ onNavigateToSkills?: () => void }> 
           </div>
 
           {/* Row 2 - Sliding Right */}
-          <div className="flex gap-3 animate-marquee-right">
+          <div className="flex gap-2.5 animate-marquee-right">
             {[...row2, ...row2, ...row2].map((tech, idx) => (
               <TechBadge
                 key={`r2-${idx}`}
@@ -133,7 +133,7 @@ export const TechnologiesSection: React.FC<{ onNavigateToSkills?: () => void }> 
           </div>
 
           {/* Row 3 - Sliding Left */}
-          <div className="flex gap-3 animate-marquee-left-fast">
+          <div className="flex gap-2.5 animate-marquee-left-fast">
             {[...row3, ...row3, ...row3].map((tech, idx) => (
               <TechBadge
                 key={`r3-${idx}`}
@@ -147,17 +147,17 @@ export const TechnologiesSection: React.FC<{ onNavigateToSkills?: () => void }> 
 
         </div>
       ) : (
-        /* 2. Categorized Grid View (When toggled via View All) */
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2 animate-fade-in">
+        /* 2. Categorized Grid View */
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1 animate-fade-in">
           {categorizedTech.map((group, gIdx) => (
             <div 
               key={gIdx} 
-              className="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 space-y-3 shadow-xs"
+              className="p-4 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 space-y-2.5 shadow-xs"
             >
               <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">
                 {group.category}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5">
                 {group.items.map((tech, tIdx) => (
                   <TechBadge
                     key={tIdx}

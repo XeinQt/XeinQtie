@@ -80,10 +80,10 @@ export const TestimonialsSection: React.FC = () => {
   const marqueeItems = [...testimonials, ...testimonials, ...testimonials];
 
   return (
-    <div id="testimonials" className="w-full max-w-4xl mx-auto py-8 space-y-8 scroll-mt-24">
+    <div id="testimonials" className="w-full max-w-4xl mx-auto space-y-6 scroll-mt-24">
       
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
         <div>
           <span className="text-[10px] font-mono font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
             ENDORSEMENTS & FEEDBACK
@@ -98,7 +98,7 @@ export const TestimonialsSection: React.FC = () => {
       </div>
 
       {/* Moving Marquee Stream with Left & Right Gradient Blur Masks */}
-      <div className="relative w-full overflow-hidden marquee-container py-3 marquee-mask">
+      <div className="relative w-full overflow-hidden marquee-container py-1 marquee-mask">
         
         {/* Left Blurry Gradient Edge Mask */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#fafafa] via-[#fafafa]/80 dark:from-[#09090b] dark:via-[#09090b]/80 to-transparent z-20" />
@@ -107,14 +107,14 @@ export const TestimonialsSection: React.FC = () => {
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#fafafa] via-[#fafafa]/80 dark:from-[#09090b] dark:via-[#09090b]/80 to-transparent z-20" />
 
         {/* Moving Track */}
-        <div className="flex gap-5 animate-marquee-left">
+        <div className="flex gap-4 animate-marquee-left">
           {marqueeItems.map((item, idx) => (
             <div
               key={`${item.id}-${idx}`}
-              className="w-[310px] sm:w-[360px] shrink-0 rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/90 p-6 sm:p-7 flex flex-col justify-between space-y-4 shadow-sm hover:shadow-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 select-none cursor-default"
+              className="w-[300px] sm:w-[340px] shrink-0 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/90 p-5 sm:p-6 flex flex-col justify-between space-y-3.5 shadow-sm hover:shadow-md hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 select-none cursor-default"
             >
               {/* Top row: Star Rating + Quote Icon */}
-              <div className="space-y-3.5">
+              <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
                   {/* 5 Stars */}
                   <div className="flex items-center gap-1">
@@ -133,10 +133,10 @@ export const TestimonialsSection: React.FC = () => {
               </div>
 
               {/* Bottom Row: Author details + Tech Tag */}
-              <div className="pt-4 border-t border-zinc-100 dark:border-zinc-800/80 space-y-2.5">
-                <div className="flex items-center gap-3">
+              <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 space-y-2">
+                <div className="flex items-center gap-2.5">
                   {/* Avatar Initials */}
-                  <div className="w-9 h-9 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 font-bold text-xs font-mono flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 font-bold text-xs font-mono flex items-center justify-center shrink-0">
                     {item.avatar}
                   </div>
 
