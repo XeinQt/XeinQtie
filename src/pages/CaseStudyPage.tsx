@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ArrowLeft, 
   ArrowUpRight, 
@@ -146,15 +146,15 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId, onBack 
           />
         </div>
 
-        {/* Caption */}
-        {currentCaption && (
+        {/* Caption (Only for KABAN) */}
+        {project.id === 'kaban' && currentCaption && (
           <p className="text-xs text-zinc-500 dark:text-zinc-400 italic text-center px-4">
             {currentCaption}
           </p>
         )}
 
-        {/* Thumbnail Selector */}
-        {screenshots.length > 1 && (
+        {/* Thumbnail Selector - ONLY for KABAN */}
+        {project.id === 'kaban' && screenshots.length > 1 && (
           <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1">
             {screenshots.map((s, idx) => (
               <button
