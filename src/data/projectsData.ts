@@ -196,61 +196,6 @@ export const projectsData: ProjectItem[] = [
     }
   },
   {
-    id: 'monitor-store',
-    title: 'MonitorStore — Monitor & Laptop E-Commerce Platform',
-    subtitle: 'Full-Stack E-Commerce & Admin Control Center',
-    category: 'Full-Stack Web & E-Commerce',
-    typeCategory: 'fullstack',
-    year: '2025',
-    role: 'Full-Stack Developer',
-    client: 'Brezneb Cona',
-    description: 'A full-stack Laravel e-commerce platform for buying premium monitors and laptops — featuring product catalogs, cart, orders, wishlist, admin dashboard, and Google OAuth authentication.',
-    image: '/img/LaptopEcommerce/desktop-0.png',
-    tags: ['Laravel 12', 'PHP', 'Tailwind CSS', 'Vite', 'MySQL', 'Google OAuth'],
-    githubUrl: 'https://github.com/XeinQt/eCommerce-for-Laptops',
-    screenshots: [
-      { title: 'Storefront Hero', url: '/img/LaptopEcommerce/desktop-0.png', caption: 'Dark-themed storefront featuring featured hardware, promotions, and category navigation.' },
-      { title: 'Product Catalog', url: '/img/LaptopEcommerce/desktop-1.png', caption: 'Hardware catalog with multi-facet filtering by brand, refresh rate, and resolution.' },
-      { title: 'Product Detail', url: '/img/LaptopEcommerce/desktop-2.png', caption: 'High-res gallery, specification sheet, customer reviews, and add-to-cart controls.' },
-      { title: 'Shopping Cart', url: '/img/LaptopEcommerce/desktop-3.png', caption: 'Dynamic shopping cart with real-time tax calculation and coupon validation.' },
-      { title: 'Checkout & Orders', url: '/img/LaptopEcommerce/desktop-4.png', caption: 'Seamless checkout flow with order status tracking and invoice downloads.' },
-      { title: 'Admin Analytics', url: '/img/LaptopEcommerce/desktop-5.png', caption: 'Control center dashboard with sales analytics, inventory graphs, and revenue trends.' },
-      { title: 'Inventory CRUD', url: '/img/LaptopEcommerce/desktop-6.png', caption: 'Full product CRUD management with image uploads and stock threshold alerts.' },
-      { title: 'User Management', url: '/img/LaptopEcommerce/desktop-7.png', caption: 'Administrative customer directory, order history audit, and role assignments.' }
-    ],
-    caseStudy: {
-      overview: 'MonitorStore is a complete full-stack e-commerce web application built with Laravel 12 and Tailwind CSS. The platform allows customers to browse and purchase premium monitors and laptops, manage their cart and wishlist, track orders, and authenticate via Google OAuth. An admin control center provides full product management, order tracking, user management, and sales analytics with chart-driven reports — all wrapped in a sleek dark-themed UI.',
-      challenge: 'E-commerce storefronts require complex inventory synchronization, secure payment processing, responsive product filtering, and an intuitive administrative backend that can manage orders and analytics without latency.',
-      solution: 'Developed a robust Laravel 12 backend with Eloquent ORM, integrated Laravel Breeze and Socialite for Google OAuth, styled a responsive dark slate design system with Tailwind CSS, and built an interactive Admin Control Center with Chart.js analytics.',
-      keyFeatures: [
-        'Full product catalog with live search, brand filtering, and category sorting',
-        'Interactive shopping cart with real-time quantity adjustments and checkout flow',
-        'Google OAuth 2.0 and email/password authentication via Laravel Socialite',
-        'Personal customer wishlist and order tracking history',
-        'Admin Control Center with sales performance charts and revenue analytics',
-        'Complete Product & Inventory CRUD with stock alert thresholds'
-      ],
-      responsibilities: [
-        'Built the full product catalog with filtering, searching, and detailed product pages',
-        'Developed the shopping cart system with real-time quantity management and order checkout flow',
-        'Implemented user authentication using Laravel Breeze and Google OAuth via Laravel Socialite',
-        'Built the wishlist feature for saving products for later purchase',
-        'Designed and developed the Admin Control Center with dashboard analytics, product CRUD, and order management',
-        'Managed database schema, migrations, and relationships using Laravel Eloquent ORM'
-      ],
-      architecture: [
-        { title: 'Laravel 12 MVC Architecture', description: 'Clean controller-service-repository patterns separating business logic from view presentation.' },
-        { title: 'Tailwind CSS Custom Design System', description: 'Dark slate and teal accents optimized for premium consumer tech hardware.' },
-        { title: 'Google OAuth via Socialite', description: 'Secure social authentication integrated with standard user password credentials.' }
-      ],
-      metrics: [
-        { label: 'Page Load Speed', value: '<650ms' },
-        { label: 'Architecture', value: 'Laravel MVC' },
-        { label: 'Authentication', value: 'OAuth 2.0' }
-      ]
-    }
-  },
-  {
     id: 'kamai',
     title: 'KamAI — Healthcare EMR Web Platform',
     subtitle: 'Electronic Medical Records & Clinical Portal',
@@ -299,51 +244,6 @@ export const projectsData: ProjectItem[] = [
         { label: 'Figma Screens', value: '15+ Views' },
         { label: 'Design System', value: 'Atomic UI' },
         { label: 'Domain', value: 'Healthcare EMR' }
-      ]
-    }
-  },
-  {
-    id: 'enrollment-system',
-    title: 'Enrollment System — Banayabanay Campus',
-    subtitle: 'Student Management & Admissions Web App',
-    category: 'Full-Stack Web & Education Systems',
-    typeCategory: 'fullstack',
-    year: '2024',
-    role: 'Full-Stack Developer',
-    client: 'John Mark Lumen',
-    description: 'A fully functional student enrollment and management system for Banayabanay Campus — built with vanilla HTML, CSS, and JavaScript and deployed live on Vercel.',
-    image: '/img/enrollmentSystem/desktop-0.png',
-    tags: ['HTML5', 'CSS3', 'JavaScript', 'Vercel', 'Student Management'],
-    liveUrl: 'https://enrollment-system-mauve.vercel.app/',
-    screenshots: [
-      { title: 'Login & Staff Portal', url: '/img/enrollmentSystem/desktop-0.png', caption: 'Staff and student admission login interface with campus branding.' },
-      { title: 'Student Enrollment Form', url: '/img/enrollmentSystem/desktop-1.png', caption: 'Multi-step admission intake form with personal details and course selection.' },
-      { title: 'Enrolled Student Directory', url: '/img/enrollmentSystem/desktop-2.png', caption: 'Searchable directory of enrolled students with course and section filters.' },
-      { title: 'Student Profile Editor', url: '/img/enrollmentSystem/desktop-3.png', caption: 'Full student profile editing modal with academic status and contact details.' },
-      { title: 'Academic Year Management', url: '/img/enrollmentSystem/desktop-4.png', caption: 'Semester and school year enrollment period configuration.' },
-      { title: 'Reports & Export', url: '/img/enrollmentSystem/desktop-5.png', caption: 'Printable student roster lists and enrollment summary reports.' }
-    ],
-    caseStudy: {
-      overview: 'A client-commissioned enrollment management system built for Banayabanay Campus. The platform handles student login and authentication, enrollment processing, and student record management. Built using vanilla HTML, CSS, and JavaScript with no frameworks, the system was developed and deployed on Vercel for live access. This was a paid freelance project — the client, a school campus, needed a lightweight, easy-to-use digital enrollment solution.',
-      challenge: 'The campus required a fast, zero-dependency, lightweight digital enrollment portal that could run reliably on standard web browsers without expensive server hosting or complex database maintenance.',
-      solution: 'Engineered a clean vanilla JavaScript architecture with structured client-side storage, real-time input validation, responsive CSS grid layouts, and instant deployment on Vercel CDN.',
-      keyFeatures: [
-        'Multi-step student intake registration form with real-time validation',
-        'Staff management portal for student admissions and status approval',
-        'Fast search and filtering across enrolled students by year and course',
-        'Print-ready student enrollment summary sheets and registration cards'
-      ],
-      responsibilities: [
-        'Designed and developed the full login and authentication system for staff and admin users',
-        'Built the student enrollment flow — intake forms, validation, and record submission',
-        'Developed the student management dashboard for viewing, editing, and managing enrolled students',
-        'Implemented client-side form validation and session-based authentication using JavaScript',
-        'Deployed the system on Vercel for live access with cache-control headers'
-      ],
-      metrics: [
-        { label: 'Framework Overhead', value: '0 KB (Vanilla)' },
-        { label: 'Deployment', value: 'Vercel Edge' },
-        { label: 'Uptime', value: '100% Live' }
       ]
     }
   },
@@ -524,50 +424,6 @@ export const projectsData: ProjectItem[] = [
         { label: 'Design System', value: 'Editorial UI' },
         { label: 'Figma Screens', value: '11+ Mockups' },
         { label: 'Platform', value: 'Mobile First' }
-      ]
-    }
-  },
-  {
-    id: 'camillians-landing-page',
-    title: 'Camillians HHS — Home Health Services Landing Page',
-    subtitle: 'Healthcare Services Marketing Website',
-    category: 'Web Development & Healthcare',
-    typeCategory: 'fullstack',
-    year: '2025',
-    role: 'Web Developer',
-    client: 'Dr. Magdalena Tollea',
-    description: 'A professional landing page for Camillians Home Health Services, LLC — showcasing their in-home care services, skilled nursing, physical therapy, and client intake channels.',
-    image: '/img/CamilliansLandingPage/desktop-0.png',
-    tags: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Web', 'Healthcare'],
-    githubUrl: 'https://github.com/XeinQt/camilliansssh',
-    screenshots: [
-      { title: 'Hero & Mission', url: '/img/CamilliansLandingPage/desktop-0.png', caption: 'Full-width hero section highlighting compassionate home healthcare with prominent CTA.' },
-      { title: 'Core Services Grid', url: '/img/CamilliansLandingPage/desktop-1.png', caption: 'In-home skilled nursing, physical therapy, and personalized caregiver plans.' },
-      { title: 'Why Choose Camillians', url: '/img/CamilliansLandingPage/desktop-2.png', caption: 'Accreditation badges, certified staff qualifications, and patient testimonials.' },
-      { title: 'About & Care Philosophy', url: '/img/CamilliansLandingPage/desktop-3.png', caption: 'Company history, leadership team, and patient-first values.' },
-      { title: 'Careers & Recruitment', url: '/img/CamilliansLandingPage/desktop-4.png', caption: 'Nurse and caregiver application portal with career benefits.' },
-      { title: 'Contact & Location', url: '/img/CamilliansLandingPage/desktop-5.png', caption: 'Inquiry forms, direct phone/fax lines, and service area map.' }
-    ],
-    caseStudy: {
-      overview: 'Camillians Home Health Services is a full-featured marketing landing page built for a US-based home healthcare company. The site presents their core services — including skilled nursing, physical therapy, and compassionate in-home care — in a clean, professional layout designed to convert visitors into clients. Key sections include a hero with a call-to-action, services overview, why choose Camillians, about, careers, and a contact page.',
-      challenge: 'Families seeking in-home healthcare require instant clarity, reassurance, easy navigation, and clear points of contact during difficult medical transitions.',
-      solution: 'Developed a high-trust responsive website featuring accessible typography, clear care service cards, one-click calling, and structured patient inquiry forms.',
-      keyFeatures: [
-        'High-converting hero section with emergency and care consultation hotline buttons',
-        'Structured healthcare services catalog with clinical descriptions and eligibility guides',
-        'Staff recruitment section for registered nurses and physical therapists',
-        'Fully responsive layout ensuring seamless viewing across smartphones and desktops'
-      ],
-      responsibilities: [
-        'Designed and developed the full landing page layout across all sections: hero, services, about, and contact',
-        'Built a multi-page site structure with a consistent nav including phone, fax, and social media links',
-        'Implemented a hero section with a full-width background image and prominent CTA',
-        'Styled a responsive contact page with business contact details and inquiry forms'
-      ],
-      metrics: [
-        { label: 'Responsive Design', value: '100% Mobile & PC' },
-        { label: 'Architecture', value: 'Semantic HTML5' },
-        { label: 'SEO & Performance', value: 'Fast Static Load' }
       ]
     }
   }
