@@ -34,13 +34,15 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section id="home" className="space-y-5 scroll-mt-24">
         
         {/* Avatar + Name + Socials */}
-        <div className="flex items-center gap-4 sm:gap-5.5">
+        <div className="flex items-center gap-4 sm:gap-6">
           {/* Avatar */}
-          <div className="w-18 h-18 sm:w-22 sm:h-22 md:w-24 md:h-24 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-xs shrink-0 bg-zinc-100 dark:bg-zinc-900 aspect-square ring-2 ring-zinc-100 dark:ring-zinc-850">
+          <div className="w-[4.5rem] h-[4.5rem] sm:w-[5.5rem] sm:h-[5.5rem] md:w-24 md:h-24 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm shrink-0 bg-zinc-100 dark:bg-zinc-900 aspect-square ring-2 ring-zinc-100 dark:ring-zinc-800">
             <img 
               src="/rico-alentijo-profile.jpg" 
-              alt={portfolioMeta.name} 
-              className="w-full h-full object-cover object-center"
+              alt={portfolioMeta.name}
+              width={96}
+              height={96}
+              className="block w-full h-full object-cover object-center"
               onError={(e) => {
                 (e.target as HTMLElement).style.display = 'none';
               }}
@@ -48,7 +50,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Name & Socials */}
-          <div className="space-y-1">
+          <div className="min-w-0 space-y-1">
             <div className="flex items-center gap-1.5">
               <h1 className="text-lg sm:text-xl font-semibold text-zinc-900 dark:text-white tracking-tight">
                 {portfolioMeta.name}
