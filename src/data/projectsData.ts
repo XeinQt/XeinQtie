@@ -79,6 +79,11 @@ export const projectsData: ProjectItem[] = [
     githubUrl: 'https://github.com/XeinQt/XeinQtie',
     screenshots: [
       {
+        title: 'System Overview',
+        url: '/kaban-system-overview.png',
+        caption: 'A complete visual overview of KABAN\'s secure officer access, student payment lookup, treasury records, and transparency-focused features.'
+      },
+      {
         title: 'Dark Mode Dashboard',
         url: '/kaban-dashboard-dark.jpg',
         caption: 'Fiscal monitoring & analytics hub featuring live cash flow graphs, inflow/outflow telemetry (₱3,060 vs ₱40,200), and payables turnout.'
