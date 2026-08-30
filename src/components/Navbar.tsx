@@ -1,6 +1,5 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X } from 'lucide-react';
-import { portfolioMeta } from '../data/portfolioData';
 
 interface NavbarProps {
   activeSection?: string;
@@ -86,16 +85,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateSection }) => {
           : 'bg-transparent py-2'
       }`}
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-end">
         
-        {/* Brand / Logo */}
-        <button 
-          onClick={() => handleNavClick('home')}
-          className="text-base font-bold text-zinc-900 dark:text-white tracking-widest hover:opacity-75 transition-opacity cursor-pointer"
-        >
-          {portfolioMeta.brandInitials}
-        </button>
-
         {/* Desktop Navigation */}
         <div className="hidden sm:flex items-center gap-5 text-xs sm:text-sm font-normal text-zinc-500 dark:text-zinc-400">
           {navItems.map((item) => {

@@ -5,7 +5,6 @@
 }
 
 export interface PortfolioMeta {
-  brandInitials: string;
   name: string;
   title: string;
   headlineMain: string;
@@ -34,7 +33,6 @@ export interface PortfolioMeta {
 }
 
 export const portfolioMeta: PortfolioMeta = {
-  brandInitials: 'RA',
   name: 'Rico Alentijo',
   title: 'AI-Assisted Full-Stack Developer & UI/UX Designer',
   headlineMain: 'AI-Assisted Full-Stack Developer',
