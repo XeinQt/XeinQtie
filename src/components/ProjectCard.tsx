@@ -1,5 +1,5 @@
-﻿import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowUpRight, Image as ImageIcon, Layers } from 'lucide-react';
 import { ProjectItem } from '../data/projectsData';
 import { TechBadge } from './TechBadge';
 
@@ -9,22 +9,52 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenCaseStudy }) => {
+  const [imgSrc, setImgSrc] = useState<string>(project.image);
+  const [hasError, setHasError] = useState<boolean>(false);
+  const [fallbackIndex, setFallbackIndex] = useState<number>(0);
+
+  const handleImageError = () => {
+    // Attempt fallback from screenshots if primary image path fails
+    if (project.screenshots && project.screenshots.length > fallbackIndex) {
+      const nextFallback = project.screenshots[fallbackIndex].url;
+      setFallbackIndex((prev) => prev + 1);
+      if (nextFallback && nextFallback !== imgSrc) {
+        setImgSrc(nextFallback);
+        return;
+      }
+    }
+    setHasError(true);
+  };
+
   return (
     <div className="group rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 hover:bg-white dark:hover:bg-zinc-900 shadow-2xs hover:shadow-sm hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 overflow-hidden flex flex-col justify-between p-5 sm:p-6 space-y-4">
       
       {/* Top Media Preview Container */}
       <div 
         onClick={() => onOpenCaseStudy(project)}
-        className="w-full h-44 sm:h-48 bg-zinc-950 rounded-xl overflow-hidden relative border border-zinc-200/60 dark:border-zinc-800 flex items-center justify-center cursor-pointer"
+        className="w-full h-44 sm:h-48 bg-zinc-100 dark:bg-zinc-850 rounded-xl overflow-hidden relative border border-zinc-200/60 dark:border-zinc-800 flex items-center justify-center cursor-pointer"
       >
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-          onError={(e) => {
-            (e.target as HTMLElement).style.display = 'none';
-          }}
-        />
+        {!hasError ? (
+          <img 
+            src={imgSrc} 
+            alt={project.title}
+            loading="lazy"
+            className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+            onError={handleImageError}
+          />
+        ) : (
+          <div className="w-full h-full flex flex-col items-center justify-center p-4 text-center bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-850 dark:to-zinc-900 text-zinc-400 dark:text-zinc-500 space-y-2">
+            <div className="w-10 h-10 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-zinc-500 dark:text-zinc-400">
+              {project.typeCategory === 'uiux' ? <Layers className="w-5 h-5" /> : <ImageIcon className="w-5 h-5" />}
+            </div>
+            <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400 line-clamp-1">
+              {project.subtitle || project.title}
+            </span>
+            <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-wider">
+              Click to view case study
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Card Content Area */}
