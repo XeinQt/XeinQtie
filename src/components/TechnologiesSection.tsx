@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { LayoutGrid, ChevronRight } from 'lucide-react';
 import { TechBadge } from './TechBadge';
 
@@ -22,11 +22,10 @@ const row2 = [
   'Python',
   'PostgreSQL',
   'Supabase',
+  'Firebase',
   'MySQL',
   'SQLite',
   'Node.js',
-  'Tauri',
-  'Rust',
   'Flutter'
 ];
 
@@ -55,11 +54,11 @@ const categorizedTech = [
   },
   {
     category: 'Full-Stack & Backend Systems',
-    items: ['Laravel', 'WordPress', 'Node.js', 'Python', 'Flutter', 'Dart', 'Tauri', 'Rust']
+    items: ['Laravel', 'WordPress', 'Node.js', 'Python', 'Flutter', 'Dart']
   },
   {
     category: 'Databases & Infrastructure',
-    items: ['PostgreSQL', 'Supabase', 'MySQL', 'SQLite', 'Docker', 'Git', 'GitHub']
+    items: ['PostgreSQL', 'Supabase', 'Firebase', 'MySQL', 'SQLite', 'Docker', 'Git', 'GitHub']
   }
 ];
 

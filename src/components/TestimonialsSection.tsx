@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Star, Quote, CheckCircle2 } from 'lucide-react';
 
 interface Testimonial {
@@ -60,8 +60,8 @@ export const testimonials: Testimonial[] = [
     company: 'Aegis Security Tech',
     avatar: 'MV',
     rating: 5,
-    quote: 'Renielyn has a rare talent for balancing high-performance low-level desktop architectures with elegant UI polish. Her work on secure local database encryption is top notch.',
-    projectTag: 'Tauri & Rust'
+    quote: 'Renielyn has a rare talent for balancing high-performance cloud architectures with elegant UI polish. Her work on real-time database synchronization is top notch.',
+    projectTag: 'Firebase & Cloud Firestore'
   },
   {
     id: '6',

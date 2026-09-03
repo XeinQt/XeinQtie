@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 interface TechBadgeProps {
   name: string;
@@ -254,6 +254,17 @@ export const TechIcon: React.FC<{ name: string; className?: string }> = ({ name,
     return (
       <svg className={className} viewBox="0 0 24 24" fill="none">
         <path d="M13.4 2.1C13.1 1.7 12.5 1.9 12.5 2.5V10.8H21.5C22.1 10.8 22.4 11.5 21.9 11.9L11.8 22C11.4 22.4 10.7 22.1 10.7 21.6V13.3H1.7C1.1 13.3 0.8 12.6 1.3 12.2L13.4 2.1Z" fill="#3ECF8E" />
+      </svg>
+    );
+  }
+
+  // Firebase
+  if (norm.includes('firebase')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M3.89 15.672L6.255.96a.546.546 0 0 1 1.025-.136l2.36 4.417z" fill="#FFA000" />
+        <path d="M13.626 7.428l2.138-4.088a.547.547 0 0 1 .987.054l3.359 12.278z" fill="#F57C00" />
+        <path d="M3.89 15.672l8.11 4.54a1.09 1.09 0 0 0 1.066 0l7.044-4.54-3.359-12.278a.547.547 0 0 0-.987-.054l-5.068 9.689-2.806-5.253a.546.546 0 0 0-1.025.136L3.89 15.672z" fill="#FFCA28" />
       </svg>
     );
   }
