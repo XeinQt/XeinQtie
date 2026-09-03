@@ -167,48 +167,44 @@ export const GithubActivitySection: React.FC = () => {
         </a>
       </div>
 
-      {/* Dashed Border Card Container */}
-      <div className="rounded-2xl border border-dashed border-zinc-300 dark:border-zinc-800 p-5 sm:p-6 bg-white/40 dark:bg-zinc-900/30 space-y-4 shadow-xs">
+      {/* Card Container */}
+      <div className="rounded-2xl border border-dashed border-zinc-300 dark:border-zinc-800 p-4 sm:p-6 bg-white/40 dark:bg-zinc-900/30 space-y-4 shadow-xs overflow-hidden">
         
-        {/* Scrollable Container on Mobile */}
-        <div className="overflow-x-auto pb-2 scrollbar-none">
-          <div className="min-w-[700px] space-y-2">
-            
-            {/* Months Header */}
-            <div className="flex text-[11px] font-mono text-zinc-400 dark:text-zinc-500 px-0.5 select-none">
-              {weeks.map((week, idx) => (
-                <div key={idx} className="flex-1 text-left">
-                  {week.monthLabel ? <span>{week.monthLabel}</span> : null}
-                </div>
-              ))}
-            </div>
-
-            {/* Contribution Grid Dots */}
-            <div className="flex gap-1.5 justify-between">
-              {weeks.map((week, wIdx) => (
-                <div key={wIdx} className="flex flex-col gap-1.5">
-                  {week.days.map((day, dIdx) => (
-                    <a
-                      key={dIdx}
-                      href={githubProfileUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onMouseEnter={() => setHoveredDay(day)}
-                      onMouseLeave={() => setHoveredDay(null)}
-                      title={`${day.count === 0 ? 'No' : day.count} contribution${day.count === 1 ? '' : 's'} on ${formatDate(day.date)}`}
-                      className={`w-2.5 h-2.5 rounded-full transition-all duration-150 hover:scale-135 cursor-pointer ${getColorClass(day.level)}`}
-                      aria-label={`${day.count} contributions on ${day.date}`}
-                    />
-                  ))}
-                </div>
-              ))}
-            </div>
-
+        {/* Fixed Responsive Activity Grid (No Scrollbar) */}
+        <div className="w-full space-y-2 select-none">
+          
+          {/* Months Header */}
+          <div className="w-full flex justify-between text-[10px] sm:text-[11px] font-mono text-zinc-400 dark:text-zinc-500 px-0.5">
+            {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((m, idx) => (
+              <span key={idx}>{m}</span>
+            ))}
           </div>
+
+          {/* 52-Week Contribution Grid */}
+          <div className="w-full flex items-center justify-between gap-[2px] sm:gap-[3px]">
+            {weeks.map((week, wIdx) => (
+              <div key={wIdx} className="flex-1 flex flex-col gap-[2px] sm:gap-[3px] items-center">
+                {week.days.map((day, dIdx) => (
+                  <a
+                    key={dIdx}
+                    href={githubProfileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onMouseEnter={() => setHoveredDay(day)}
+                    onMouseLeave={() => setHoveredDay(null)}
+                    title={`${day.count === 0 ? 'No' : day.count} contribution${day.count === 1 ? '' : 's'} on ${formatDate(day.date)}`}
+                    className={`w-full max-w-[12px] aspect-square rounded-full transition-all duration-150 hover:scale-135 cursor-pointer block ${getColorClass(day.level)}`}
+                    aria-label={`${day.count} contributions on ${day.date}`}
+                  />
+                ))}
+              </div>
+            ))}
+          </div>
+
         </div>
 
         {/* Footer info & Legend */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1 border-t border-zinc-100 dark:border-zinc-800/60">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 border-t border-zinc-100 dark:border-zinc-800/60">
           <div className="flex items-center gap-2">
             <span className="text-xs font-mono text-zinc-600 dark:text-zinc-400">
               {isLoading ? (
@@ -219,7 +215,7 @@ export const GithubActivitySection: React.FC = () => {
               ) : (
                 <>
                   <strong className="text-zinc-900 dark:text-zinc-200 font-semibold">
-                    {totalContributions?.toLocaleString() || '558'}
+                    {totalContributions?.toLocaleString() || '526'}
                   </strong>{' '}
                   contributions in the last year
                 </>
