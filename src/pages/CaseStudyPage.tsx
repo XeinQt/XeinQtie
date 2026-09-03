@@ -220,7 +220,11 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId, onBack 
           
           {/* Key Metrics */}
           {project.caseStudy.metrics && (
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+            <div className={`grid gap-3.5 ${
+              project.caseStudy.metrics.length === 4 
+                ? 'grid-cols-2 sm:grid-cols-4' 
+                : 'grid-cols-1 sm:grid-cols-3'
+            }`}>
               {project.caseStudy.metrics.map((m, idx) => (
                 <div key={idx} className="p-4 rounded-2xl bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200/80 dark:border-zinc-800 text-center">
                   <div className="text-lg sm:text-xl font-bold font-mono text-zinc-900 dark:text-white">

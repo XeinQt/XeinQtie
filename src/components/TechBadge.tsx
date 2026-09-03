@@ -369,6 +369,24 @@ export const TechIcon: React.FC<{ name: string; className?: string }> = ({ name,
     );
   }
 
+  // Vercel
+  if (norm.includes('vercel')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 1L24 22H0L12 1Z" />
+      </svg>
+    );
+  }
+
+  // Cloudflare
+  if (norm.includes('cloudflare') || norm.includes('turnstile')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M18.6 11.2a5.5 5.5 0 0 0-10.4-1.8 4 4 0 0 0-4.2 3.8A4 4 0 0 0 8 17h10.5a3.5 3.5 0 0 0 .1-5.8z" fill="#F38020" />
+      </svg>
+    );
+  }
+
   // Default fallback code icon
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

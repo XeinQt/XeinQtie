@@ -64,16 +64,18 @@ export const projectsData: ProjectItem[] = [
     year: '2026',
     role: 'Lead Full-Stack Developer & UI/UX Designer',
     authors: 'Archie Boiser and Rico Alentijo',
-    description: 'An enterprise-grade institutional financial management, dues collection, and student fiscal transparency platform designed for Supreme Student Councils, academic treasurers, and university finance committees.',
+    description: 'An enterprise-grade institutional financial management, dues collection, and student fiscal transparency platform designed for Supreme Student Councils, academic treasurers, and university finance committees, actively used by 1,000+ students.',
     image: '/kaban-dashboard-dark.jpg',
     tags: [
       'Next.js 14',
+      'React 18',
       'TypeScript 5',
       'Tailwind CSS 3',
-      'Supabase (PostgreSQL 15)',
-      'PL/pgSQL Triggers',
-      'Web Crypto API (3FA)',
-      'SheetJS & PapaParse'
+      'Supabase & PostgreSQL',
+      'Cloudflare Turnstile',
+      '3-Factor Auth (3FA)',
+      'SheetJS & PapaParse',
+      'Vercel'
     ],
     liveUrl: 'https://treasurer-system.vercel.app/',
     githubUrl: 'https://github.com/XeinQt/XeinQtie',
@@ -145,55 +147,91 @@ export const projectsData: ProjectItem[] = [
       }
     ],
     techStackTable: [
-      { layer: 'Frontend Framework', tech: 'Next.js 14 (App Router)', purpose: 'Server-side rendering, static optimization, and Edge routing.' },
-      { layer: 'UI Library & React', tech: 'React 18 & TypeScript 5', purpose: 'Declarative component lifecycle and strict static typing across all models.' },
-      { layer: 'Styling & Design System', tech: 'Tailwind CSS 3', purpose: 'Dual theme support (Warm Paper & Obsidian Dark Mode) with custom palettes.' },
-      { layer: 'Spreadsheet Processing', tech: 'SheetJS (XLSX) & PapaParse', purpose: 'Bi-directional parsing of Excel workbooks and batch CSV student rosters.' },
-      { layer: 'Cloud Database', tech: 'Supabase (PostgreSQL 15+)', purpose: 'Enterprise relational database with compound indexing and foreign key constraints.' },
-      { layer: 'Database Logic', tech: 'PL/pgSQL Triggers', purpose: 'Race-condition-free balance calculation triggers across multi-cashier desks.' },
-      { layer: 'Live Synchronization', tech: 'Supabase Realtime', purpose: 'Sub-50ms WebSocket event streaming on payment channels across active cashiers.' },
-      { layer: 'Cryptography & 3FA', tech: 'Web Crypto API (SubtleCrypto)', purpose: 'Salted SHA-256 password/PIN hashing and HMAC-SHA256 session token verification.' },
-      { layer: 'Edge Middleware', tech: 'Next.js Edge Runtime', purpose: 'Zero-latency serverless route protection on /admin/* via cryptographically signed cookies.' }
+      // 1. Core Framework & Language
+      { layer: '1. Core Framework', tech: 'Next.js (v14.2.15)', purpose: 'Full-stack React framework utilizing modern App Router (/app), Edge API routes, and Edge Middleware.' },
+      { layer: '1. UI Library', tech: 'React (v18.3.1)', purpose: 'Declarative UI component library utilizing modern hooks (useState, useEffect, useMemo, useRef).' },
+      { layer: '1. Language', tech: 'TypeScript (v5.6.3)', purpose: 'Strict static type checking across data entities, API responses, and UI props.' },
+
+      // 2. Styling & Design System
+      { layer: '2. Styling & Design', tech: 'Tailwind CSS (v3.4.14)', purpose: 'Utility-first CSS framework configured with custom tokens in tailwind.config.js.' },
+      { layer: '2. CSS Processing', tech: 'PostCSS & Autoprefixer', purpose: 'CSS processing and automated vendor prefixing.' },
+      { layer: '2. Icons & Glyphs', tech: 'Lucide React (v0.454.0)', purpose: 'Clean vector icon library used across dashboards and modal dialogs.' },
+      { layer: '2. Class Merging', tech: 'clsx & tailwind-merge', purpose: 'Conditional styling and conflict-free class merging.' },
+      { layer: '2. Theme Engine', tech: 'Custom Dual Theme', purpose: 'Support for Light ("Warm Paper") and Dark ("Obsidian Night") palettes with amber/gold accents.' },
+
+      // 3. Backend, Database & Real-Time Sync
+      { layer: '3. Cloud Database', tech: 'Supabase & PostgreSQL 15+', purpose: 'Cloud database-as-a-service providing relational data models, foreign keys, and ACID transactions.' },
+      { layer: '3. Client Driver', tech: '@supabase/supabase-js (v2.112.3)', purpose: 'JavaScript client for PostgREST API operations and WebSocket subscriptions.' },
+      { layer: '3. Real-Time Streaming', tech: 'Supabase Realtime', purpose: 'WebSocket channels (postgres_changes) enabling instant synchronization of payments, audit logs, and student balances across multiple cashier screens.' },
+      { layer: '3. Dual-Engine Cache', tech: 'Hybrid Dual-Engine Architecture', purpose: 'Custom Stale-While-Revalidate (SWR) in-memory cache and localStorage fallback layer (src/lib/db.ts, src/lib/storage.ts) providing offline tolerance and zero-latency first paint.' },
+
+      // 4. Security, Authentication & Anti-Bot
+      { layer: '4. Anti-Bot Shield', tech: 'Cloudflare Turnstile', purpose: 'Cryptographic anti-bot shield protecting admin logins via the /api/verify-turnstile route.' },
+      { layer: '4. Multi-Factor Auth', tech: '3-Factor Authentication (3FA)', purpose: 'Salted SHA-256 Web Crypto password + time-limited numeric OTP code + 6-digit secondary PIN with account lockout protection.' },
+      { layer: '4. Session Cryptography', tech: 'Stateless HMAC-SHA256 Tokens', purpose: 'Cryptographic session tokens managed in src/lib/security.ts.' },
+      { layer: '4. Edge Protection', tech: 'Edge Middleware', purpose: 'src/middleware.ts protects administrative routes at the edge before rendering.' },
+      { layer: '4. Concurrency Defense', tech: 'Rate Limiting & Concurrency Guards', purpose: 'In-memory rate limiting (src/lib/rateLimiter.ts) and balance lock checks to prevent double-charging.' },
+
+      // 5. Data Processing & File Handling
+      { layer: '5. Excel Processing', tech: 'SheetJS (xlsx) (v0.18.5)', purpose: 'Parses Excel spreadsheets (.xlsx, .xls) on student rosters for bulk importing.' },
+      { layer: '5. CSV & Reporting', tech: 'PapaParse (v5.4.1)', purpose: 'High-speed browser CSV parsing and report export generation.' },
+      { layer: '5. Image & QR Engine', tech: 'HTML5 Canvas API', purpose: 'In-browser image compression and optimization for receipt attachments, as well as QR code generation/scanning.' },
+      { layer: '5. Print Engine', tech: 'Print Styling Engine (@media print)', purpose: 'Custom CSS formatting for printable physical receipts and PDF summaries.' },
+
+      // 6. Hosting & Monitoring
+      { layer: '6. Hosting & Edge', tech: 'Vercel', purpose: 'Global Edge Network hosting the Next.js production build and serverless functions.' },
+      { layer: '6. Telemetry', tech: '@vercel/analytics (v2.0.1)', purpose: 'Privacy-friendly real-time traffic and performance monitoring.' }
     ],
     caseStudy: {
-      overview: 'KABAN is an enterprise-grade institutional financial management, dues collection, and student fiscal transparency platform designed for Supreme Student Councils, academic treasurers, and university finance committees. It bridges administrative cashier workflows with a 100% open public ledger to foster complete student trust.',
+      overview: 'KABAN is an enterprise-grade institutional financial management, dues collection, and student fiscal transparency platform designed for Supreme Student Councils, academic treasurers, and university finance committees, actively serving 1,000+ students. It bridges administrative cashier workflows with a 100% open public ledger to foster complete student trust.',
       challenge: 'University student councils routinely face difficulties with manual paper ledgers, fragmented spreadsheet records, delayed expense auditing, unauthorized data tampering, and lack of trust from the student body regarding fee utilization.',
       solution: 'Engineered an automated full-stack platform featuring 3-Factor Authentication (3FA) for officers, PL/pgSQL database triggers for race-condition-free multi-cashier collections, automated receipt generation, and an open public transparency portal for real-time accountability.',
       keyFeatures: [
-        '3-Factor Authentication (3FA) entry defense (Password + Gmail OTP + 6-Digit PIN)',
+        'Active campus adoption serving 1,000+ students with instant ID dues lookup',
+        'Cloudflare Turnstile cryptographic bot protection & 3FA entry defense',
         'Real-time Treasury Dashboard with live Inflow, Outflow, and Net Period Flow analytics',
         'Interactive financial trend charting (Fee Collections vs Disbursed Expenses)',
         'Public Transparency Summary displaying itemized purchases, project budget plans, and council reserves',
         '8-Digit Student ID Lookup (YYYY-XXXX) with fee breakdown and verifiable digital receipts',
-        'Drag-and-drop CSV / Excel spreadsheet batch student ingestion engine',
+        'Drag-and-drop CSV / Excel spreadsheet batch student ingestion engine (SheetJS & PapaParse)',
         'Dual-theme accessibility (Obsidian Dark Mode & Warm Paper Light Mode)',
         'Step-by-step interactive User Guide and visual onboarding manual'
       ],
       securityHighlights: [
+        'Cloudflare Turnstile bot protection defending login endpoints via /api/verify-turnstile',
         '3-Factor Authentication (3FA) with Gmail OTP and encrypted 6-digit officer PIN',
-        'Salted SHA-256 & HMAC-SHA256 Web Crypto verification',
-        'Next.js Edge Middleware route guards with cryptographically signed cookies',
-        'Sliding-window rate limiter protecting search and login endpoints from automated scraping'
+        'Salted SHA-256 Web Crypto API password hashing and HMAC-SHA256 session token verification',
+        'Next.js Edge Middleware route guards protecting /admin/* before server rendering',
+        'In-memory rate limiting and balance lock checks preventing double-charging across cashier desks'
       ],
       architecture: [
         {
-          title: 'Next.js 14 App Router + Server Components',
-          description: 'Leverages React Server Components for near-instant cold loads, static optimization, and edge-cached financial summaries.'
+          title: 'Next.js 14.2 App Router & Edge Runtime',
+          description: 'Leverages React Server Components for near-instant cold loads, Edge API routes, and edge-cached financial summaries.'
         },
         {
-          title: 'PL/pgSQL Triggers & PostgreSQL Stored Procedures',
-          description: 'Database-engine balance calculation triggers ensuring race-condition-free multi-cashier collections across active terminals.'
+          title: 'Supabase Realtime & PostgreSQL 15+',
+          description: 'Enterprise relational database with PL/pgSQL balance calculation triggers and sub-50ms WebSocket change feeds.'
         },
         {
-          title: 'Supabase Realtime WebSockets (<50ms)',
-          description: 'Sub-50ms multi-device event streaming broadcasting payment and disbursement updates instantly to all connected officer desks.'
+          title: 'Hybrid Dual-Engine Architecture',
+          description: 'Custom Stale-While-Revalidate (SWR) in-memory cache with localStorage fallback for instant first paint and offline resilience.'
         },
         {
-          title: 'Dual Theme Engine (Warm Paper & Obsidian Dark)',
-          description: 'Custom Tailwind CSS 3 design system with accessible contrast ratios, print-sheet styling, and fluid responsive charts.'
+          title: 'Cloudflare Turnstile & 3-Factor Authentication',
+          description: 'Layered security with Turnstile bot shield, Web Crypto SHA-256 password hashing, timed Gmail OTP, and 6-digit PIN.'
+        },
+        {
+          title: 'Client-Side Spreadsheet & Canvas Processing',
+          description: 'SheetJS and PapaParse for batch Excel/CSV imports alongside HTML5 Canvas for receipt compression and QR scanning.'
+        },
+        {
+          title: 'Dual Theme & Vercel Edge Hosting',
+          description: 'Custom Tailwind CSS 3 design system (Warm Paper & Obsidian Night) hosted on Vercel with real-time analytics.'
         }
       ],
       metrics: [
+        { label: 'Active User Base', value: '1,000+ Students' },
         { label: 'Fiscal Transparency', value: '100% Public' },
         { label: 'Auditing Speedup', value: '12x Faster' },
         { label: 'Security Standard', value: '3FA Protected' }

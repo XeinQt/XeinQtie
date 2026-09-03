@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ArrowUpRight, ExternalLink } from 'lucide-react';
 import { portfolioMeta } from '../data/portfolioData';
 import { TechBadge } from './TechBadge';
@@ -30,8 +30,14 @@ export const FeaturedBuildCard: React.FC<FeaturedBuildCardProps> = ({ onOpenCase
 
       {/* Content on Right */}
       <div className="flex-1 min-w-0 space-y-2.5">
-        <div className="text-[10px] font-mono font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
-          {featuredBuild.badge}
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] font-mono font-semibold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
+            {featuredBuild.badge}
+          </span>
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            1,000+ Students
+          </span>
         </div>
 
         <h3 className="text-lg sm:text-xl font-bold text-zinc-900 dark:text-white tracking-tight">

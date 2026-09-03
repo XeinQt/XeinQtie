@@ -1,4 +1,4 @@
-﻿export interface SocialLink {
+export interface SocialLink {
   name: string;
   url: string;
   iconName: string;
@@ -52,7 +52,7 @@ export const portfolioMeta: PortfolioMeta = {
   featuredBuild: {
     badge: 'FEATURED BUILD',
     title: 'KABAN: Student Council Financial Hub',
-    description: 'Fiscal monitoring, public transparency ledger, and real-time student treasury management platform.',
+    description: 'Fiscal monitoring, public transparency ledger, and real-time student treasury management platform actively serving 1,000+ students.',
     tags: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Supabase'],
     image: '/kaban-dashboard-dark.jpg',
     link: 'https://treasurer-system.vercel.app/'
