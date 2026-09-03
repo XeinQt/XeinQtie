@@ -387,6 +387,25 @@ export const TechIcon: React.FC<{ name: string; className?: string }> = ({ name,
     );
   }
 
+  // 3FA / Security / Web Crypto
+  if (norm.includes('3fa') || norm.includes('crypto') || norm.includes('security')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    );
+  }
+
+  // SheetJS / Excel / Spreadsheet / PapaParse
+  if (norm.includes('sheet') || norm.includes('papaparse') || norm.includes('excel')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="3" width="18" height="18" rx="3" fill="#107C41" />
+        <path d="M7 7h10M7 12h10M7 17h10M12 7v10" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
   // Default fallback code icon
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

@@ -53,7 +53,18 @@ export const portfolioMeta: PortfolioMeta = {
     badge: 'FEATURED BUILD',
     title: 'KABAN: Student Council Financial Hub',
     description: 'Fiscal monitoring, public transparency ledger, and real-time student treasury management platform actively serving 1,000+ students.',
-    tags: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Supabase'],
+    tags: [
+      'Next.js 14',
+      'React 18',
+      'TypeScript',
+      'Tailwind CSS',
+      'PostgreSQL',
+      'Supabase',
+      'Cloudflare Turnstile',
+      '3FA & Web Crypto',
+      'SheetJS & PapaParse',
+      'Vercel'
+    ],
     image: '/kaban-dashboard-dark.jpg',
     link: 'https://treasurer-system.vercel.app/'
   },
