@@ -481,9 +481,14 @@ export const projectsData: ProjectItem[] = [
     ],
     screenshots: [
       {
-        title: 'POS Showcase Banner',
+        title: 'Mobile Terminal Showcase',
         url: '/img/jajapos/jajapos-banner.jpg',
-        caption: 'JajaPOS official showcase: Touchscreen POS terminal, real-time sales overview (₱18,750), inventory management, receipt printing, and order tracking.'
+        caption: 'JajaPOS responsive mobile interface showcase: Real-time sales analytics dashboard, interactive cashier register with category filters, and cash tender calculator.'
+      },
+      {
+        title: 'Desktop Kiosk Terminal',
+        url: '/img/jajapos/jajapos-kiosk.jpg',
+        caption: 'Touchscreen desktop and tablet checkout lane terminal with automated receipt printing, live inventory tracking, and customer loyalty management.'
       }
     ],
     modules: [
