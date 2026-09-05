@@ -1,7 +1,8 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { ChevronRight, X, Calendar, MapPin } from 'lucide-react';
 import { experiences, ExperienceItem } from '../data/experienceData';
 import { TechBadge } from './TechBadge';
+import { ScrollReveal } from './ScrollReveal';
 
 interface ExperienceSimpleListProps {
   onOpenContact?: () => void;
@@ -31,53 +32,59 @@ export const ExperienceSimpleList: React.FC<ExperienceSimpleListProps> = () => {
 
       {/* Simple List */}
       <div className="space-y-5 sm:space-y-6">
-        {experiences.map((item) => (
-          <div 
-            key={item.id}
-            className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-8 group"
-          >
-            {/* Left Column: Date Range */}
-            <div className="w-full sm:w-48 shrink-0 text-xs sm:text-sm text-zinc-400 dark:text-zinc-500 font-normal">
-              {item.startDate} - {item.endDate}
-            </div>
-
-            {/* Right Column: Role, Company, Location */}
-            <div className="flex-1 min-w-0">
-              <h3 
-                onClick={() => setActiveModalItem(item)}
-                className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white tracking-tight cursor-pointer hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors inline-block"
-              >
-                {item.role}
-              </h3>
-              
-              <div className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-0.5 font-normal">
-                {item.company}
+        {experiences.map((item, index) => (
+          <ScrollReveal key={item.id} delay={index * 0.07} y={16}>
+            <div 
+              className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-8 group"
+            >
+              {/* Left Column: Date Range */}
+              <div className="w-full sm:w-48 shrink-0 text-xs sm:text-sm text-zinc-400 dark:text-zinc-500 font-normal">
+                {item.startDate} - {item.endDate}
               </div>
 
-              <div className="text-xs text-zinc-400 dark:text-zinc-500 mt-0.5 font-normal">
-                {item.location}
-              </div>
+              {/* Right Column: Role, Company, Location */}
+              <div className="flex-1 min-w-0">
+                <h3 
+                  onClick={() => setActiveModalItem(item)}
+                  className="text-base sm:text-lg font-bold text-zinc-900 dark:text-white tracking-tight cursor-pointer hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors inline-block"
+                >
+                  {item.role}
+                </h3>
+                
+                <div className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-0.5 font-normal">
+                  {item.company}
+                </div>
 
-              {/* Inline details toggle */}
-              {showDetails && (
-                <div className="mt-3 pt-3 border-t border-zinc-100 dark:border-zinc-800 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 space-y-2 animate-fade-in">
-                  <p className="leading-relaxed">{item.summary}</p>
-                  {item.bullets && item.bullets.length > 0 && (
-                    <ul className="list-disc list-outside pl-4 space-y-1 text-xs text-zinc-500 dark:text-zinc-400">
-                      {item.bullets.map((b, bi) => (
-                        <li key={bi}>{b}</li>
+                <div className="text-xs text-zinc-400 dark:text-zinc-500 mt-0.5 font-normal">
+                  {item.location}
+                </div>
+
+                {/* Inline Expandable Details */}
+                {showDetails && (
+                  <div className="mt-3.5 space-y-3 pt-3 border-t border-zinc-100 dark:border-zinc-800/80 animate-fade-in text-xs sm:text-sm">
+                    <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal">
+                      {item.summary}
+                    </p>
+                    
+                    <ul className="space-y-1.5 list-disc list-inside text-zinc-500 dark:text-zinc-400 font-normal">
+                      {item.bullets.map((bullet, bi) => (
+                        <li key={bi} className="leading-relaxed">
+                          <span className="text-zinc-700 dark:text-zinc-300">{bullet}</span>
+                        </li>
                       ))}
                     </ul>
-                  )}
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {item.skills.map((skill, si) => (
-                      <TechBadge key={si} name={skill.name} size="sm" />
-                    ))}
+
+                    {/* Associated Skills */}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {item.skills.map((skill, si) => (
+                        <TechBadge key={si} name={skill.name} size="sm" />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
 

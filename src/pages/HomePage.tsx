@@ -16,6 +16,7 @@ import { EducationSection } from '../components/EducationSection';
 import { GithubActivitySection } from '../components/GithubActivitySection';
 import { ContactSection } from '../components/ContactSection';
 import { TechBadge } from '../components/TechBadge';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 interface HomePageProps {
   onOpenResume: () => void;
@@ -147,42 +148,54 @@ export const HomePage: React.FC<HomePageProps> = ({
 
       </section>
 
-      {/* 2. Featured Build Hero Card (Navigates to dedicated page) */}
-      <section>
-        <FeaturedBuildCard onOpenCaseStudy={() => onOpenCaseStudy('kaban')} />
-      </section>
+      {/* 2. Featured Build Hero Card */}
+      <ScrollReveal>
+        <section>
+          <FeaturedBuildCard onOpenCaseStudy={() => onOpenCaseStudy('kaban')} />
+        </section>
+      </ScrollReveal>
 
       {/* 3. Experience Section */}
-      <section id="experience" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
-        <ExperienceSimpleList />
-      </section>
+      <ScrollReveal>
+        <section id="experience" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
+          <ExperienceSimpleList />
+        </section>
+      </ScrollReveal>
 
       {/* 4. Projects Section */}
-      <section id="projects" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
-        <ProjectsSection onOpenCaseStudy={onOpenCaseStudy} />
-      </section>
+      <ScrollReveal>
+        <section id="projects" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
+          <ProjectsSection onOpenCaseStudy={onOpenCaseStudy} />
+        </section>
+      </ScrollReveal>
 
-      {/* 5. Technologies Section (Moving marquee with AI assistants) */}
-      <section id="skills" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
-        <TechnologiesSection />
-      </section>
-
+      {/* 5. Technologies Section */}
+      <ScrollReveal>
+        <section id="skills" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
+          <TechnologiesSection />
+        </section>
+      </ScrollReveal>
 
       {/* 7. Education Section */}
-      <section id="education" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
-        <EducationSection />
-      </section>
-
+      <ScrollReveal>
+        <section id="education" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
+          <EducationSection />
+        </section>
+      </ScrollReveal>
 
       {/* 9. GitHub Activity Section */}
-      <section id="github" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
-        <GithubActivitySection />
-      </section>
+      <ScrollReveal>
+        <section id="github" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
+          <GithubActivitySection />
+        </section>
+      </ScrollReveal>
 
       {/* 10. Get in Touch / Contact Section */}
-      <section id="contact" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
-        <ContactSection />
-      </section>
+      <ScrollReveal>
+        <section id="contact" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
+          <ContactSection />
+        </section>
+      </ScrollReveal>
 
     </div>
   );

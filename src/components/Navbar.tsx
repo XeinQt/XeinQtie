@@ -1,5 +1,7 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X } from 'lucide-react';
+import { motion, useScroll } from 'framer-motion';
+import { toggleThemeWithCircularReveal } from '../utils/themeToggle';
 
 interface NavbarProps {
   activeSection?: string;
@@ -41,16 +43,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateSection }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleTheme = () => {
-    const nextDark = !isDark;
-    setIsDark(nextDark);
-    if (nextDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+  const { scrollYProgress } = useScroll();
+
+  const toggleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
+    toggleThemeWithCircularReveal(e, isDark, (nextDark) => {
+      setIsDark(nextDark);
+      if (nextDark) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+    });
   };
 
   const handleNavClick = (sectionId: string) => {
@@ -85,6 +90,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigateSection }) => {
           : 'bg-transparent py-2'
       }`}
     >
+      {/* Dynamic Scroll Progress Bar */}
+      <motion.div 
+        className="absolute top-0 left-0 right-0 h-[2px] bg-zinc-900 dark:bg-white origin-left pointer-events-none"
+        style={{ scaleX: scrollYProgress }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-end">
         
         {/* Desktop Navigation */}

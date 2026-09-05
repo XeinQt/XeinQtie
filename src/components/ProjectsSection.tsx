@@ -1,7 +1,8 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { projectsData, ProjectItem } from '../data/projectsData';
 import { ProjectCard } from './ProjectCard';
+import { ScrollReveal } from './ScrollReveal';
 
 interface ProjectsSectionProps {
   onOpenCaseStudy?: (projectId: string) => void;
@@ -79,13 +80,14 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
       </div>
 
       {/* 2-Column Minimalist Card Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 animate-fade-in">
-        {displayedProjects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            onOpenCaseStudy={handleOpen}
-          />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+        {displayedProjects.map((project, index) => (
+          <ScrollReveal key={project.id} delay={(index % 2) * 0.08} y={20}>
+            <ProjectCard
+              project={project}
+              onOpenCaseStudy={handleOpen}
+            />
+          </ScrollReveal>
         ))}
       </div>
 
