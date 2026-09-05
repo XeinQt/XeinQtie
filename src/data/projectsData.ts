@@ -458,6 +458,158 @@ export const projectsData: ProjectItem[] = [
     }
   },
   {
+    id: 'jajapos',
+    title: 'JajaPOS — Point of Sale & Inventory Management System',
+    subtitle: 'Multi-Platform Offline-First POS Solution',
+    category: 'Retail Fintech & Inventory Control',
+    typeCategory: 'fullstack',
+    year: '2026',
+    role: 'Lead Flutter Developer & Software Architect',
+    authors: 'Rico Alentijo',
+    description: 'A multi-platform, offline-first Point of Sale (POS) and inventory control solution built with Flutter and Dart, featuring real-time touchscreen cashier lanes, Bill of Materials (BOM) stock deduction, and local SQLite financial analytics.',
+    image: '/img/jajapos/jajapos-banner.jpg',
+    tags: [
+      'Flutter',
+      'Dart',
+      'SQLite',
+      'Riverpod',
+      'Clean Architecture',
+      'Offline-First',
+      'Bill of Materials (BOM)',
+      'Role-Based Access (RBAC)'
+    ],
+    screenshots: [
+      {
+        title: 'POS Showcase Banner',
+        url: '/img/jajapos/jajapos-banner.jpg',
+        caption: 'JajaPOS official showcase: Touchscreen POS terminal, real-time sales overview (₱18,750), inventory management, receipt printing, and order tracking.'
+      }
+    ],
+    modules: [
+      {
+        title: 'Cashier & POS Register Terminal',
+        route: 'lib/presentation/screens/pos_screen.dart',
+        features: [
+          'Category & Grid Browsing: Visual grid of products organized by category tabs with icons and images.',
+          'Instant Search & Barcode Support: Rapidly locate items by keyword or barcode scanner.',
+          'Interactive Shopping Cart: Add, increase, decrease, or remove items with automatic live subtotal, discount, and tax calculations.',
+          'Adaptive Layout: Side-by-side product grid + persistent order cart on desktop/tablet; full grid with expandable bottom sheet on mobile screens.'
+        ]
+      },
+      {
+        title: 'Cash Handling & Checkout Desk',
+        route: 'lib/presentation/screens/checkout_screen.dart',
+        features: [
+          'Tender & Change Calculator: Automatically calculates exact change owed to customers based on cash given.',
+          'Payment Processing: Validates amounts, generates order records, and prints/stores digital transaction receipts.',
+          'Cart Reset & Auto-Sync: Clears cart and immediately syncs updated stock levels upon completed payment.'
+        ]
+      },
+      {
+        title: 'Recipe & Consumables Inventory (BOM)',
+        route: 'lib/presentation/screens/inventory_screen.dart',
+        features: [
+          'Raw Material Tracking: Monitor supplies such as cups, plates, lids, packaging, and straws independently of finished items.',
+          'Product-to-Material Requirements: Link products to required consumables. Selling a drink automatically subtracts the exact quantity of required packaging items from stock.',
+          'Low-Stock Triggers: Visual alerts when stock dips below safe operating levels.',
+          'Audit Logs (inventory_logs): Records timestamps, quantity changes, reasons, and responsible user IDs for manual adjustments.'
+        ]
+      },
+      {
+        title: 'Product Catalog Management',
+        route: 'lib/presentation/screens/product_management_screen.dart',
+        features: [
+          'Cost vs. Selling Price: Track both buying cost and selling price per item for accurate gross margin tracking.',
+          'Category Grouping: Create, organize, and assign products to categories.',
+          'Image Support: Attach photos to items using the camera or photo gallery via image_picker.'
+        ]
+      },
+      {
+        title: 'Financial Reports & Business Analytics',
+        route: 'lib/presentation/screens/reports_screen.dart',
+        features: [
+          'Sales Periods: View daily, weekly, and monthly gross revenue.',
+          'Profit Margins: Automatic calculations comparing sales revenue against product acquisition costs.',
+          'Top Sellers: Identifies high-velocity items and transaction volume trends.',
+          'Transaction Archive: Full historical log of all transactions and itemized receipts.'
+        ]
+      },
+      {
+        title: 'Role-Based Access Control (RBAC)',
+        route: 'lib/providers/auth_provider.dart',
+        features: [
+          'Cashier Role: Focused interface limited to order entry, cart management, and payment processing.',
+          'Admin Role: Unrestricted administrative access to catalogs, stock adjustments, pricing, analytics, reports, and user accounts.'
+        ]
+      }
+    ],
+    techStackTable: [
+      { layer: '1. UI Framework', tech: 'Flutter (^3.12.2+)', purpose: 'Cross-platform UI toolkit targeting Desktop (Windows), Mobile (Android), and Web from a single codebase.' },
+      { layer: '1. Programming Language', tech: 'Dart (Dart 3.x)', purpose: 'Client-optimized, object-oriented, strongly typed language powering business logic and UI composition.' },
+      { layer: '2. Reactive State Management', tech: 'flutter_riverpod (^2.6.1)', purpose: 'Compile-safe, reactive state container and provider tree decoupling UI widgets from application state.' },
+      { layer: '3. Local Database Engine', tech: 'sqflite (^2.4.3)', purpose: 'High-performance embedded SQLite engine (pos_system.db) providing ACID transactions and automated schema migrations.' },
+      { layer: '3. Path & File Storage', tech: 'path_provider & path (^2.1.6)', purpose: 'Resolves OS-specific file system directories for local database storage and catalog image caching.' },
+      { layer: '3. Key-Value Cache', tech: 'shared_preferences (^2.5.5)', purpose: 'Persistent lightweight key-value storage for active user sessions and terminal preferences.' },
+      { layer: '4. Security & Cryptography', tech: 'crypto (^3.0.7)', purpose: 'Cryptographic SHA-256 password hashing securing local credentials in the SQLite database.' },
+      { layer: '4. Entity Identification', tech: 'uuid (^4.6.0)', purpose: 'RFC4122 v4 unique identifier generation for transaction records, receipts, and inventory line items.' },
+      { layer: '5. Formatting & Localization', tech: 'intl (^0.20.3)', purpose: 'Currency formatting (₱), number localization, and formatted date/time stamps for printed receipts.' },
+      { layer: '5. Typography & Icons', tech: 'google_fonts & cupertino_icons', purpose: 'Custom typography and cross-platform icon sets for responsive touch-first terminal screens.' },
+      { layer: '6. Media & Camera', tech: 'image_picker (^1.2.3)', purpose: 'Device camera capture and photo gallery picker for product catalog imagery.' },
+      { layer: '6. Code Quality', tech: 'flutter_lints (^6.0.0)', purpose: 'Official static analysis linting rules ensuring production-ready Clean Architecture standards.' }
+    ],
+    caseStudy: {
+      overview: 'JajaPOS is an offline-first Point of Sale (POS) and Inventory Management System designed to digitize retail counters and checkout lanes. It replaces physical cash registers, paper receipt pads, and manual inventory spreadsheets with a unified, touchscreen-friendly digital terminal built with Flutter, Dart, and local SQLite.',
+      challenge: 'Small and medium retail businesses—cafes, milk tea shops, food trucks, and grocery kiosks—frequently suffer from internet outages, expensive recurring cloud POS subscription fees, slow hardware, and inventory leakage where packaging consumables (cups, lids, straws) are lost without automated tracking.',
+      solution: 'Engineered a 100% offline-first POS platform running on local SQLite (pos_system.db) with zero monthly cloud overhead. Features a responsive adaptive layout (dual-pane on tablets/desktops and drawer navigation on phones), automatic Bill of Materials (BOM) stock deduction, SHA-256 role-based authentication, and instant profit margin analytics.',
+      keyFeatures: [
+        '100% Offline-First operation using local SQLite with zero recurring cloud server costs or internet downtime',
+        'Responsive terminal adapting dynamically between desktop/tablet dual-pane and mobile phone drawer layouts',
+        'Bill of Materials (BOM) stock deduction automatically subtracting raw packaging (cups, lids, straws) on checkout',
+        'Interactive touchscreen sales register with category tabs, keyword search, barcode scanner, and tax/discount calculations',
+        'Cash handling checkout desk with automated tender and change calculator and printable receipt records',
+        'Comprehensive product catalog management tracking cost price vs selling price for live profit margin analysis',
+        'Real-time business analytics tracking daily, weekly, and monthly gross revenue and top-selling product velocity',
+        'Role-Based Access Control (RBAC) separating restricted Cashier registers from unrestricted Administrator controls',
+        'Stock audit logs recording timestamps, quantity changes, adjustment reasons, and operator IDs',
+        'Clean Architecture implementation with Riverpod state management and SQLite schema migrations'
+      ],
+      securityHighlights: [
+        'Local Cryptographic Storage: SHA-256 hashed password authentication for all cashier and administrator accounts',
+        'Offline Data Privacy: All transaction records, customer data, and sales receipts remain strictly on the local device without external cloud telemetry exposure',
+        'Role-Based Interface Segmentation: Strict separation of Cashier privileges (orders, cart, checkout) from Administrator privileges (pricing, stock overrides, revenue reports)',
+        'Immutable Stock Audit Ledger: Mandatory logging of user IDs, timestamps, and justification reasons for every manual stock adjustment'
+      ],
+      architecture: [
+        {
+          title: 'Flutter & Dart Clean Architecture',
+          description: 'Strict layer separation across presentation (screens, widgets), domain models, data helpers (database_helper.dart), and Riverpod state notifiers.'
+        },
+        {
+          title: 'Embedded SQLite Database (pos_system.db)',
+          description: 'ACID-compliant relational database with schema versioning, automated seed data, and foreign key integrity for transactions and inventory requirements.'
+        },
+        {
+          title: 'Riverpod Reactive State Container',
+          description: 'Compile-safe dependency injection and reactive state notification powering cart operations, stock recalculations, and auth sessions.'
+        },
+        {
+          title: 'Bill of Materials (BOM) Junction Engine',
+          description: 'Relational mapping between finished catalog products and raw inventory requirements, triggering atomic stock decrements upon sale.'
+        },
+        {
+          title: 'Adaptive Dual-View Layout System',
+          description: 'Breakpoint-aware UI adapting between split-view desktop/tablet registers and single-column bottom-sheet mobile layouts.'
+        }
+      ],
+      metrics: [
+        { label: 'Cloud Dependence', value: '100% Offline' },
+        { label: 'Architecture', value: 'Clean + Riverpod' },
+        { label: 'Database', value: 'Local SQLite (v2)' },
+        { label: 'Cross-Platform', value: 'Desktop & Mobile' }
+      ]
+    }
+  },
+  {
     id: 'kamai',
     title: 'KamAI — Healthcare EMR Web Platform',
     subtitle: 'Electronic Medical Records & Clinical Portal',

@@ -391,6 +391,16 @@ export const TechIcon: React.FC<{ name: string; className?: string }> = ({ name,
     );
   }
 
+  // Riverpod
+  if (norm.includes('riverpod')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L3 7v10l9 5 9-5V7l-9-5z" stroke="#00D2B4" strokeWidth="2" strokeLinejoin="round" />
+        <path d="M12 22V12M12 12L3 7M12 12l9-5" stroke="#00D2B4" strokeWidth="2" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
   // Docker
   if (norm.includes('docker')) {
     return (
