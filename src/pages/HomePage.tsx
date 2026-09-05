@@ -28,7 +28,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   onOpenCaseStudy
 }) => {
   return (
-    <div className="pt-20 pb-16 px-4 sm:px-6 max-w-4xl mx-auto space-y-10">
+    <div className="pt-20 pb-4 px-4 sm:px-6 max-w-4xl mx-auto space-y-10">
       
       {/* 1. Profile / Hero Section */}
       <section id="home" className="space-y-5 scroll-mt-24">

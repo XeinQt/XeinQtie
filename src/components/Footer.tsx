@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = () => {
   };
 
   return (
-    <footer className="mt-24 border-t border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-950/60 backdrop-blur-sm">
+    <footer className="mt-8 border-t border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-950/60 backdrop-blur-sm">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-12">
           
