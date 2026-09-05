@@ -69,7 +69,7 @@ export const portfolioMeta: PortfolioMeta = {
       'SheetJS & PapaParse',
       'Vercel'
     ],
-    image: '/kaban-dashboard-dark.jpg',
+    image: '/kaban-cover.jpg',
     link: 'https://treasurer-system.vercel.app/'
   },
   skillsSummary: [

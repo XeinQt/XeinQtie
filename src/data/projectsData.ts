@@ -65,7 +65,7 @@ export const projectsData: ProjectItem[] = [
     role: 'Lead Full-Stack Developer & UI/UX Designer',
     authors: 'Archie Boiser and Rico Alentijo',
     description: 'An enterprise-grade institutional financial management, dues collection, and student fiscal transparency platform designed for Supreme Student Councils, academic treasurers, and university finance committees, actively used by 1,000+ students.',
-    image: '/kaban-dashboard-dark.jpg',
+    image: '/kaban-cover.jpg',
     tags: [
       'Next.js 14',
       'React 18',
@@ -80,6 +80,11 @@ export const projectsData: ProjectItem[] = [
     liveUrl: 'https://treasurer-system.vercel.app/',
     githubUrl: 'https://github.com/XeinQt/XeinQtie',
     screenshots: [
+      {
+        title: 'Cover Showcase',
+        url: '/kaban-cover.jpg',
+        caption: 'KABAN Student Council Financial Hub official cover showcase highlighting cash flow telemetry, ₱184,520 collection turnout, and 3FA security.'
+      },
       {
         title: 'System Overview',
         url: '/kaban-system-overview.png',
