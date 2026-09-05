@@ -2,6 +2,7 @@ import React from 'react';
 import { 
   X, 
   Download, 
+  Printer,
   FileText, 
   Briefcase, 
   GraduationCap, 
@@ -48,12 +49,20 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           </div>
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={handlePrint}
+            <a
+              href="/Rico_Alentijo_Resume.pdf"
+              download="Rico_Alentijo_Resume.pdf"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-zinc-900 hover:bg-black text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-zinc-950 transition shadow-sm cursor-pointer"
             >
               <Download className="w-3.5 h-3.5" />
-              <span>Print / Save PDF</span>
+              <span>Download PDF</span>
+            </a>
+            <button
+              onClick={handlePrint}
+              className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition shadow-sm cursor-pointer"
+            >
+              <Printer className="w-3.5 h-3.5" />
+              <span>Print</span>
             </button>
             <button
               onClick={onClose}

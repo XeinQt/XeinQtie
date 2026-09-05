@@ -7,7 +7,7 @@ interface ProjectsPageProps {
   onOpenResume?: () => void;
 }
 
-export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onBackToHome, onOpenResume }) => {
+export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onBackToHome }) => {
   return (
     <div className="pt-24 pb-20 px-4 sm:px-6 max-w-4xl mx-auto space-y-8">
       {/* Top Breadcrumb navigation */}
@@ -24,15 +24,14 @@ export const ProjectsPage: React.FC<ProjectsPageProps> = ({ onBackToHome, onOpen
           <span className="text-zinc-900 dark:text-white font-semibold">Projects</span>
         </div>
 
-        {onOpenResume && (
-          <button
-            onClick={onOpenResume}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span>Resume</span>
-          </button>
-        )}
+        <a
+          href="/Rico_Alentijo_Resume.pdf"
+          download="Rico_Alentijo_Resume.pdf"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition cursor-pointer"
+        >
+          <Download className="w-3.5 h-3.5" />
+          <span>Download Resume</span>
+        </a>
       </div>
 
       {/* Main Projects Section */}

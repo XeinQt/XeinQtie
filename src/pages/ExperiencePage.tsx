@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { 
   ArrowLeft, 
   Download
@@ -35,13 +35,14 @@ export const ExperiencePage: React.FC<ExperiencePageProps> = ({
         </div>
 
         <div className="flex items-center gap-3">
-          <button
-            onClick={onOpenResume}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition"
+          <a
+            href="/Rico_Alentijo_Resume.pdf"
+            download="Rico_Alentijo_Resume.pdf"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
-            <span>Resume</span>
-          </button>
+            <span>Download Resume</span>
+          </a>
         </div>
       </div>
 

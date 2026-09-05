@@ -4,7 +4,8 @@ import {
   Linkedin, 
   Mail, 
   Instagram, 
-  ChevronRight
+  Download,
+  Eye
 } from 'lucide-react';
 import { portfolioMeta } from '../data/portfolioData';
 import { FeaturedBuildCard } from '../components/FeaturedBuildCard';
@@ -125,14 +126,22 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
         </div>
 
-        {/* View Resume Button */}
-        <div>
+        {/* Resume Actions: Auto-download & Preview */}
+        <div className="flex flex-wrap items-center gap-2.5 pt-1">
+          <a
+            href="/Rico_Alentijo_Resume.pdf"
+            download="Rico_Alentijo_Resume.pdf"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium bg-zinc-950 hover:bg-black text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-zinc-950 shadow-sm transition cursor-pointer"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>Download Resume</span>
+          </a>
           <button
             onClick={onOpenResume}
-            className="inline-flex items-center gap-1 px-3.5 py-2 rounded-lg text-xs font-medium bg-zinc-950 hover:bg-black text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-zinc-950 shadow-sm transition cursor-pointer"
+            className="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition cursor-pointer"
           >
-            <span>View Resume</span>
-            <ChevronRight className="w-3.5 h-3.5" />
+            <Eye className="w-3.5 h-3.5" />
+            <span>Preview Online</span>
           </button>
         </div>
 

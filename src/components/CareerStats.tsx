@@ -14,7 +14,7 @@ interface CareerStatsProps {
   onOpenResume?: () => void;
 }
 
-export const CareerStats: React.FC<CareerStatsProps> = ({ onOpenContact, onOpenResume }) => {
+export const CareerStats: React.FC<CareerStatsProps> = ({ onOpenContact }) => {
   return (
     <div className="space-y-6">
       {/* Quick Metrics Grid */}
@@ -92,13 +92,14 @@ export const CareerStats: React.FC<CareerStatsProps> = ({ onOpenContact, onOpenR
               <Send className="w-3.5 h-3.5" />
               <span>Get In Touch</span>
             </button>
-            <button
-              onClick={onOpenResume}
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-medium bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 transition"
+            <a
+              href="/Rico_Alentijo_Resume.pdf"
+              download="Rico_Alentijo_Resume.pdf"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-medium bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white border border-zinc-200 dark:border-zinc-800 transition cursor-pointer"
             >
               <Download className="w-3.5 h-3.5 text-zinc-700 dark:text-zinc-300" />
               <span>Download CV</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
