@@ -191,6 +191,17 @@ export const projectsData: ProjectItem[] = [
       overview: 'KABAN is an enterprise-grade institutional financial management, dues collection, and student fiscal transparency platform designed for Supreme Student Councils, academic treasurers, and university finance committees, actively serving 1,000+ students. It bridges administrative cashier workflows with a 100% open public ledger to foster complete student trust.',
       challenge: 'University student councils routinely face difficulties with manual paper ledgers, fragmented spreadsheet records, delayed expense auditing, unauthorized data tampering, and lack of trust from the student body regarding fee utilization.',
       solution: 'Engineered an automated full-stack platform featuring 3-Factor Authentication (3FA) for officers, PL/pgSQL database triggers for race-condition-free multi-cashier collections, automated receipt generation, and an open public transparency portal for real-time accountability.',
+      responsibilities: [
+        'Full-Stack System Architecture: Architected and developed the complete web platform utilizing Next.js 14 App Router, React 18, and TypeScript, combining React Server Components and Edge API routes for sub-second data loading.',
+        'Dual-Theme UI/UX Design System: Crafted the entire UI/UX design system in Figma and built custom "Obsidian Night" (dark mode) and "Warm Paper" (light mode with amber/gold accents) themes via Tailwind CSS 3 for high-contrast auditing.',
+        'Supabase & PostgreSQL Database Engineering: Designed relational schemas, foreign key structures, and PL/pgSQL database triggers for atomic balance updates and sub-50ms Supabase Realtime WebSocket synchronization.',
+        '3-Factor Authentication (3FA) Security Pipeline: Engineered the officer security flow combining Web Crypto salted SHA-256 password hashing, time-limited Gmail OTP verification, and a secondary encrypted 6-digit PIN with lockout defense.',
+        'Edge Security & Route Protection: Implemented Next.js Edge Middleware protecting /admin/* routes prior to server rendering, stateless HMAC-SHA256 session management, and Cloudflare Turnstile cryptographic bot defenses.',
+        'Client-Side Bulk Spreadsheet Ingestion: Engineered a high-throughput browser ingestion pipeline using SheetJS and PapaParse for drag-and-drop Excel (.xlsx, .xls) and CSV rosters with automatic validation and duplicate detection.',
+        'Public Transparency & Dues Lookup Portal: Designed and developed the open student-facing portal with segmented auto-advancing 8-digit student ID search (YYYY-XXXX), live clearance badges, and printable electronic collection receipts.',
+        'Cashier Terminal & Concurrency Controls: Built the high-throughput cashier collection desk featuring multi-device debounce protection, balance lock guards, and automated official transaction reference numbering (TRX-YYYYMMDD-XXXX).',
+        'Production Deployment & Performance Optimization: Deployed and maintained the production system on Vercel\'s Global Edge Network, monitoring real-time performance telemetry with Vercel Analytics for 1,000+ active student users.'
+      ],
       keyFeatures: [
         'Active campus adoption serving 1,000+ students with instant ID dues lookup',
         'Cloudflare Turnstile cryptographic bot protection & 3FA entry defense',

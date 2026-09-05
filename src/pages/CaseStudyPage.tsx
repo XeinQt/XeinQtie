@@ -296,19 +296,43 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId, onBack 
             </div>
           </div>
 
-          {/* Key Responsibilities */}
+          {/* Key Responsibilities / What I Did */}
           {project.caseStudy.responsibilities && project.caseStudy.responsibilities.length > 0 && (
-            <div className="space-y-2.5">
-              <h3 className="text-sm font-bold text-zinc-900 dark:text-white uppercase tracking-wider">
-                Key Responsibilities & Deliverables
-              </h3>
-              <ul className="space-y-1.5">
-                {project.caseStudy.responsibilities.map((resp, i) => (
-                  <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-zinc-700 dark:text-zinc-300 shrink-0 mt-0.5" />
-                    <span>{resp}</span>
-                  </li>
-                ))}
+            <div className="p-5 sm:p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-950/60 border border-zinc-200/80 dark:border-zinc-800 space-y-4">
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <div className="flex items-center gap-2 font-bold text-zinc-900 dark:text-white text-xs sm:text-sm uppercase tracking-wider">
+                  <UserCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  <span>
+                    {project.id === 'kaban' ? 'What I Did in Kaban — Role & Core Deliverables' : 'Key Responsibilities & Deliverables'}
+                  </span>
+                </div>
+                {project.role && (
+                  <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-zinc-200/70 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-300/40 dark:border-zinc-700/50">
+                    Role: {project.role}
+                  </span>
+                )}
+              </div>
+              <ul className="grid grid-cols-1 gap-2.5">
+                {project.caseStudy.responsibilities.map((resp, i) => {
+                  const colonIdx = resp.indexOf(': ');
+                  return (
+                    <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                      <div>
+                        {colonIdx !== -1 ? (
+                          <>
+                            <span className="font-semibold text-zinc-900 dark:text-white">
+                              {resp.slice(0, colonIdx)}:
+                            </span>{' '}
+                            <span>{resp.slice(colonIdx + 2)}</span>
+                          </>
+                        ) : (
+                          <span>{resp}</span>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}
