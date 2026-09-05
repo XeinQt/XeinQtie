@@ -106,7 +106,7 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: 'exp-3',
-    role: 'UI/UX Codesigner',
+    role: 'Assistant UI/UX Designer',
     company: 'KamAI, BizCard, and Champion',
     companyInitials: 'UI',
     companyLogoBg: 'from-zinc-600 to-zinc-900',

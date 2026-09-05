@@ -83,7 +83,7 @@ export const resumeData = {
       ]
     },
     {
-      role: 'UI/UX CODESIGNER',
+      role: 'ASSISTANT UI/UX DESIGNER',
       projects: 'KamAI, BizCard, and Champion',
       company: 'Freelance / Project-Based',
       period: 'February 2025 — November 2025',
