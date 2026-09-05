@@ -210,6 +210,46 @@ export const TechIcon: React.FC<{ name: string; className?: string }> = ({ name,
     );
   }
 
+  // Expo / React Native
+  if (norm.includes('expo')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M4.5 5.5h3.6l3.9 6.2 3.9-6.2h3.6l-5.7 9 5.7 9h-3.6l-3.9-6.2-3.9 6.2H4.5l5.7-9-5.7-9z" />
+      </svg>
+    );
+  }
+
+  // Flask
+  if (norm.includes('flask')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 3h6M10 9h4M10 3v6l-4 9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l-4-9V3" />
+      </svg>
+    );
+  }
+
+  // OpenCV
+  if (norm.includes('opencv')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="7" r="4" stroke="#EA4335" strokeWidth="2" strokeDasharray="18 8" />
+        <circle cx="7" cy="16" r="4" stroke="#34A853" strokeWidth="2" strokeDasharray="18 8" />
+        <circle cx="17" cy="16" r="4" stroke="#4285F4" strokeWidth="2" strokeDasharray="18 8" />
+      </svg>
+    );
+  }
+
+  // FAISS / ArcFace / Biometric / Face
+  if (norm.includes('faiss') || norm.includes('arcface') || norm.includes('face') || norm.includes('biometric')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M4 16v2a2 2 0 0 0 2 2h2M16 20h2a2 2 0 0 0 2-2v-2" />
+        <circle cx="12" cy="12" r="3" />
+        <path d="M9 10v.01M15 10v.01" />
+      </svg>
+    );
+  }
+
   // Rust
   if (norm.includes('rust')) {
     return (

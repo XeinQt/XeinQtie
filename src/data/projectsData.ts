@@ -239,6 +239,215 @@ export const projectsData: ProjectItem[] = [
     }
   },
   {
+    id: 'checkpoint',
+    title: 'Checkpoint — AI Biometric Campus Attendance & Event Access System',
+    subtitle: 'Dual-Platform Biometric Attendance Ecosystem',
+    category: 'Computer Vision & Biometric Campus Tech',
+    typeCategory: 'fullstack',
+    year: '2026',
+    role: 'Lead Full-Stack Developer & AI Systems Architect',
+    authors: 'Rico Alentijo',
+    description: 'A dual-platform biometric attendance ecosystem combining a React 19 Enterprise Web Admin Portal, an Expo React Native mobile terminal with magnetic spring face tracking, and a GPU-accelerated ArcFace + FAISS facial recognition microservice.',
+    image: '/img/chikpoint/web2.png',
+    tags: [
+      'React 19',
+      'React Native & Expo',
+      'Python & Flask',
+      'ArcFace & FAISS',
+      'OpenCV & RetinaFace',
+      'Firebase Firestore',
+      'Tailwind CSS',
+      'TypeScript',
+      'jsPDF & SheetJS'
+    ],
+    screenshots: [
+      {
+        title: 'Executive Analytics Dashboard',
+        url: '/img/chikpoint/web2.png',
+        caption: 'Real-time KPI metrics tracking Total Courses, Students, Enrolled Face Templates, Active Sub-Admins, Live Events, and System Accuracy (98.4%).'
+      },
+      {
+        title: 'Mobile AI Scanner with Spring Tracking',
+        url: '/img/chikpoint/expo4.jpg',
+        caption: 'Sub-Admin mobile terminal running CameraX 60FPS biometric scans with critically damped spring face-tracking bounding boxes and Time-In/Time-Out modes.'
+      },
+      {
+        title: '5-Angle Biometric Face Enrollment',
+        url: '/img/chikpoint/web5.png',
+        caption: 'Multi-angle 3D biometric sequence (Frontal, Left, Right, Up, Down) extracting 512-D ArcFace vectors indexed into FAISS for maximum reliability.'
+      },
+      {
+        title: 'Desktop Kiosk Face Scanner',
+        url: '/img/chikpoint/web8.png',
+        caption: 'High-volume entrance kiosk scanner utilizing MediaPipe facial landmark tracking and sub-millisecond ArcFace LAN vector matching.'
+      },
+      {
+        title: 'Event Management & Window Rules',
+        url: '/img/chikpoint/web7.png',
+        caption: 'Campus event scheduler with strict attendance windows (Time-In Only, Dual Mode, Time-Out Only) and automated closure rules.'
+      },
+      {
+        title: 'Master Attendance Ledger',
+        url: '/img/chikpoint/web9.png',
+        caption: 'Live centralized attendance feed detailing attendee identities, timestamps, verification methods, and gate steward signatures.'
+      },
+      {
+        title: 'Multi-Format Attendance Reports',
+        url: '/img/chikpoint/web10.png',
+        caption: 'Filtered reporting engine exporting official rosters into presentation-ready PDF Documents (.pdf), Excel (.xlsx), and CSV files.'
+      },
+      {
+        title: 'Student Directory & Biometric Profiles',
+        url: '/img/chikpoint/web4.png',
+        caption: 'Searchable student directory managing academic cohorts, enrollment status badges (Face Enrolled vs Pending), and student profiles.'
+      },
+      {
+        title: 'Mobile Assigned Events Hub',
+        url: '/img/chikpoint/expo3.jpg',
+        caption: 'Sub-admin event dashboard displaying assigned venue schedules, active status indicators, and automatic attendance window lockouts.'
+      },
+      {
+        title: 'Mobile Live Recent Scans Feed',
+        url: '/img/chikpoint/expo5.jpg',
+        caption: 'Real-time mobile audit ledger displaying attendee details, degree programs, timestamps, and operator signatures.'
+      },
+      {
+        title: 'Sub-Admin RBAC Provisioning',
+        url: '/img/chikpoint/web6.png',
+        caption: 'Role-based delegation assigning event coordinators and gate stewards to specific event venues with credential management.'
+      },
+      {
+        title: 'Security Audit Logs',
+        url: '/img/chikpoint/web11.png',
+        caption: 'Immutable tamper-proof audit trail logging every admin action, login, biometric re-enrollment, and scan override with timestamps and IP.'
+      },
+      {
+        title: 'Zero-Config LAN Discovery',
+        url: '/img/chikpoint/expo6.jpg',
+        caption: 'Direct LAN setup pairing phone terminal to the host inference microservice with automated health-check latency verification.'
+      },
+      {
+        title: 'Unified Authentication Portal',
+        url: '/img/chikpoint/web1.png',
+        caption: 'Secure role-based authentication gateway for administrators and event gate stewards with public student lookup.'
+      }
+    ],
+    modules: [
+      {
+        title: 'Desktop Web Administration Portal',
+        route: '/admin/*',
+        features: [
+          'Executive Analytics Dashboard: Real-time telemetry monitoring student enrollment, active sub-admins, live attendance, and 98.4% model accuracy.',
+          'Multi-Angle Biometric Enrollment: 5-angle capture (Frontal, Left, Right, Up, Down) extracting 512-D ArcFace vectors indexed into FAISS.',
+          'Academic Program & Student Directory: Cohort tracking across BSIT, BSBA, BSA with enrollment badges and biometric status flags.',
+          'Sub-Admin Role Delegation: Granular RBAC provisioning assigning specific campus venues and events to gate stewards.',
+          'Event Scheduler & Automated Cutoffs: Configurable attendance rules (Time-In Only, Dual Mode, Time-Out) with strict window lockouts.',
+          'Desktop Kiosk Scanner Booth: MediaPipe landmark detection + ArcFace vector matching for high-throughput station scanning.',
+          'Multi-Format Export Engine: 1-click generation of PDF rosters, Excel spreadsheets (.xlsx), and CSV reports via jsPDF & SheetJS.',
+          'Immutable Security Audit Ledger: Tamper-proof audit logging of logins, overrides, re-enrollments, and administrative adjustments.'
+        ]
+      },
+      {
+        title: 'Sub-Admin Mobile Terminal',
+        route: 'mobile://terminal',
+        features: [
+          'Sub-Admin Gate Authentication: Secure credential login restricting scanning access strictly to authorized event coordinators.',
+          'Zero-Config Direct LAN Discovery: Wi-Fi host pairing with sub-25ms frame transfer latency and automated health checks.',
+          'Assigned Events Hub: Filters venue access based on administrator assignments with automated time window enforcement.',
+          'CameraX 60FPS Continuous AI Loop: High-throughput frame streaming with 0.55-quality upright JPEG encoding and 35ms breather cycle.',
+          'Critically Damped Spring Face Tracking: Spring physics (tension: 170, friction: 18) and low-pass deadband filter eliminating jitter.',
+          'Segmented Mode & Live Stats: One-tap toggling between [ Time In ] and [ Time Out ] with instant PRESENT and TOTAL counters.',
+          'Live Recent Scans Feed: Real-time ledger of verified attendees with student IDs, timestamps, and operator audit stamps.',
+          'Anti-Spoofing & Liveness Guard: Silent-Face disparity and texture analysis rejecting printed photos and video replay attacks.'
+        ]
+      },
+      {
+        title: 'AI Biometric Inference Microservice',
+        route: 'lan://localhost:5001',
+        features: [
+          'RetinaFace Detection: High-precision face bounding box extraction, landmark alignment, and multi-face parsing.',
+          'ArcFace Buffalo_L Embeddings: 512-dimensional L2-normalized deep biometric vector extraction with high inter-class variance.',
+          'FAISS Cosine Similarity Search: Sub-millisecond vector indexing across thousands of enrolled student embeddings.',
+          'Anti-Spoofing & Liveness Classifier: Silent-Face CNN model evaluating texture artifacts to defeat digital replay attacks.',
+          'In-Memory Student Cache: Direct zero-delay memory cache of student profiles eliminating redundant database roundtrips.'
+        ]
+      }
+    ],
+    techStackTable: [
+      { layer: '1. Web Frontend Portal', tech: 'React 19 & Vite (v6.0)', purpose: 'Modern declarative desktop administration dashboard with instant HMR and high-performance bundle optimization.' },
+      { layer: '1. Mobile Scanning App', tech: 'React Native (v0.86) & Expo 57', purpose: 'Cross-platform native mobile scanning terminal utilizing Expo Camera (CameraX) and Reanimated.' },
+      { layer: '1. Programming Languages', tech: 'TypeScript & Python 3.10', purpose: 'Strict static type safety across web/mobile clients paired with Python for AI and computer vision microservices.' },
+      { layer: '2. Styling & Design System', tech: 'Tailwind CSS & Lucide React', purpose: 'Utility-first CSS styling with monochrome/zinc aesthetic, high-contrast dark mode, and accessible controls.' },
+      { layer: '3. Biometric Deep Learning', tech: 'InsightFace (ArcFace Buffalo_L)', purpose: 'Deep convolutional network generating 512-dimensional facial recognition vector embeddings with angular margin loss.' },
+      { layer: '3. Face Detection & Alignment', tech: 'RetinaFace', purpose: 'Single-stage multi-task face detection identifying bounding boxes and 5-point facial landmarks.' },
+      { layer: '3. Vector Similarity Search', tech: 'FAISS (Facebook AI Similarity Search)', purpose: 'Sub-millisecond cosine vector similarity indexing and nearest-neighbor search across student biometric templates.' },
+      { layer: '3. Anti-Spoofing & Liveness', tech: 'Silent-Face Anti-Spoofing CNN', purpose: 'Fourier spectrum and texture artifact analysis classifying authentic live humans vs printed photos or screen replays.' },
+      { layer: '3. Computer Vision & Frames', tech: 'OpenCV (cv2)', purpose: 'Image frame decoding, aspect ratio transforms, BGR-to-RGB conversion, and normalization.' },
+      { layer: '4. Microservice Backend', tech: 'Python Flask & Gunicorn', purpose: 'Lightweight REST microservice serving high-speed /scan-group and enrollment endpoints over local LAN Wi-Fi.' },
+      { layer: '4. Cloud Database', tech: 'Firebase Cloud Firestore', purpose: 'Real-time NoSQL document synchronization between desktop admin and mobile gate terminals with live push listeners.' },
+      { layer: '4. Mobile Authentication', tech: 'Firebase Auth & AsyncStorage', purpose: 'Role-based access control segmenting Super Admins and event Sub-Admins with persisted session state.' },
+      { layer: '5. Animation & Physics', tech: 'React Native Animated Springs', purpose: 'Critically damped spring physics (tension: 170, friction: 18) for magnetic bounding box face tracking.' },
+      { layer: '5. Reporting & Document Export', tech: 'jsPDF & SheetJS (xlsx)', purpose: 'Client-side export generating official attendance rosters in presentation-ready PDF, Excel (.xlsx), and CSV.' },
+      { layer: '6. Local Networking', tech: 'Direct LAN Wi-Fi (HTTP REST)', purpose: 'Sub-35ms frame delivery between phone cameras and the host inference service with AbortController timeout guards.' }
+    ],
+    caseStudy: {
+      overview: 'Checkpoint is an AI-powered biometric attendance and event access ecosystem engineered to eliminate proxy check-ins, barcode counterfeiting, and gate congestion across campus venues. It seamlessly pairs an enterprise desktop web administration portal (React 19 + Vite + Tailwind CSS) with a dedicated sub-admin mobile scanning terminal (React Native + Expo) and a GPU-accelerated facial recognition microservice (Python + ArcFace + FAISS).',
+      challenge: 'Campus events and university auditoriums typically rely on manual paper rosters, barcode scanners, or student ID tap cards. These traditional methods cause massive gate bottlenecks, proxy check-ins, counterfeit barcodes, and fragmented post-event reporting that requires days of manual auditing.',
+      solution: 'Architected an end-to-end distributed system separating administrative governance from high-speed entrance scanning. Administrators manage academic programs, enroll 5-angle biometric templates, schedule events with strict attendance windows, and export compliance reports on the desktop web portal. Sub-admins use a lightweight Expo mobile terminal that streams camera frames over direct LAN Wi-Fi to a local ArcFace + FAISS microservice, identifying attendees in sub-130ms cycles with magnetic bounding box tracking and anti-spoofing protection.',
+      keyFeatures: [
+        'Dual-platform ecosystem: Desktop Web Admin (React 19) + Sub-Admin Mobile Gate Terminal (Expo / React Native)',
+        'AI Biometric Inference pipeline: RetinaFace face detection + ArcFace 512-D vector embeddings + FAISS similarity search',
+        '5-Angle Biometric Enrollment sequence (Frontal, Left, Right, Up, Down) for rock-solid recognition in varying campus lighting',
+        'High-FPS continuous camera scanning loop (~7 FPS, sub-130ms loop cycle latency) with CameraX viewport mapping',
+        'Critically damped spring bounding box tracking (tension: 170, friction: 18) with deadband low-pass jitter filtering',
+        'Anti-spoofing & liveness verification via Silent-Face CNN to prevent printed photo and phone replay bypasses',
+        'Assigned Events Hub with automated attendance window rules (Time-In Only, Dual Mode, Time-Out) and automatic cutoff lockouts',
+        'Real-time multi-device synchronization via Firebase Firestore for instant dashboard attendance updates',
+        '1-click report generation exporting official rosters into presentation-ready PDF, Excel (.xlsx), and CSV files',
+        'Tamper-proof security audit log tracking administrative logins, student registrations, and attendance overrides'
+      ],
+      securityHighlights: [
+        'Biometric Vector Privacy: Raw facial photos are immediately converted to 512-D numerical embeddings and never stored permanently on disk',
+        'Anti-Spoofing & Liveness Guard: Silent-Face deep learning model detects pixel disparity and screen reflections to block photo spoofing',
+        'Strict Window Enforcement: Automatic scanner locking when scheduled event cutoffs pass to prevent unauthorized retroactive logs',
+        'Role-Based Access Control (RBAC): Strict segregation of Super Admin configuration privileges and Sub-Admin event scanning rights',
+        'Zero-Data Exposure LAN Pipeline: Face inference runs over direct local Wi-Fi, keeping high-frequency video frames off public cloud networks'
+      ],
+      architecture: [
+        {
+          title: 'Distributed Dual-Platform Governance',
+          description: 'Separation of concerns between desktop administration (React 19) for course/event management and mobile gate terminals (Expo) for rapid entry scanning.'
+        },
+        {
+          title: 'Python ArcFace + FAISS Biometric Microservice',
+          description: 'Sub-millisecond cosine vector similarity matching across 512-dimensional embeddings extracted by ArcFace Buffalo_L model.'
+        },
+        {
+          title: 'Chained High-FPS Mobile Scanning Loop',
+          description: 'Self-triggering camera loop running at ~7 FPS with 0.55-quality upright JPEG encoding and 35ms breathers, delivering ~130ms end-to-end frame latency.'
+        },
+        {
+          title: 'Critically Damped Spring Face Tracking',
+          description: 'Magnetic bounding box animation powered by spring physics (tension: 170, friction: 18) and deadband filtering for fluid, wobble-free face following.'
+        },
+        {
+          title: 'Real-Time Cloud Synchronization',
+          description: 'Firebase Cloud Firestore listeners instantly propagate gate check-ins to the administrator dashboard and master audit ledger.'
+        },
+        {
+          title: 'Multi-Format Academic Export Engine',
+          description: 'jsPDF and SheetJS generate print-ready student clearance documents, Excel summaries, and raw CSV archives with one click.'
+        }
+      ],
+      metrics: [
+        { label: 'Recognition Accuracy', value: '98.4%' },
+        { label: 'Inference Latency', value: '< 130ms' },
+        { label: 'Face Vectors / Student', value: '5-Angle 512-D' },
+        { label: 'Platform Support', value: 'Web + Mobile' }
+      ]
+    }
+  },
+  {
     id: 'kamai',
     title: 'KamAI — Healthcare EMR Web Platform',
     subtitle: 'Electronic Medical Records & Clinical Portal',

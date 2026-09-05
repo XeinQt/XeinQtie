@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { 
   X, 
   ArrowUpRight, 
@@ -42,6 +42,12 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({ pr
                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono bg-[#38bdf8]/10 text-[#38bdf8] border border-[#38bdf8]/30">
                   <ShieldCheck className="w-3 h-3" />
                   3FA Secured
+                </span>
+              )}
+              {project.id === 'checkpoint' && (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                  <ShieldCheck className="w-3 h-3" />
+                  AI Biometric Guard
                 </span>
               )}
             </div>
@@ -191,7 +197,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({ pr
                 <div className="p-4 rounded-2xl bg-[#0284c7]/5 dark:bg-[#38bdf8]/5 border border-[#38bdf8]/20 space-y-2">
                   <div className="flex items-center gap-2 font-bold text-zinc-900 dark:text-white text-xs">
                     <Lock className="w-4 h-4 text-[#38bdf8]" />
-                    <span>3-Factor Authentication (3FA) & Institutional Security</span>
+                    <span>{project.id === 'checkpoint' ? 'Biometric Privacy & Anti-Spoof Security' : '3-Factor Authentication (3FA) & Institutional Security'}</span>
                   </div>
                   <ul className="space-y-1 text-xs text-zinc-600 dark:text-zinc-300">
                     {project.caseStudy.securityHighlights.map((item, idx) => (

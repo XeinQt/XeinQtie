@@ -118,6 +118,15 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId, onBack 
               </span>
             </>
           )}
+          {project.id === 'checkpoint' && (
+            <>
+              <span>·</span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                <ShieldCheck className="w-3 h-3" />
+                AI Biometric Guard
+              </span>
+            </>
+          )}
         </div>
 
         <h1 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white tracking-tight leading-snug">
@@ -291,7 +300,7 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId, onBack 
             <div className="p-5 rounded-2xl bg-[#0284c7]/5 dark:bg-[#38bdf8]/5 border border-[#38bdf8]/20 space-y-2.5">
               <div className="flex items-center gap-2 font-bold text-zinc-900 dark:text-white text-xs sm:text-sm">
                 <Lock className="w-4 h-4 text-[#38bdf8]" />
-                <span>3-Factor Authentication (3FA) & Institutional Security</span>
+                <span>{project.id === 'checkpoint' ? 'Biometric Privacy & Anti-Spoof Security' : '3-Factor Authentication (3FA) & Institutional Security'}</span>
               </div>
               <ul className="space-y-1 text-xs text-zinc-600 dark:text-zinc-300">
                 {project.caseStudy.securityHighlights.map((item, idx) => (
