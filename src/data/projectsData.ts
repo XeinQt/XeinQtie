@@ -251,9 +251,9 @@ export const projectsData: ProjectItem[] = [
     typeCategory: 'fullstack',
     year: '2026',
     role: 'Lead Full-Stack Developer & Systems Architect',
-    authors: 'Rico Alentijo',
+    authors: 'Archie Boiser and Rico Alentijo',
     description: 'A dual-platform biometric attendance ecosystem combining a React 19 Enterprise Web Admin Portal, an Expo React Native mobile terminal with magnetic spring face tracking, and a GPU-accelerated ArcFace + FAISS facial recognition microservice.',
-    image: '/img/chikpoint/web2.png',
+    image: '/img/chikpoint/checkpoint-cover.jpg',
     tags: [
       'React 19',
       'React Native & Expo',
@@ -266,6 +266,11 @@ export const projectsData: ProjectItem[] = [
       'jsPDF & SheetJS'
     ],
     screenshots: [
+      {
+        title: 'Cover Showcase',
+        url: '/img/chikpoint/checkpoint-cover.jpg',
+        caption: 'Checkpoint Campus Biometric Attendance System official cover showcase highlighting face scanner terminal telemetry, 98.4% accuracy, ~25ms LAN latency, and 512-D vector size.'
+      },
       {
         title: 'Executive Analytics Dashboard',
         url: '/img/chikpoint/web2.png',
