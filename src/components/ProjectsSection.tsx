@@ -45,12 +45,12 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-1.5 p-1 rounded-xl bg-zinc-100 dark:bg-zinc-850 border border-zinc-200/70 dark:border-zinc-800 text-xs font-normal">
+        <div className="flex items-center gap-1.5 p-1 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 text-xs font-normal">
           <button
             onClick={() => { setFilter('all'); }}
             className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
               filter === 'all'
-                ? 'bg-white dark:bg-zinc-750 text-zinc-950 dark:text-white font-medium shadow-2xs'
+                ? 'bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white font-medium shadow-xs'
                 : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
             }`}
           >
@@ -60,7 +60,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
             onClick={() => { setFilter('fullstack'); }}
             className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
               filter === 'fullstack'
-                ? 'bg-white dark:bg-zinc-750 text-zinc-950 dark:text-white font-medium shadow-2xs'
+                ? 'bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white font-medium shadow-xs'
                 : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
             }`}
           >
@@ -70,7 +70,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
             onClick={() => { setFilter('uiux'); }}
             className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
               filter === 'uiux'
-                ? 'bg-white dark:bg-zinc-750 text-zinc-950 dark:text-white font-medium shadow-2xs'
+                ? 'bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white font-medium shadow-xs'
                 : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
             }`}
           >
@@ -96,7 +96,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
         <div className="flex justify-center pt-2">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-850 text-zinc-800 dark:text-zinc-200 shadow-2xs transition-all duration-200 cursor-pointer active:scale-[0.98]"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 shadow-xs transition-all duration-200 cursor-pointer active:scale-[0.98]"
           >
             <span>{showAll ? 'Show Less' : `View All Projects (${projectsData.length})`}</span>
             {showAll ? (

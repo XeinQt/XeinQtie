@@ -1,4 +1,4 @@
-﻿/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -31,6 +31,10 @@ export default {
           light: '#f4f4f5',
           muted: '#a1a1aa',
           dark: '#27272a',
+        },
+        zinc: {
+          750: '#2c2c31',
+          850: '#18181c',
         }
       },
       fontFamily: {
