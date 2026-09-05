@@ -1,8 +1,9 @@
 import React from 'react';
 import { 
-  Github, 
+  Facebook, 
   Linkedin, 
   Mail, 
+  Instagram, 
   ChevronRight
 } from 'lucide-react';
 import { portfolioMeta } from '../data/portfolioData';
@@ -10,9 +11,7 @@ import { FeaturedBuildCard } from '../components/FeaturedBuildCard';
 import { ExperienceSimpleList } from '../components/ExperienceSimpleList';
 import { ProjectsSection } from '../components/ProjectsSection';
 import { TechnologiesSection } from '../components/TechnologiesSection';
-import { TestimonialsSection } from '../components/TestimonialsSection';
 import { EducationSection } from '../components/EducationSection';
-import { OutsideTheIDESection } from '../components/OutsideTheIDESection';
 import { GithubActivitySection } from '../components/GithubActivitySection';
 import { ContactSection } from '../components/ContactSection';
 import { TechBadge } from '../components/TechBadge';
@@ -66,13 +65,13 @@ export const HomePage: React.FC<HomePageProps> = ({
             {/* Social Icons row */}
             <div className="flex items-center gap-3 text-zinc-500 dark:text-zinc-400">
               <a 
-                href={portfolioMeta.socials.github} 
+                href={portfolioMeta.socials.facebook} 
                 target="_blank" 
                 rel="noreferrer" 
                 className="hover:text-zinc-950 dark:hover:text-white transition" 
-                aria-label="GitHub"
+                aria-label="Facebook"
               >
-                <Github className="w-4 h-4" />
+                <Facebook className="w-4 h-4" />
               </a>
               <a 
                 href={portfolioMeta.socials.linkedin} 
@@ -86,9 +85,18 @@ export const HomePage: React.FC<HomePageProps> = ({
               <a 
                 href={portfolioMeta.socials.email} 
                 className="hover:text-zinc-950 dark:hover:text-white transition" 
-                aria-label="Email"
+                aria-label="Gmail"
               >
                 <Mail className="w-4 h-4" />
+              </a>
+              <a 
+                href={portfolioMeta.socials.instagram} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="hover:text-zinc-950 dark:hover:text-white transition" 
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -150,20 +158,12 @@ export const HomePage: React.FC<HomePageProps> = ({
         <TechnologiesSection />
       </section>
 
-      {/* 6. Testimonials Section */}
-      <section id="testimonials" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
-        <TestimonialsSection />
-      </section>
 
       {/* 7. Education Section */}
       <section id="education" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
         <EducationSection />
       </section>
 
-      {/* 8. Outside the IDE Section */}
-      <section id="outside-ide" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
-        <OutsideTheIDESection />
-      </section>
 
       {/* 9. GitHub Activity Section */}
       <section id="github" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">

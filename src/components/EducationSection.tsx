@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 export const EducationSection: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ export const EducationSection: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-8 pt-1">
         {/* Left Column: Date Range */}
         <div className="w-full sm:w-48 shrink-0 text-xs sm:text-sm text-zinc-400 dark:text-zinc-500 font-normal">
-          2022 - 2027
+          2025
         </div>
 
         {/* Right Column: Degree & University */}
@@ -21,10 +21,10 @@ export const EducationSection: React.FC = () => {
             Bachelor of Science in Information Technology
           </h3>
           <div className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-normal">
-            Polytechnic University of the Philippines
+            Davao Oriental State University
           </div>
           <div className="text-xs text-zinc-400 dark:text-zinc-500 font-normal">
-            San Juan Campus
+            Banaybanay Campus
           </div>
         </div>
       </div>

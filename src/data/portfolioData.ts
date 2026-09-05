@@ -20,6 +20,8 @@ export interface PortfolioMeta {
     linkedin: string;
     email: string;
     twitter?: string;
+    facebook: string;
+    instagram: string;
   };
   featuredBuild: {
     badge: string;
@@ -39,14 +41,16 @@ export const portfolioMeta: PortfolioMeta = {
   headlineSub: 'UI/UX Designer',
   tagline: 'Designing and building modern web and mobile applications with full-stack engineering and AI-assisted workflows.',
   bio: 'I design and build modern web and mobile applications using full-stack technologies and AI-assisted development tools. I use AI to improve my workflow, solve problems faster, and create functional, user-friendly digital products.',
-  location: 'San Juan City, Philippines',
-  email: 'ricoalentijo.dev@gmail.com',
+  location: 'Davao Oriental, Philippines',
+  email: 'ricoalentijo4@gmail.com',
   availability: 'Available for full-time roles & AI-driven projects',
   isAvailable: true,
   socials: {
     github: 'https://github.com/XeinQt',
-    linkedin: 'https://linkedin.com',
-    email: 'mailto:ricoalentijo.dev@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/rico-s-alentijo-0823b22b4/',
+    email: 'mailto:ricoalentijo4@gmail.com',
+    facebook: 'https://www.facebook.com/share/185jDx11r6/',
+    instagram: 'https://www.instagram.com/xeinqtiee',
     twitter: 'https://twitter.com'
   },
   featuredBuild: {

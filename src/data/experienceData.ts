@@ -1,4 +1,4 @@
-﻿export type EmploymentType = 'Full-Time' | 'Contract' | 'Freelance' | 'Part-Time' | 'Internship';
+export type EmploymentType = 'Full-Time' | 'Contract' | 'Freelance' | 'Part-Time' | 'Internship';
 export type ExperienceCategory = 'all' | 'engineering' | 'freelance' | 'leadership' | 'consulting';
 
 export interface TechSkill {
@@ -106,7 +106,7 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: 'exp-3',
-    role: 'Assistant UI/UX Designer',
+    role: 'UI/UX Codesigner',
     company: 'KamAI, BizCard, and Champion',
     companyInitials: 'UI',
     companyLogoBg: 'from-zinc-600 to-zinc-900',
@@ -115,9 +115,9 @@ export const experiences: ExperienceItem[] = [
     type: 'Contract',
     category: 'freelance',
     startDate: 'February 2025',
-    endDate: 'July 2025',
+    endDate: 'November 2025',
     isCurrent: false,
-    duration: '6 mos',
+    duration: '10 mos',
     summary: 'Designed high-fidelity web and mobile prototypes in Figma for healthcare EMR (KamAI), referral platform (Champion), and BizCard.',
     highlights: [
       { label: 'Design Systems', value: 'Multi-Product' },
