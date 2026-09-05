@@ -4,8 +4,7 @@ import {
   Linkedin, 
   Mail, 
   Instagram, 
-  Download,
-  Eye
+  Download
 } from 'lucide-react';
 import { portfolioMeta } from '../data/portfolioData';
 import { FeaturedBuildCard } from '../components/FeaturedBuildCard';
@@ -19,13 +18,12 @@ import { TechBadge } from '../components/TechBadge';
 import { ScrollReveal } from '../components/ScrollReveal';
 
 interface HomePageProps {
-  onOpenResume: () => void;
+  onOpenResume?: () => void;
   onOpenContact?: () => void;
   onOpenCaseStudy: (projectId: string) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
-  onOpenResume,
   onOpenCaseStudy
 }) => {
   return (
@@ -127,8 +125,8 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
         </div>
 
-        {/* Resume Actions: Auto-download & Preview */}
-        <div className="flex flex-wrap items-center gap-2.5 pt-1">
+        {/* Download Resume Button */}
+        <div className="pt-1">
           <a
             href="/Rico_Alentijo_Resume.pdf"
             download="Rico_Alentijo_Resume.pdf"
@@ -137,13 +135,6 @@ export const HomePage: React.FC<HomePageProps> = ({
             <Download className="w-3.5 h-3.5" />
             <span>Download Resume</span>
           </a>
-          <button
-            onClick={onOpenResume}
-            className="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-xs font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition cursor-pointer"
-          >
-            <Eye className="w-3.5 h-3.5" />
-            <span>Preview Online</span>
-          </button>
         </div>
 
       </section>
