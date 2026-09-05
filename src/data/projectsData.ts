@@ -240,12 +240,12 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: 'checkpoint',
-    title: 'Checkpoint — AI Biometric Campus Attendance & Event Access System',
+    title: 'Checkpoint — Biometric Campus Attendance & Event Access System',
     subtitle: 'Dual-Platform Biometric Attendance Ecosystem',
     category: 'Computer Vision & Biometric Campus Tech',
     typeCategory: 'fullstack',
     year: '2026',
-    role: 'Lead Full-Stack Developer & AI Systems Architect',
+    role: 'Lead Full-Stack Developer & Systems Architect',
     authors: 'Rico Alentijo',
     description: 'A dual-platform biometric attendance ecosystem combining a React 19 Enterprise Web Admin Portal, an Expo React Native mobile terminal with magnetic spring face tracking, and a GPU-accelerated ArcFace + FAISS facial recognition microservice.',
     image: '/img/chikpoint/web2.png',
@@ -267,7 +267,7 @@ export const projectsData: ProjectItem[] = [
         caption: 'Real-time KPI metrics tracking Total Courses, Students, Enrolled Face Templates, Active Sub-Admins, Live Events, and System Accuracy (98.4%).'
       },
       {
-        title: 'Mobile AI Scanner with Spring Tracking',
+        title: 'Mobile Scanner with Spring Tracking',
         url: '/img/chikpoint/expo4.jpg',
         caption: 'Sub-Admin mobile terminal running CameraX 60FPS biometric scans with critically damped spring face-tracking bounding boxes and Time-In/Time-Out modes.'
       },
@@ -354,7 +354,7 @@ export const projectsData: ProjectItem[] = [
           'Sub-Admin Gate Authentication: Secure credential login restricting scanning access strictly to authorized event coordinators.',
           'Zero-Config Direct LAN Discovery: Wi-Fi host pairing with sub-25ms frame transfer latency and automated health checks.',
           'Assigned Events Hub: Filters venue access based on administrator assignments with automated time window enforcement.',
-          'CameraX 60FPS Continuous AI Loop: High-throughput frame streaming with 0.55-quality upright JPEG encoding and 35ms breather cycle.',
+          'CameraX 60FPS Continuous Scanning Loop: High-throughput frame streaming with 0.55-quality upright JPEG encoding and 35ms breather cycle.',
           'Critically Damped Spring Face Tracking: Spring physics (tension: 170, friction: 18) and low-pass deadband filter eliminating jitter.',
           'Segmented Mode & Live Stats: One-tap toggling between [ Time In ] and [ Time Out ] with instant PRESENT and TOTAL counters.',
           'Live Recent Scans Feed: Real-time ledger of verified attendees with student IDs, timestamps, and operator audit stamps.',
@@ -362,7 +362,7 @@ export const projectsData: ProjectItem[] = [
         ]
       },
       {
-        title: 'AI Biometric Inference Microservice',
+        title: 'Biometric Inference Microservice',
         route: 'lan://localhost:5001',
         features: [
           'RetinaFace Detection: High-precision face bounding box extraction, landmark alignment, and multi-face parsing.',
@@ -376,11 +376,11 @@ export const projectsData: ProjectItem[] = [
     techStackTable: [
       { layer: '1. Web Frontend Portal', tech: 'React 19 & Vite (v6.0)', purpose: 'Modern declarative desktop administration dashboard with instant HMR and high-performance bundle optimization.' },
       { layer: '1. Mobile Scanning App', tech: 'React Native (v0.86) & Expo 57', purpose: 'Cross-platform native mobile scanning terminal utilizing Expo Camera (CameraX) and Reanimated.' },
-      { layer: '1. Programming Languages', tech: 'TypeScript & Python 3.10', purpose: 'Strict static type safety across web/mobile clients paired with Python for AI and computer vision microservices.' },
+      { layer: '1. Programming Languages', tech: 'TypeScript & Python 3.10', purpose: 'Strict static type safety across web/mobile clients paired with Python for biometric and computer vision microservices.' },
       { layer: '2. Styling & Design System', tech: 'Tailwind CSS & Lucide React', purpose: 'Utility-first CSS styling with monochrome/zinc aesthetic, high-contrast dark mode, and accessible controls.' },
       { layer: '3. Biometric Deep Learning', tech: 'InsightFace (ArcFace Buffalo_L)', purpose: 'Deep convolutional network generating 512-dimensional facial recognition vector embeddings with angular margin loss.' },
       { layer: '3. Face Detection & Alignment', tech: 'RetinaFace', purpose: 'Single-stage multi-task face detection identifying bounding boxes and 5-point facial landmarks.' },
-      { layer: '3. Vector Similarity Search', tech: 'FAISS (Facebook AI Similarity Search)', purpose: 'Sub-millisecond cosine vector similarity indexing and nearest-neighbor search across student biometric templates.' },
+      { layer: '3. Vector Similarity Search', tech: 'FAISS Vector Indexing', purpose: 'Sub-millisecond cosine vector similarity indexing and nearest-neighbor search across student biometric templates.' },
       { layer: '3. Anti-Spoofing & Liveness', tech: 'Silent-Face Anti-Spoofing CNN', purpose: 'Fourier spectrum and texture artifact analysis classifying authentic live humans vs printed photos or screen replays.' },
       { layer: '3. Computer Vision & Frames', tech: 'OpenCV (cv2)', purpose: 'Image frame decoding, aspect ratio transforms, BGR-to-RGB conversion, and normalization.' },
       { layer: '4. Microservice Backend', tech: 'Python Flask & Gunicorn', purpose: 'Lightweight REST microservice serving high-speed /scan-group and enrollment endpoints over local LAN Wi-Fi.' },
@@ -391,12 +391,12 @@ export const projectsData: ProjectItem[] = [
       { layer: '6. Local Networking', tech: 'Direct LAN Wi-Fi (HTTP REST)', purpose: 'Sub-35ms frame delivery between phone cameras and the host inference service with AbortController timeout guards.' }
     ],
     caseStudy: {
-      overview: 'Checkpoint is an AI-powered biometric attendance and event access ecosystem engineered to eliminate proxy check-ins, barcode counterfeiting, and gate congestion across campus venues. It seamlessly pairs an enterprise desktop web administration portal (React 19 + Vite + Tailwind CSS) with a dedicated sub-admin mobile scanning terminal (React Native + Expo) and a GPU-accelerated facial recognition microservice (Python + ArcFace + FAISS).',
+      overview: 'Checkpoint is a biometric attendance and event access ecosystem engineered to eliminate proxy check-ins, barcode counterfeiting, and gate congestion across campus venues. It seamlessly pairs an enterprise desktop web administration portal (React 19 + Vite + Tailwind CSS) with a dedicated sub-admin mobile scanning terminal (React Native + Expo) and a GPU-accelerated facial recognition microservice (Python + ArcFace + FAISS).',
       challenge: 'Campus events and university auditoriums typically rely on manual paper rosters, barcode scanners, or student ID tap cards. These traditional methods cause massive gate bottlenecks, proxy check-ins, counterfeit barcodes, and fragmented post-event reporting that requires days of manual auditing.',
       solution: 'Architected an end-to-end distributed system separating administrative governance from high-speed entrance scanning. Administrators manage academic programs, enroll 5-angle biometric templates, schedule events with strict attendance windows, and export compliance reports on the desktop web portal. Sub-admins use a lightweight Expo mobile terminal that streams camera frames over direct LAN Wi-Fi to a local ArcFace + FAISS microservice, identifying attendees in sub-130ms cycles with magnetic bounding box tracking and anti-spoofing protection.',
       keyFeatures: [
         'Dual-platform ecosystem: Desktop Web Admin (React 19) + Sub-Admin Mobile Gate Terminal (Expo / React Native)',
-        'AI Biometric Inference pipeline: RetinaFace face detection + ArcFace 512-D vector embeddings + FAISS similarity search',
+        'Biometric Inference pipeline: RetinaFace face detection + ArcFace 512-D vector embeddings + FAISS similarity search',
         '5-Angle Biometric Enrollment sequence (Frontal, Left, Right, Up, Down) for rock-solid recognition in varying campus lighting',
         'High-FPS continuous camera scanning loop (~7 FPS, sub-130ms loop cycle latency) with CameraX viewport mapping',
         'Critically damped spring bounding box tracking (tension: 170, friction: 18) with deadband low-pass jitter filtering',

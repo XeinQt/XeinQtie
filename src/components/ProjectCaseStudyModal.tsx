@@ -47,7 +47,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({ pr
               {project.id === 'checkpoint' && (
                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
                   <ShieldCheck className="w-3 h-3" />
-                  AI Biometric Guard
+                  Biometric Guard
                 </span>
               )}
             </div>
