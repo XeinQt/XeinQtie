@@ -265,6 +265,7 @@ export const projectsData: ProjectItem[] = [
       'TypeScript',
       'jsPDF & SheetJS'
     ],
+    liveUrl: 'https://attendance-system-eta-nine.vercel.app/login',
     screenshots: [
       {
         title: 'Cover Showcase',
