@@ -367,6 +367,15 @@ export const TechIcon: React.FC<{ name: string; className?: string }> = ({ name,
     );
   }
 
+  // PHP
+  if (norm === 'php' || norm.includes('php')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="#777BB4">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-5.5 13.5l1.2-5.5h2.1c1.3 0 2.1.6 1.9 1.6-.2 1-1.1 1.6-2.2 1.6H8.4l-.5 2.3H6.5zm8 0l1.2-5.5h2.1c1.3 0 2.1.6 1.9 1.6-.2 1-1.1 1.6-2.2 1.6h-1.1l-.5 2.3h-1.4z" />
+      </svg>
+    );
+  }
+
   // Flutter
   if (norm.includes('flutter')) {
     return (

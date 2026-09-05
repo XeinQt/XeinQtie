@@ -616,6 +616,130 @@ export const projectsData: ProjectItem[] = [
     }
   },
   {
+    id: 'monitorstore',
+    title: 'MonitorStore — Premium Computer Monitors & Display Marketplace',
+    subtitle: 'Laravel 12 Full-Stack eCommerce Platform',
+    category: 'Hardware eCommerce & Retail Systems',
+    typeCategory: 'fullstack',
+    year: '2026',
+    role: 'Lead Full-Stack Developer & Backend Architect',
+    authors: 'Rico Alentijo',
+    description: 'A modern, full-featured eCommerce platform engineered for high-performance computer monitors and displays, built with Laravel 12, PHP 8.3, and Tailwind CSS v4 featuring faceted spec filtering, multi-gateway checkout, and an executive administration suite.',
+    image: '/img/monitorstore/monitorstore-banner.jpg',
+    tags: [
+      'Laravel 12',
+      'PHP',
+      'Tailwind CSS',
+      'Vite',
+      'SQLite',
+      'Laravel Breeze',
+      'Socialite OAuth',
+      'PHPUnit'
+    ],
+    githubUrl: 'https://github.com/XeinQt/eCommerce-for-Monitor',
+    screenshots: [
+      {
+        title: 'Marketplace Showcase Banner',
+        url: '/img/monitorstore/monitorstore-banner.jpg',
+        caption: 'MonitorStore official showcase: Premium display marketplace featuring 4K UHD OLED gaming monitors, multi-attribute filtering, and 24/7 order management.'
+      }
+    ],
+    modules: [
+      {
+        title: 'Customer Catalog & Shopping Experience',
+        route: '/products',
+        features: [
+          'Dual Viewing Modes: Seamless toggling between Grid View (/products) and List View (/products/list) with responsive layout.',
+          'Multi-Attribute Filter Engine: Deep filtering by category (Gaming, Professional, Office), brand (ASUS, LG, Dell, Samsung, BenQ, MSI), resolution (FHD, QHD, 4K UHD, 5K, UWQHD), refresh rate (60Hz to 240Hz), and panel type (IPS, VA, OLED).',
+          'Interactive Product Gallery: Multi-image thumbnail switcher with detailed hardware specification breakdown and live stock indicators.',
+          'Smart Shopping Cart & Wishlist: Real-time stock limit validation, instant subtotal recalculations, and 1-click wishlist-to-cart migration.'
+        ]
+      },
+      {
+        title: 'Checkout & Order Fulfillment Desk',
+        route: '/orders',
+        features: [
+          'Multi-Field Shipping Desk: Validated address capture with automatic ₱500 flat shipping rate computation.',
+          'Flexible Payment Gateways: Cash on Delivery (COD), GCash, Credit/Debit Card, and Direct Bank Transfer.',
+          'Chronological Order Tracking: Lifecycle status timeline tracking orders through pending ➔ processing ➔ completed / cancelled.',
+          'Verifiable Digital Invoices: Itemized order receipts with customer delivery specifications and printable summaries.'
+        ]
+      },
+      {
+        title: 'Administrative Management Suite',
+        route: '/admin/*',
+        features: [
+          'Analytical KPI Dashboard: Real-time metrics for Total Revenue, Active Orders, Registered Users, Stock Levels, and 7-day revenue charts.',
+          'Monitor Catalog CMS: Multi-image uploads (up to 3 images), brand/specs editor, and 1-click product availability toggles.',
+          'Order Fulfillment Desk: Full administrative invoice inspection and state transition management (pending, processing, completed).',
+          'Customer & Role Administration: Granular user controls, credential resets, and administrator permission assignments.'
+        ]
+      }
+    ],
+    techStackTable: [
+      { layer: '1. Backend Framework', tech: 'Laravel 12 (PHP 8.3+)', purpose: 'Full-stack Model-View-Controller (MVC) framework providing routing, controllers, Eloquent ORM, and request validation.' },
+      { layer: '1. Frontend Templating', tech: 'Laravel Blade', purpose: 'Server-rendered component and templating engine with clean reusable layouts and partials.' },
+      { layer: '2. Styling & Design System', tech: 'Tailwind CSS v4 (@tailwindcss/vite)', purpose: 'Modern utility-first styling with dark-mode gaming & professional workstation aesthetic (Slate & Emerald accents).' },
+      { layer: '2. Build Tool & Asset Pipeline', tech: 'Vite 7 (laravel-vite-plugin)', purpose: 'Lightning-fast asset bundling and Hot Module Replacement (HMR) for developer velocity.' },
+      { layer: '3. Database & ORM', tech: 'SQLite & Eloquent ORM', purpose: 'ACID-compliant relational persistence with automated schema migrations and foreign key integrity.' },
+      { layer: '4. Authentication & Security', tech: 'Laravel Breeze & Session Auth', purpose: 'Role-Based Access Control (admin vs user) with bcrypt password hashing and CSRF protection.' },
+      { layer: '4. Social OAuth Integration', tech: 'Laravel Socialite', purpose: 'Cryptographically verified single sign-on integration ready for Google OAuth 2.0.' },
+      { layer: '5. Storage & File System', tech: 'Laravel Filesystem (storage:link)', purpose: 'Public storage symlink managing multi-image product photo uploads.' },
+      { layer: '6. Automated Testing', tech: 'PHPUnit 11', purpose: 'Comprehensive test coverage validating cart additions, checkout calculations, and admin route authorization.' }
+    ],
+    caseStudy: {
+      overview: 'MonitorStore is a modern, full-featured eCommerce platform engineered for high-performance computer monitors and displays. Built with Laravel 12, PHP 8.3, and Tailwind CSS v4, it bridges an immersive gaming and workstation shopping experience with an enterprise administration suite for catalog, inventory, and order fulfillment.',
+      challenge: 'Specialized display shoppers need granular technical filtering (refresh rate, panel type, resolution, color accuracy) that general eCommerce platforms often fail to provide, while store administrators require intuitive tools to manage multi-attribute hardware variants, track inventory limits, and fulfill orders.',
+      solution: 'Architected an end-to-end Laravel 12 MVC eCommerce engine featuring multi-attribute faceted search, dual view modes, live stock validation, multi-gateway checkout (COD, GCash, Cards), and an administrative control center with 7-day revenue analytics and catalog CMS.',
+      keyFeatures: [
+        'Dual viewing modes: Grid View (/products) and List View (/products/list) with live keyword search',
+        'Advanced multi-attribute filtering by Category, Brand, Resolution (FHD to 5K), Refresh Rate (60Hz to 240Hz), and Panel Type (IPS, VA, OLED)',
+        'Multi-image product gallery with interactive thumbnail switching, technical specs breakdown, and real-time stock badges',
+        'Interactive Shopping Cart with quantity guards, stock availability checks, and live price recalculations',
+        'Persistent Wishlist with one-click transfer to shopping cart',
+        'Checkout desk supporting Cash on Delivery (COD), GCash, Credit/Debit, and Bank Transfer with ₱500 flat shipping rate',
+        'Chronological order tracking status (pending ➔ processing ➔ completed / cancelled)',
+        'Analytical Admin Dashboard with 7-day revenue charts, Month-over-Month growth metrics, and order health telemetry',
+        'Monitor Catalog CMS with multi-image uploads (up to 3 images), specifications editor, and one-click visibility toggles',
+        'Role-Based Access Control (RBAC) cleanly segregating customer accounts from administrative operators'
+      ],
+      securityHighlights: [
+        'Role-Based Middleware Guards: Strict route-level middleware intercepting and protecting all /admin/* endpoints against unauthorized customer access',
+        'Native Injection Defense: Eloquent ORM parameterized queries protecting against SQL injection, alongside native Blade CSRF token verification',
+        'Encrypted Session Security: Laravel Breeze session authentication utilizing bcrypt password hashing and secure cookies',
+        'Google OAuth 2.0 Ready: Cryptographic OAuth handshake via Laravel Socialite for secure third-party login'
+      ],
+      architecture: [
+        {
+          title: 'Laravel 12 MVC Architecture',
+          description: 'Clean separation of concerns between Eloquent models, Blade presentation templates, and controller actions.'
+        },
+        {
+          title: 'Tailwind CSS v4 & Vite 7 Pipeline',
+          description: 'Next-generation CSS build engine with near-instant compilation and custom dark-theme slate/emerald tokens.'
+        },
+        {
+          title: 'Faceted Specification Query Builder',
+          description: 'Dynamic multi-attribute database filtering matching exact refresh rates, panel types, resolutions, and brands.'
+        },
+        {
+          title: 'Real-Time Cart & Stock Integrity',
+          description: 'Database-level stock checks preventing customers from checking out items beyond current warehouse inventory.'
+        },
+        {
+          title: 'Comprehensive Admin CMS & Analytics',
+          description: 'Executive command center displaying revenue charts, customer growth, and invoice status transitions.'
+        }
+      ],
+      metrics: [
+        { label: 'Backend Framework', value: 'Laravel 12' },
+        { label: 'Styling Engine', value: 'Tailwind CSS v4' },
+        { label: 'Filtering Facets', value: '5 Specs Layers' },
+        { label: 'Architecture', value: 'MVC + Breeze' }
+      ]
+    }
+  },
+  {
     id: 'kamai',
     title: 'KamAI — Healthcare EMR Web Platform',
     subtitle: 'Electronic Medical Records & Clinical Portal',

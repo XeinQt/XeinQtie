@@ -136,6 +136,15 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId, onBack 
               </span>
             </>
           )}
+          {project.id === 'monitorstore' && (
+            <>
+              <span>·</span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30">
+                <ShieldCheck className="w-3 h-3" />
+                Laravel 12 MVC
+              </span>
+            </>
+          )}
         </div>
 
         <h1 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white tracking-tight leading-snug">
@@ -314,6 +323,8 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId, onBack 
                     ? 'Biometric Privacy & Anti-Spoof Security' 
                     : project.id === 'jajapos'
                     ? 'Local Data Security, Cryptography & Role Enforcement'
+                    : project.id === 'monitorstore'
+                    ? 'Middleware Route Guards & Database Security'
                     : '3-Factor Authentication (3FA) & Institutional Security'}
                 </span>
               </div>
