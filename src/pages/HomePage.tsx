@@ -174,7 +174,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </section>
       </ScrollReveal>
 
-      {/* 9. GitHub Activity Section */}
+      {/* 8. GitHub Activity Section */}
       <ScrollReveal>
         <section id="github" className="pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80 scroll-mt-24">
           <GithubActivitySection />

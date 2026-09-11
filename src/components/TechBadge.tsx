@@ -105,7 +105,7 @@ export const TechIcon: React.FC<{ name: string; className?: string }> = ({ name,
     );
   }
 
-  // React
+  // React & React Native
   if (norm.includes('react')) {
     return (
       <svg className={className} viewBox="-11.5 -10.23174 23 20.46348" fill="none">
@@ -115,6 +115,92 @@ export const TechIcon: React.FC<{ name: string; className?: string }> = ({ name,
           <ellipse rx="11" ry="4.2" transform="rotate(60)" />
           <ellipse rx="11" ry="4.2" transform="rotate(120)" />
         </g>
+      </svg>
+    );
+  }
+
+  // Expo
+  if (norm === 'expo' || norm.includes('expo')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3.2 18.2L10.9 4.8c.4-.7 1.4-.9 2.1-.5.2.1.4.3.5.5l7.7 13.4c.4.7.2 1.7-.5 2.1-.2.1-.5.2-.8.2H4.1c-.8 0-1.5-.7-1.5-1.5 0-.4.2-.7.6-1zm8.8-10.4L5.6 18h12.8L12 7.8z" />
+      </svg>
+    );
+  }
+
+  // TanStack Query
+  if (norm.includes('tanstack') || norm.includes('query')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z" fill="#FF4154" />
+        <circle cx="12" cy="12" r="5" fill="#FFD200" />
+        <path d="M15 15l4 4" stroke="#FF4154" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // Zustand
+  if (norm.includes('zustand')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M6 9a2.5 2.5 0 0 1-2.5-2.5A2.5 2.5 0 0 1 6 4c1 0 1.9.6 2.3 1.5A7.4 7.4 0 0 1 12 5c1.3 0 2.5.2 3.7.5.4-.9 1.3-1.5 2.3-1.5a2.5 2.5 0 0 1 2.5 2.5A2.5 2.5 0 0 1 18 9c.6 1 1 2.2 1 3.5 0 4.1-3.1 7.5-7 7.5s-7-3.4-7-7.5c0-1.3.4-2.5 1-3.5z" fill="#443E38" />
+        <circle cx="9.5" cy="11.5" r="1" fill="#FFFFFF" />
+        <circle cx="14.5" cy="11.5" r="1" fill="#FFFFFF" />
+        <ellipse cx="12" cy="14.5" rx="2" ry="1.2" fill="#E6AF7C" />
+      </svg>
+    );
+  }
+
+  // TensorFlow
+  if (norm.includes('tensorflow') || norm.includes('tensor')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M12 2l8.5 4.9v4.9l-3.5-2v8.8L12 21.5V2z" fill="#FF6F00" />
+        <path d="M12 2L3.5 6.9v4.9l3.5-2v8.8L12 21.5V2z" fill="#FFA800" />
+        <path d="M8.5 8.3L12 10.3l3.5-2L12 6.3 8.5 8.3z" fill="#FFE082" />
+      </svg>
+    );
+  }
+
+  // Vitest
+  if (norm.includes('vitest')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M17.8 4.2L12 14.5 6.2 4.2h11.6z" fill="#729B1A" />
+        <path d="M12 14.5L16.5 22 21 14h-5.5z" fill="#FCC72B" />
+        <path d="M3 14l4.5 8 4.5-7.5H3z" fill="#8AC926" />
+      </svg>
+    );
+  }
+
+  // Prisma
+  if (norm.includes('prisma')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M3.5 17.5L12 2.5l8.5 15-4 4H7.5l-4-4z" fill="#2D3748" />
+        <path d="M12 2.5l4.5 19H7.5L12 2.5z" fill="#16A394" />
+        <path d="M12 2.5L20.5 17.5 16.5 21.5 12 2.5z" fill="#0C344B" />
+      </svg>
+    );
+  }
+
+  // MongoDB
+  if (norm.includes('mongodb') || norm.includes('mongo')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M12 1.5C11.6 1.8 7 8 7 13.5c0 3.6 2.2 6.8 5 8.5 2.8-1.7 5-4.9 5-8.5C17 8 12.4 1.8 12 1.5z" fill="#47A248" />
+        <path d="M12 2v20c-.1 0-.2 0-.3-.1-2.6-1.5-4.7-4.6-4.7-8.4 0-4.8 3.8-10.2 5-11.5z" fill="#499D4A" />
+        <path d="M11.8 21.9c.1 0 .1 0 .2.1V2c1.2 1.3 5 6.7 5 11.5 0 3.8-2.1 6.9-4.7 8.4h-.5z" fill="#3FA037" />
+      </svg>
+    );
+  }
+
+  // Java
+  if (norm === 'java' || norm.includes('java ') || norm.includes('java/')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <path d="M8.85 17.8c0 0-1 .2.7.3 2.1.1 3.5.1 6.1-.2 0 0 .9.6 1.8.8-4.6 2-10.7.3-8.6-.9zm-.7-2.7c0 0-.8.3.6.4 1.7.1 2.8.2 5-.1 0 0 .7.5 1.5.7-3.8 1.5-8.8.4-7.1-1zm3.8-3.4c.8.8.8 1.4-.4 2.4-1.2 1-1.6 1.4-3.1 1.6-1.5.2-1.9-.1-1.9-.1s.3-.4 1-.5c1.4-.2 2.2-.6 2.6-1 .6-.6.6-1.1-.3-1.6-.9-.5-1.2-.9-.8-1.5.4-.5 1.8-.4 2.9.7zm3.7 3.8c-1.1.8-2.6 1-4.7 1-1.3 0-2.4-.2-2.4-.2s.5-.3 1.4-.3c1.7 0 3.3 0 4.5-.4.5-.2.8-.4 1.2-.1zM14 6c0 0 .9.9-.8 2.6-2.1 2-1.3 3.1 0 4.3.3.3.4.5.3.7-.1.3-.5.4-.8.4-1.4 0-2.3-1.1-1.8-2.5.6-1.8 2.3-2.6 1.7-4.1-.4-1.1-1.4-1.4-1.4-1.4s.5-.2 1.4 0c1.2.3 1.4 0 1.4 0z" fill="#E76F00" />
+        <path d="M12 21.8c3.5 0 6.6-.5 6.6-.5s-.8.6-2.7.9c-2.3.4-4.8.4-7.1.1-1.6-.2-2.6-.6-2.6-.6s1.6.5 5.8.1z" fill="#5382A1" />
       </svg>
     );
   }
