@@ -41,10 +41,10 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'exp-1',
     role: 'Full-Stack Developer & UI/UX Designer',
-    company: 'Freelance / Independent',
+    company: 'Kaban, Tala, & Liem Barbershop – Freelance / Independent',
     companyInitials: 'FL',
     companyLogoBg: 'from-zinc-700 to-zinc-950',
-    companyUrl: 'https://example.com',
+    companyUrl: 'https://treasurer-system.vercel.app',
     location: 'Remote / Independent',
     type: 'Freelance',
     category: 'engineering',
@@ -52,18 +52,17 @@ export const experiences: ExperienceItem[] = [
     endDate: 'Present',
     isCurrent: true,
     duration: 'Present',
-    summary: 'Designed and developed end-to-end web applications, ensuring a seamless integration between front-end interfaces and scalable back-end databases.',
+    summary: 'Designed and developed end-to-end web applications, ensuring seamless integration between front-end interfaces and scalable back-end databases.',
     highlights: [
       { label: 'Integration', value: 'End-to-End' },
       { label: 'Architecture', value: 'Full-Stack' }
     ],
     bullets: [
-      'Designed and developed end-to-end web applications, ensuring a seamless integration between front-end interfaces and scalable back-end databases.',
+      'Designed and developed end-to-end web applications, ensuring seamless integration between front-end interfaces and scalable back-end databases.',
       'Created intuitive, user-centered wireframes and interactive prototypes with a strong focus on premium visual aesthetics.',
-      'Implemented responsive design systems to guarantee visual and functional consistency across all mobile, tablet, and desktop viewports.'
+      'Implemented responsive design systems to ensure visual and functional consistency across all mobile, tablet, and desktop viewports.'
     ],
     skills: [
-      { name: 'Next.js 14', category: 'frontend' },
       { name: 'React', category: 'frontend' },
       { name: 'TypeScript', category: 'frontend' },
       { name: 'Tailwind CSS', category: 'frontend' },
@@ -75,18 +74,18 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'exp-2',
     role: 'Virtual Assistant & Lead Generation Specialist',
-    company: 'Freelance / Independent',
+    company: 'Freelance',
     companyInitials: 'VA',
     companyLogoBg: 'from-zinc-800 to-black',
     companyUrl: 'https://example.com',
-    location: 'Remote / Independent',
+    location: 'Remote / Freelance',
     type: 'Contract',
     category: 'consulting',
-    startDate: 'April 2026',
+    startDate: 'Apr 2026',
     endDate: 'May 2026',
     isCurrent: false,
     duration: '2 mos',
-    summary: 'Conducted targeted B2B lead generation campaigns, market research, and automated outreach operations.',
+    summary: 'Conducted targeted B2B lead generation campaigns, market research, and outreach management.',
     highlights: [
       { label: 'Prospect Data', value: '100% Verified' },
       { label: 'Outreach', value: 'Targeted B2B' }
@@ -100,40 +99,38 @@ export const experiences: ExperienceItem[] = [
       { name: 'B2B Lead Generation', category: 'tool' },
       { name: 'Market Research', category: 'tool' },
       { name: 'Email Outreach', category: 'tool' },
-      { name: 'Data Verification', category: 'tool' },
-      { name: 'Workflow Optimization', category: 'tool' }
+      { name: 'Data Verification', category: 'tool' }
     ]
   },
   {
     id: 'exp-3',
-    role: 'Assistant UI/UX Designer',
-    company: 'KamAI, BizCard, and Champion',
+    role: 'UI/UX Codesigner',
+    company: 'KamAI, BizCard, and Champion – Freelance',
     companyInitials: 'UI',
     companyLogoBg: 'from-zinc-600 to-zinc-900',
-    companyUrl: 'https://example.com',
+    companyUrl: 'https://www.figma.com/design/Pre-Designs',
     location: 'Remote / Project-Based',
     type: 'Contract',
     category: 'freelance',
-    startDate: 'February 2025',
-    endDate: 'November 2025',
+    startDate: 'Feb 2025',
+    endDate: 'Nov 2025',
     isCurrent: false,
     duration: '10 mos',
-    summary: 'Designed high-fidelity web and mobile prototypes in Figma for healthcare EMR (KamAI), referral platform (Champion), and BizCard.',
+    summary: 'Designed high-fidelity web and mobile prototypes in Figma for diverse platforms including KamAI (healthcare EMR), Champion (referral app), and BizCard.',
     highlights: [
       { label: 'Design Systems', value: 'Multi-Product' },
       { label: 'Prototypes', value: 'Web & Mobile' }
     ],
     bullets: [
-      'Designed high-fidelity web and mobile prototypes in Figma for diverse platforms including KamAI (healthcare EMR), Champion (referral app), and BizCard.',
+      'Designed high-fidelity web and mobile prototypes in Figma for diverse platforms, including KamAI (healthcare EMR), Champion (referral app), and BizCard.',
       'Developed and maintained reusable UI component libraries to establish standard design systems and accelerate frontend implementation.',
-      'Mapped interactive user flows and wireframes based on design specs and stakeholder feedback.'
+      'Mapped interactive user flows and wireframes based on design specifications and stakeholder feedback.'
     ],
     skills: [
       { name: 'Figma', category: 'tool' },
       { name: 'UI/UX Design', category: 'tool' },
       { name: 'Design Systems', category: 'tool' },
-      { name: 'Wireframing', category: 'tool' },
-      { name: 'Mobile & Web Prototyping', category: 'tool' }
+      { name: 'Wireframing', category: 'tool' }
     ]
   },
   {
@@ -146,11 +143,11 @@ export const experiences: ExperienceItem[] = [
     location: 'Remote / Freelance',
     type: 'Freelance',
     category: 'freelance',
-    startDate: 'August 2024',
-    endDate: 'December 2024',
+    startDate: 'Aug 2024',
+    endDate: 'Dec 2024',
     isCurrent: false,
     duration: '5 mos',
-    summary: 'Designed custom responsive UI/UX mockups, wireframes, and friction-free user journeys in Figma tailored to custom client requirements.',
+    summary: 'Designed responsive UI/UX mockups, wireframes, and prototypes in Figma tailored to custom client requirements.',
     highlights: [
       { label: 'Deliverables', value: 'Custom UI Assets' },
       { label: 'User Journeys', value: 'Friction-Free' }
@@ -162,10 +159,9 @@ export const experiences: ExperienceItem[] = [
     ],
     skills: [
       { name: 'Figma', category: 'tool' },
-      { name: 'UI/UX Mockups', category: 'tool' },
-      { name: 'User Flow Mapping', category: 'tool' },
+      { name: 'Wireframing', category: 'tool' },
       { name: 'Prototyping', category: 'tool' },
-      { name: 'Responsive Design', category: 'tool' }
+      { name: 'User Flow Mapping', category: 'tool' }
     ]
   }
 ];

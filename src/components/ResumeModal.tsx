@@ -1,18 +1,8 @@
 import React from 'react';
 import { 
   X, 
-  Download, 
   Printer,
-  FileText, 
-  Briefcase, 
-  GraduationCap, 
-  Code2,
-  User,
-  Users,
-  Sparkles,
-  Phone,
-  Mail,
-  MapPin
+  FileText
 } from 'lucide-react';
 import { resumeData } from '../data/resumeData';
 
@@ -28,14 +18,14 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
     window.print();
   };
 
-  const { personalInfo, education, workExperience, skills, softSkills, characterReferences } = resumeData;
+  const { header, experience, projects, education, skills } = resumeData;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm animate-fade-in print:p-0 print:static print:bg-white">
-      <div className="relative w-full max-w-3xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col print:border-none print:shadow-none print:max-h-none print:w-full">
+      <div className="relative w-full max-w-4xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl overflow-hidden max-h-[94vh] flex flex-col print:border-none print:shadow-none print:max-h-none print:w-full print:bg-white">
         
         {/* Modal Header Controls (Hidden during print) */}
-        <div className="p-4 sm:p-5 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between bg-zinc-50/90 dark:bg-zinc-950/60 backdrop-blur-sm shrink-0 print:hidden">
+        <div className="p-4 sm:p-5 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between bg-zinc-50/90 dark:bg-zinc-900/60 backdrop-blur-sm shrink-0 print:hidden">
           <div className="flex items-center gap-2">
             <div className="p-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 border border-zinc-200 dark:border-zinc-700">
               <FileText className="w-4 h-4" />
@@ -44,25 +34,17 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               <h3 className="text-sm sm:text-base font-bold text-zinc-900 dark:text-white">
                 Curriculum Vitae / Resume
               </h3>
-              <p className="text-[11px] text-zinc-500 dark:text-zinc-400">Rico Alentijo · Updated 2026</p>
+              <p className="text-[11px] text-zinc-500 dark:text-zinc-400">Rico Alentijo · Professional Resume</p>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <a
-              href="/Rico_Alentijo_Resume.pdf"
-              download="Rico_Alentijo_Resume.pdf"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-zinc-900 hover:bg-black text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-zinc-950 transition shadow-sm cursor-pointer"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download PDF</span>
-            </a>
             <button
               onClick={handlePrint}
-              className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-zinc-900 hover:bg-black text-white dark:bg-white dark:hover:bg-zinc-200 dark:text-zinc-950 transition shadow-sm cursor-pointer"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span>Print</span>
+              <span>Print / Save PDF</span>
             </button>
             <button
               onClick={onClose}
@@ -73,222 +55,134 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           </div>
         </div>
 
-        {/* Resume Document Body (Scrollable) */}
-        <div className="p-6 sm:p-8 overflow-y-auto space-y-7 text-zinc-800 dark:text-zinc-200 text-xs sm:text-sm font-sans print:p-0">
+        {/* Resume Paper Body (Scrollable, Clean Document Layout) */}
+        <div className="p-6 sm:p-10 md:p-12 overflow-y-auto font-sans bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 print:p-8 print:bg-white print:text-black">
           
-          {/* 1. Header with Photo, Name & Contact */}
-          <div className="flex flex-col-reverse sm:flex-row items-center sm:items-start justify-between gap-5 border-b border-zinc-200 dark:border-zinc-800 pb-6">
-            <div className="space-y-2 text-center sm:text-left">
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight uppercase font-sans">
-                {personalInfo.name}
+          <div className="max-w-3xl mx-auto space-y-6 text-[13px] leading-relaxed">
+            
+            {/* Header: Name & Contact Info */}
+            <div className="text-center space-y-1.5 pb-2">
+              <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950 dark:text-white print:text-black">
+                {header.name}
               </h1>
               
-              <div className="space-y-1 text-xs text-zinc-600 dark:text-zinc-400 font-medium">
-                <div className="flex items-center justify-center sm:justify-start gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
-                  <span>{personalInfo.address}</span>
-                </div>
-                <div className="flex items-center justify-center sm:justify-start gap-1.5">
-                  <Phone className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
-                  <span className="font-mono">{personalInfo.phone}</span>
-                </div>
-                <div className="flex items-center justify-center sm:justify-start gap-1.5">
-                  <Mail className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
-                  <a href={`mailto:${personalInfo.email}`} className="text-zinc-900 dark:text-zinc-100 hover:underline">
-                    {personalInfo.email}
-                  </a>
-                </div>
+              <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 print:text-zinc-800 font-medium">
+                <span>{header.phone}</span>
+                <span>|</span>
+                <a href={`mailto:${header.email}`} className="text-zinc-900 dark:text-zinc-100 hover:underline">
+                  {header.email}
+                </a>
+                <span>|</span>
+                <a href={header.githubUrl} target="_blank" rel="noreferrer" className="text-zinc-900 dark:text-zinc-100 hover:underline">
+                  {header.github}
+                </a>
+                <span>|</span>
+                <a href={header.linkedinUrl} target="_blank" rel="noreferrer" className="text-zinc-900 dark:text-zinc-100 hover:underline">
+                  {header.linkedin}
+                </a>
               </div>
             </div>
 
-            {/* Photo Avatar */}
-            <div className="w-24 h-28 sm:w-28 sm:h-32 rounded-xl overflow-hidden border-2 border-zinc-200 dark:border-zinc-700 shadow-sm bg-zinc-100 dark:bg-zinc-800 shrink-0">
-              <img 
-                src="/rico-alentijo-profile.jpg" 
-                alt={personalInfo.name}
-                className="w-full h-full object-cover object-top"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
-              />
-            </div>
-          </div>
+            {/* 1. EXPERIENCE */}
+            <section className="space-y-3">
+              <h2 className="text-xs sm:text-sm font-bold tracking-wider uppercase text-zinc-950 dark:text-white border-b-2 border-zinc-900 dark:border-zinc-100 pb-0.5 print:text-black print:border-black">
+                EXPERIENCE
+              </h2>
 
-          {/* 2. Personal Information */}
-          <section className="space-y-3">
-            <h2 className="text-xs sm:text-sm font-bold tracking-wider text-zinc-900 dark:text-white uppercase flex items-center gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
-              <User className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
-              <span>Personal Information</span>
-            </h2>
+              <div className="space-y-4">
+                {experience.map((exp, idx) => (
+                  <div key={idx} className="space-y-1">
+                    <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                      <h3 className="font-bold text-zinc-900 dark:text-zinc-100 print:text-black">
+                        {exp.role}{exp.company ? `, ${exp.company}` : ''}
+                      </h3>
+                      <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400 print:text-zinc-700 shrink-0">
+                        {exp.period}
+                      </span>
+                    </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-xs">
-              <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-800/60 py-1">
-                <span className="text-zinc-400 dark:text-zinc-500 font-medium">Date of Birth:</span>
-                <span className="text-zinc-800 dark:text-zinc-200 font-semibold">{personalInfo.dateOfBirth}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-800/60 py-1">
-                <span className="text-zinc-400 dark:text-zinc-500 font-medium">Age:</span>
-                <span className="text-zinc-800 dark:text-zinc-200 font-semibold">{personalInfo.age}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-800/60 py-1">
-                <span className="text-zinc-400 dark:text-zinc-500 font-medium">Sex:</span>
-                <span className="text-zinc-800 dark:text-zinc-200 font-semibold">{personalInfo.sex}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-800/60 py-1">
-                <span className="text-zinc-400 dark:text-zinc-500 font-medium">Civil Status:</span>
-                <span className="text-zinc-800 dark:text-zinc-200 font-semibold">{personalInfo.civilStatus}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-800/60 py-1">
-                <span className="text-zinc-400 dark:text-zinc-500 font-medium">Citizenship:</span>
-                <span className="text-zinc-800 dark:text-zinc-200 font-semibold">{personalInfo.citizenship}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-800/60 py-1">
-                <span className="text-zinc-400 dark:text-zinc-500 font-medium">Religion:</span>
-                <span className="text-zinc-800 dark:text-zinc-200 font-semibold">{personalInfo.religion}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-800/60 py-1">
-                <span className="text-zinc-400 dark:text-zinc-500 font-medium">Height:</span>
-                <span className="text-zinc-800 dark:text-zinc-200 font-semibold">{personalInfo.height}</span>
-              </div>
-              <div className="flex justify-between border-b border-zinc-100 dark:border-zinc-800/60 py-1">
-                <span className="text-zinc-400 dark:text-zinc-500 font-medium">Weight:</span>
-                <span className="text-zinc-800 dark:text-zinc-200 font-semibold">{personalInfo.weight}</span>
-              </div>
-              <div className="sm:col-span-2 flex flex-col sm:flex-row justify-between border-b border-zinc-100 dark:border-zinc-800/60 py-1 gap-1">
-                <span className="text-zinc-400 dark:text-zinc-500 font-medium shrink-0">Place of Birth:</span>
-                <span className="text-zinc-800 dark:text-zinc-200 font-semibold sm:text-right">{personalInfo.placeOfBirth}</span>
-              </div>
-            </div>
-          </section>
-
-          {/* 3. Educational Background */}
-          <section className="space-y-3">
-            <h2 className="text-xs sm:text-sm font-bold tracking-wider text-zinc-900 dark:text-white uppercase flex items-center gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
-              <GraduationCap className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
-              <span>Educational Background</span>
-            </h2>
-
-            <div className="space-y-2">
-              {education.map((edu, idx) => (
-                <div key={idx} className="flex justify-between items-start gap-4">
-                  <div className="space-y-0.5">
-                    <h3 className="font-bold text-zinc-900 dark:text-white text-xs sm:text-sm">
-                      {edu.degree}
-                    </h3>
-                    <p className="text-xs text-zinc-600 dark:text-zinc-400">
-                      {edu.institution}, {edu.campus}
-                    </p>
+                    <ul className="list-disc list-outside pl-4 space-y-1 text-zinc-700 dark:text-zinc-300 print:text-zinc-800 text-[12.5px] leading-snug">
+                      {exp.bullets.map((b, bIdx) => (
+                        <li key={bIdx}>{b}</li>
+                      ))}
+                    </ul>
                   </div>
-                  <span className="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 font-mono text-[11px] font-semibold shrink-0">
-                    {edu.year}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </section>
+                ))}
+              </div>
+            </section>
 
-          {/* 4. Work Experience */}
-          <section className="space-y-4">
-            <h2 className="text-xs sm:text-sm font-bold tracking-wider text-zinc-900 dark:text-white uppercase flex items-center gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
-              <Briefcase className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
-              <span>Work Experience</span>
-            </h2>
+            {/* 2. PROJECTS */}
+            <section className="space-y-3">
+              <h2 className="text-xs sm:text-sm font-bold tracking-wider uppercase text-zinc-950 dark:text-white border-b-2 border-zinc-900 dark:border-zinc-100 pb-0.5 print:text-black print:border-black">
+                PROJECTS
+              </h2>
 
-            <div className="space-y-5">
-              {workExperience.map((exp, idx) => (
-                <div key={idx} className="space-y-1.5">
-                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <h3 className="font-bold text-zinc-900 dark:text-white text-xs sm:text-sm">
-                      {exp.role}
-                    </h3>
-                    <span className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 shrink-0">
-                      {exp.period}
+              <div className="space-y-4">
+                {projects.map((proj, idx) => (
+                  <div key={idx} className="space-y-1">
+                    <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                      <h3 className="font-bold text-zinc-900 dark:text-zinc-100 print:text-black">
+                        {proj.title}
+                      </h3>
+                      {proj.link && (
+                        <a 
+                          href={proj.url || `https://${proj.link}`} 
+                          target="_blank" 
+                          rel="noreferrer" 
+                          className="text-xs font-medium text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white underline print:text-zinc-800 shrink-0"
+                        >
+                          {proj.link}
+                        </a>
+                      )}
+                    </div>
+
+                    <ul className="list-disc list-outside pl-4 space-y-1 text-zinc-700 dark:text-zinc-300 print:text-zinc-800 text-[12.5px] leading-snug">
+                      {proj.bullets.map((b, bIdx) => (
+                        <li key={bIdx}>{b}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* 3. EDUCATION */}
+            <section className="space-y-2">
+              <h2 className="text-xs sm:text-sm font-bold tracking-wider uppercase text-zinc-950 dark:text-white border-b-2 border-zinc-900 dark:border-zinc-100 pb-0.5 print:text-black print:border-black">
+                EDUCATION
+              </h2>
+
+              <div className="space-y-1">
+                {education.map((edu, idx) => (
+                  <div key={idx} className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                    <div className="text-zinc-900 dark:text-zinc-100 print:text-black">
+                      <span className="font-bold">{edu.degree}</span> – {edu.institution}
+                    </div>
+                    <span className="text-xs font-medium text-zinc-600 dark:text-zinc-400 print:text-zinc-700 shrink-0">
+                      {edu.year}
                     </span>
                   </div>
+                ))}
+              </div>
+            </section>
 
-                  <div className="text-xs text-zinc-600 dark:text-zinc-400 font-medium">
-                    {exp.company}
-                    {exp.projects && (
-                      <span className="text-zinc-500 dark:text-zinc-500"> ({exp.projects})</span>
-                    )}
+            {/* 4. SKILLS */}
+            <section className="space-y-2.5">
+              <h2 className="text-xs sm:text-sm font-bold tracking-wider uppercase text-zinc-950 dark:text-white border-b-2 border-zinc-900 dark:border-zinc-100 pb-0.5 print:text-black print:border-black">
+                SKILLS
+              </h2>
+
+              <div className="space-y-1.5 text-[12.5px] leading-relaxed">
+                {skills.map((s, idx) => (
+                  <div key={idx} className="text-zinc-800 dark:text-zinc-200 print:text-black">
+                    <span className="font-bold text-zinc-950 dark:text-white print:text-black">{s.category}:</span>{' '}
+                    <span className="text-zinc-700 dark:text-zinc-300 print:text-zinc-800">{s.skills}</span>
                   </div>
+                ))}
+              </div>
+            </section>
 
-                  <ul className="list-disc list-outside pl-4 text-xs text-zinc-600 dark:text-zinc-300 space-y-1 leading-relaxed pt-0.5">
-                    {exp.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx}>{bullet}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* 5. Skills */}
-          <section className="space-y-3">
-            <h2 className="text-xs sm:text-sm font-bold tracking-wider text-zinc-900 dark:text-white uppercase flex items-center gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
-              <Code2 className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
-              <span>Skills & Competencies</span>
-            </h2>
-
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-700 dark:text-zinc-300">
-              {skills.map((skill, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100 mt-1.5 shrink-0" />
-                  <span>{skill}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          {/* 6. Soft Skills */}
-          <section className="space-y-3">
-            <h2 className="text-xs sm:text-sm font-bold tracking-wider text-zinc-900 dark:text-white uppercase flex items-center gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
-              <Sparkles className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
-              <span>Soft Skills</span>
-            </h2>
-
-            <div className="flex flex-wrap gap-2">
-              {softSkills.map((softSkill, idx) => (
-                <span
-                  key={idx}
-                  className="px-2.5 py-1 rounded-lg text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200/80 dark:border-zinc-700/80"
-                >
-                  {softSkill}
-                </span>
-              ))}
-            </div>
-          </section>
-
-          {/* 7. Character References */}
-          <section className="space-y-3">
-            <h2 className="text-xs sm:text-sm font-bold tracking-wider text-zinc-900 dark:text-white uppercase flex items-center gap-2 border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
-              <Users className="w-4 h-4 text-zinc-700 dark:text-zinc-300" />
-              <span>Character References</span>
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-              {characterReferences.map((ref, idx) => (
-                <div
-                  key={idx}
-                  className="p-3.5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/70 dark:bg-zinc-950/40 space-y-1 text-xs"
-                >
-                  <h3 className="font-bold text-zinc-900 dark:text-white">
-                    {ref.name}
-                  </h3>
-                  <p className="text-[11px] text-zinc-600 dark:text-zinc-400 font-medium">
-                    {ref.title}
-                  </p>
-                  <p className="text-[11px] text-zinc-500 dark:text-zinc-500">
-                    {ref.institution}
-                  </p>
-                  <div className="pt-1.5 flex items-center gap-1 font-mono text-[11px] text-zinc-700 dark:text-zinc-300 font-semibold">
-                    <Phone className="w-3 h-3 text-zinc-400" />
-                    <span>{ref.phone}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+          </div>
 
         </div>
 
