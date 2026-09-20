@@ -24,21 +24,12 @@ export const Footer: React.FC<FooterProps> = () => {
           
           {/* Brand Col */}
           <div className="space-y-4 max-w-md">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-900 dark:text-white font-bold text-sm font-mono shadow-sm">
-                {portfolioMeta.name.split(' ').map(n => n[0]).join('')}
-              </div>
-              <span className="font-bold text-zinc-900 dark:text-white tracking-tight">
-                {portfolioMeta.name}
-              </span>
+            <div className="font-bold text-zinc-900 dark:text-white tracking-tight">
+              {portfolioMeta.name}
             </div>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-md leading-relaxed">
               {portfolioMeta.tagline}
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-800 dark:text-zinc-200 font-medium">
-              <span className="w-2 h-2 rounded-full bg-zinc-900 dark:bg-zinc-100 animate-pulse"></span>
-              {portfolioMeta.availability}
-            </div>
           </div>
 
 
