@@ -26,14 +26,10 @@ export const ContactSection: React.FC = () => {
     <div id="contact-section" className="w-full max-w-4xl mx-auto space-y-3.5 scroll-mt-24">
       
       {/* Clean, Simple Header */}
-      <div className="flex items-center justify-between">
+      <div>
         <h2 className="text-3xl sm:text-4xl font-light text-zinc-900 dark:text-zinc-100 tracking-tight font-sans">
           Get in Touch
         </h2>
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>Available for hire</span>
-        </div>
       </div>
 
       {/* 4 Direct Channel Cards */}
