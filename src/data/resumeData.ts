@@ -36,7 +36,7 @@ export const resumeData = {
   experience: [
     {
       role: 'Full-Stack Developer & UI/UX Designer',
-      company: 'Kaban, Tala, & Liem Barbershop – Freelance / Independent',
+      company: 'Kaban, Checkpoint, & Liem Barbershop – Freelance / Independent',
       period: 'July 2026 – Present',
       bullets: [
         'Designed and developed end-to-end web applications, ensuring seamless integration between front-end interfaces and scalable back-end databases.',

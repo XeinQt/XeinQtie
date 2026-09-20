@@ -41,7 +41,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'exp-1',
     role: 'Full-Stack Developer & UI/UX Designer',
-    company: 'Kaban, Tala, & Liem Barbershop – Freelance / Independent',
+    company: 'Kaban, Checkpoint, & Liem Barbershop – Freelance / Independent',
     companyInitials: 'FL',
     companyLogoBg: 'from-zinc-700 to-zinc-950',
     companyUrl: 'https://treasurer-system.vercel.app',
