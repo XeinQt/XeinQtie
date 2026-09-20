@@ -102,7 +102,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
         {/* Clean, Simple-weight Headline */}
         <h2 className="text-xl sm:text-2xl font-normal text-zinc-900 dark:text-zinc-100 tracking-tight leading-snug">
-          <span>AI-Assisted Full-Stack Developer</span>{' '}
+          <span>AI Engineer</span>{' '}
           <span className="text-zinc-400 dark:text-zinc-500 font-light">& UI/UX Designer</span>
         </h2>
 

@@ -36,11 +36,11 @@ export interface PortfolioMeta {
 
 export const portfolioMeta: PortfolioMeta = {
   name: 'Rico Alentijo',
-  title: 'AI-Assisted Full-Stack Developer & UI/UX Designer',
-  headlineMain: 'AI-Assisted Full-Stack Developer',
+  title: 'AI Engineer & UI/UX Designer',
+  headlineMain: 'AI Engineer',
   headlineSub: 'UI/UX Designer',
-  tagline: 'Designing and building modern web and mobile applications with full-stack engineering and AI-assisted workflows.',
-  bio: 'I design and build modern web and mobile applications using full-stack technologies and AI-assisted development tools. I use AI to improve my workflow, solve problems faster, and create functional, user-friendly digital products.',
+  tagline: 'Designing and building AI-powered web and mobile applications with full-stack engineering and modern interface design.',
+  bio: 'I design and build AI-powered web and mobile applications with a strong focus on user experience and modern interface design. I combine AI technologies, full-stack development, and UI/UX design to create intelligent, functional, and user-friendly digital products. I use AI-assisted development tools to improve my workflow, solve problems efficiently, and turn ideas into practical digital solutions.',
   location: 'Davao Oriental, Philippines',
   email: 'ricoalentijo4@gmail.com',
   availability: 'Available for full-time roles & AI-driven projects',
