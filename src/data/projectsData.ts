@@ -751,6 +751,147 @@ export const projectsData: ProjectItem[] = [
     }
   },
   {
+    id: 'liem-barbershop',
+    title: 'Liem Barber Shop — Booking & Shop Management Platform',
+    subtitle: 'Multi-Role Flutter Booking, Staff & AI Concierge App',
+    category: 'Service Booking & Shop Management',
+    typeCategory: 'fullstack',
+    year: '2026',
+    role: 'Lead Flutter Developer & Backend Architect',
+    authors: 'Rico Alentijo',
+    description: 'A cross-platform booking and shop-management application built with Flutter, serving customers, barbers, and admins from a single codebase, with real-time scheduling, staff management, revenue analytics, and a Gemini-powered AI concierge.',
+    image: '/img/liem/liem-cover.png',
+    tags: [
+      'Flutter',
+      'Dart',
+      'Supabase & PostgreSQL',
+      'Gemini AI Chatbot',
+      'Row-Level Security',
+      'Edge Functions',
+      'Google OAuth',
+      'Realtime Sync'
+    ],
+    screenshots: [
+      {
+        title: 'Cover Showcase',
+        url: '/img/liem/liem-cover.png',
+        caption: 'Liem Barber Shop official cover showcase highlighting the cross-platform Flutter booking app for customers, barbers, and admins.'
+      }
+    ],
+    modules: [
+      {
+        title: 'Customer Portal',
+        features: [
+          'Service Catalog: Categories, pricing (PHP), duration, and a 4-image gallery per service.',
+          'Booking Flow: Choose service, choose barber (or "Any Available"), choose time slot, and confirm.',
+          'Appointment Management: View status (Pending, Confirmed, Completed, Canceled), reschedule with conflict validation, and cancel.',
+          'Profile & Security: Profile management, in-app password change, and persistent dark mode via a dedicated ThemeService.'
+        ]
+      },
+      {
+        title: 'Barber Portal',
+        features: [
+          'Daily Schedule View: Client queue with contact info and requested service, without a front-desk intermediary.',
+          'One-Tap Status Updates: Complete / Cancel actions that feed directly into shop-wide metrics.'
+        ]
+      },
+      {
+        title: 'Admin / Executive Portal',
+        features: [
+          'Live Dashboard: Total revenue, active barbers, total bookings, and a recent bookings feed.',
+          'Staff Directory: Add/edit employees with freeform role text, pay rate, commission rate, and skills.',
+          'Secure Password Resets: Direct staff and customer resets via server-side RPC, fixing an earlier bug where resets could hit orphaned Auth user IDs.',
+          'Customer Directory: Login-status badges distinguishing Supabase Auth accounts from walk-in-only customers.',
+          'Catalog Management: Full CRUD on services, pricing, and images.',
+          'Master Booking Calendar: Cross-barber calendar with reassignment support.'
+        ]
+      },
+      {
+        title: 'AI Concierge (Gemini-Powered)',
+        route: 'supabase/functions/ai-chat',
+        features: [
+          'Role-Branched Behavior: A single Edge Function branches by role (customer vs. admin), calling Gemini server-side so the API key never reaches the client.',
+          'Customer Mode: Style recommendations by face shape/hair type/occasion, catalog and pricing Q&A, and in-chat booking creation.',
+          'Admin "Operations Copilot" Mode: Natural-language queries like "What\'s today\'s revenue?" or "Who is working today?", plus an in-chat staff-creation flow with an interactive form card.',
+          'Privacy-Conscious UX: Messenger-style draggable chat head with magnetic edge snapping and a 10-minute inactivity timer that auto-resets the conversation, both in-screen and after backgrounding/relocking.',
+          'Per-User Chat History: Persisted with RLS so one user\'s AI conversation is never visible to another.'
+        ]
+      }
+    ],
+    techStackTable: [
+      { layer: '1. UI Framework', tech: 'Flutter', purpose: 'Cross-platform UI toolkit targeting Android, iOS, Web, Windows, Linux, and macOS from one codebase.' },
+      { layer: '1. Programming Language', tech: 'Dart', purpose: 'Client-optimized language powering business logic, state, and UI composition across all three role portals.' },
+      { layer: '2. Navigation & Performance', tech: 'IndexedStack Navigation', purpose: 'Avoids full screen rebuilds on tab switches; paired with TTL-based catalog caching for fast customer lookups.' },
+      { layer: '3. Backend Platform', tech: 'Supabase (PostgreSQL 15+)', purpose: 'Managed Postgres, Auth, Storage, and Realtime, replacing an earlier PHP/MySQL backend entirely.' },
+      { layer: '3. Privileged Operations', tech: 'Postgres RPCs', purpose: 'Server-side functions for staff creation and password resets, keeping privileged writes off the client.' },
+      { layer: '3. Serverless Compute', tech: 'Supabase Edge Functions', purpose: 'Hosts the ai-chat function, keeping the Gemini API key server-side.' },
+      { layer: '4. Row-Level Security', tech: 'Postgres RLS Policies', purpose: 'Iteratively hardened policies (harden_public_catalog, strict_ai_chat_privacy, allow_customer_self_insert) scoping data per role and per user.' },
+      { layer: '4. Authentication', tech: 'Supabase Auth & Google OAuth', purpose: 'Email/password and Google Sign-In with bcrypt hashing, rate limiting, and mobile deep-link OAuth redirects.' },
+      { layer: '4. Password Recovery', tech: '6-Digit OTP Flow', purpose: 'Email-to-code-to-new-password flow (check_email_registered RPC) with UX ordering that blocks app entry before a password is actually set.' },
+      { layer: '5. AI Engine', tech: 'Google Gemini API', purpose: 'Powers style recommendations, catalog Q&A, in-chat booking, and natural-language admin analytics queries.' }
+    ],
+    caseStudy: {
+      overview: 'Liem Barber Shop is a cross-platform booking and shop-management application built with Flutter, serving three distinct user roles — customers, barbers, and admins/managers — from a single codebase. It replaces a paper/walk-in booking process with real-time scheduling, staff management, revenue analytics, and an AI concierge for both customers and shop operators.',
+      challenge: 'A small barbershop needed to move off manual/offline scheduling and gain a self-service booking flow for customers, a way for barbers to see their daily queue without a front-desk intermediary, owner-level visibility into revenue and staffing, and a lower-friction way to answer routine customer questions without staff time.',
+      solution: 'Rebuilt the backend on Supabase (Postgres + Auth + Edge Functions + Storage + RLS) after an initial PHP/MySQL foundation, then iteratively hardened row-level security and moved every privileged operation — password resets, staff creation, revenue aggregation — into secure server-side RPCs and Edge Functions. A Gemini-powered AI concierge was layered on top for both customer-facing bookings and an admin "Operations Copilot."',
+      keyFeatures: [
+        'Single Flutter codebase serving customer, barber, and admin experiences with role-based routing from the authenticated user\'s Supabase profile',
+        'Email/password and Google Sign-In authentication with rate limiting and 6-digit OTP forgot-password flow',
+        'Full booking lifecycle: service catalog, barber selection, time-slot booking, rescheduling with conflict validation, and cancellation',
+        'Barber daily queue view with one-tap Complete/Cancel status updates feeding shop-wide metrics',
+        'Admin dashboard with live revenue, staffing, and booking stats, plus a master cross-barber booking calendar',
+        'Gemini-powered AI concierge: customer style recommendations and in-chat booking, admin natural-language operations queries',
+        'Privacy-conscious AI UX: draggable chat head, magnetic edge snapping, and a 10-minute inactivity auto-reset',
+        'Shipped as an installable Android APK alongside Web and desktop targets, with a full end-user manual covering all three roles'
+      ],
+      securityHighlights: [
+        'Server-Side Privilege Boundary: Password resets, staff creation, and revenue aggregation pushed into Postgres RPCs or Edge Functions so RLS and business logic can\'t be bypassed by a modified client',
+        'No Plaintext Credential Migration: Legacy MySQL passwords were stored in plaintext and deliberately not migrated; users re-register or reset instead of carrying forward insecure credentials',
+        'Bcrypt-Hashed Auth: Passwords stored via Supabase Auth\'s bcrypt hashing — even admins cannot view them, only reset them through a secure RPC',
+        'Per-User RLS on AI Chat: Chat history persisted per-user with row-level security so one user\'s AI conversation is never visible to another',
+        'Iterative RLS Hardening: Progressive migrations (harden_public_catalog, strict_ai_chat_privacy, allow_customer_self_insert) tightened access as the schema grew'
+      ],
+      responsibilities: [
+        'Architected the initial PHP/MySQL system and led its full migration to a Supabase-based backend (Postgres, Auth, Edge Functions, Storage, RLS)',
+        'Designed and implemented role-based routing and UI for three distinct portals (customer, barber, admin) from a single Flutter codebase',
+        'Built the booking engine: service catalog, barber selection, slot booking, reschedule conflict validation, and status lifecycle',
+        'Engineered the authentication stack: email/password with rate limiting, Google OAuth with mobile deep-link redirects, and a 6-digit OTP forgot-password flow',
+        'Wrote server-side RPCs for privileged operations (staff creation, password resets, revenue aggregation) to enforce a strict client/server privilege boundary',
+        'Integrated the Google Gemini API through a single role-branching ai-chat Edge Function, keeping the API key off the client',
+        'Designed the AI concierge UX, including the draggable chat head, magnetic edge snapping, and inactivity-based conversation reset',
+        'Packaged and shipped the app as an Android APK plus Web and desktop targets, and authored the full end-user manual'
+      ],
+      architecture: [
+        {
+          title: 'PHP/MySQL to Supabase Migration',
+          description: 'Replaced an initial PHP backend entirely with Supabase (Postgres, Auth, Edge Functions, Storage, RLS), unlocking real-time sync and managed auth without running or securing a custom server.'
+        },
+        {
+          title: 'Iterative Row-Level Security Hardening',
+          description: 'Progressive migrations tightened catalog visibility, AI chat privacy, and customer self-insert rules as the schema and feature set grew.'
+        },
+        {
+          title: 'Server-Side Privilege Boundary',
+          description: 'Password resets, staff account creation, and revenue aggregation run through Postgres RPCs and Edge Functions instead of client-side Supabase calls.'
+        },
+        {
+          title: 'Gemini AI Concierge via Edge Function',
+          description: 'A single ai-chat Edge Function branches by role, serving both customer style/booking assistance and an admin natural-language "Operations Copilot."'
+        },
+        {
+          title: 'IndexedStack Navigation & TTL Caching',
+          description: 'IndexedStack avoids full rebuilds on tab switches; TTL-based caching keeps the service catalog and customer lookups fast.'
+        }
+      ],
+      metrics: [
+        { label: 'Platforms Shipped', value: '6 Targets' },
+        { label: 'User Roles', value: '3 Portals' },
+        { label: 'Current Version', value: '1.0.3+4' },
+        { label: 'AI Concierge', value: 'Gemini-Powered' }
+      ]
+    }
+  },
+  {
     id: 'kamai',
     title: 'KamAI — Healthcare EMR Web Platform',
     subtitle: 'Electronic Medical Records & Clinical Portal',
@@ -979,6 +1120,377 @@ export const projectsData: ProjectItem[] = [
         { label: 'Design System', value: 'Editorial UI' },
         { label: 'Figma Screens', value: '11+ Mockups' },
         { label: 'Platform', value: 'Mobile First' }
+      ]
+    }
+  },
+  {
+    id: 'solar-ebike',
+    title: 'Solar E-Bike Store — Shopping App',
+    subtitle: 'Ride on Sunshine, Shop in Seconds',
+    category: 'Clean Energy Retail & Mobile UI/UX Design',
+    typeCategory: 'uiux',
+    year: '2025',
+    role: 'Solo UI/UX Designer — School Project (2nd Year)',
+    authors: 'Rico Alentijo',
+    description: 'A 2nd-year school UI/UX case study for a solar-powered e-bike store: a customer app for browsing, saving, and buying e-bikes, paired with an admin app for managing the catalog, orders, and sales from a phone — unified by one safety-yellow, black, and maroon visual identity.',
+    image: '/img/solar-ebike/solar-ebike-cover.png',
+    tags: ['Figma', 'Mobile UI/UX', 'E-Commerce', 'Admin Dashboard UI', 'Design Systems', 'Prototyping'],
+    screenshots: [
+      {
+        title: 'Marketing Cover Showcase',
+        url: '/img/solar-ebike/solar-ebike-cover.png',
+        caption: 'Solar E-Bike Store shopping app cover highlighting one-tap social sign-in, smart search, wishlist, and secure "Buy Now" checkout.'
+      }
+    ],
+    caseStudy: {
+      overview: 'Solar E-Bike Store is a 2nd-year school UI/UX design project for a solar-powered e-bike retailer: a customer app for browsing, saving, and buying e-bikes, and an admin app for the owner and staff to manage the catalog, watch sales, and move orders along from a phone. Both apps share one visual identity — safety yellow, black, and a deep maroon — so switching between the storefront and the back office feels like one product.',
+      challenge: 'Buying an e-bike is a considered, higher-cost purchase — shoppers want a clear photo, an honest price and spec sheet, and confidence that the order will actually arrive, without piecing that trust together from scattered listings and messages. On the other side, shop staff need to keep the catalog current, track incoming orders, and check on customers without being tied to a desktop.',
+      solution: 'Mapped every screen and flow for both roles first, then blocked out low-fidelity wireframes on a six-column grid with maroon placeholder blocks to settle hierarchy before any color was applied. Built the customer app in full high fidelity — intro, sign-in, home, product detail, wishlist, checkout, transactions, and account — then designed the admin app twice: an initial grey-and-black pass, reworked onto a lighter canvas with yellow actions so it visibly belongs to the same brand as the storefront.',
+      keyFeatures: [
+        'One-tap social sign-in (Facebook, Google, Apple) removing the account-creation step that stops a first purchase',
+        'Smart search and a two-column product grid so e-bikes of different shapes still read as one consistent catalog',
+        'Product detail screen giving the photo most of the space, with rating, description, and a quiet "Add to Cart" next to a committed maroon "Buy Now"',
+        'Wishlist for saving bikes and comparing them later, using the same card pattern as home for a familiar hand-off to cart',
+        'Transaction history so customers can track an order without contacting the shop',
+        'Admin dashboard with at-a-glance sales and order counts, and product add/edit screens built photo-first',
+        'Order and user management letting staff review incoming orders and look up customer accounts from a phone',
+        '"Powered by the sun" positioning carried through the visual language, reinforcing zero-emission, eco-friendly commuting'
+      ],
+      responsibilities: [
+        'Mapped every screen each role needs and how they connect, from first launch to a completed order, and from admin dashboard to a saved product',
+        'Blocked out low-fidelity wireframes on a six-column grid with maroon placeholder blocks to check that every screen had one clear primary action',
+        'Designed the full customer app in high fidelity: intro, sign-in/sign-up, home, product detail, wishlist, cart, checkout, order confirmation, transactions, and account',
+        'Designed the admin app twice — an initial grey-and-black version, then a redesign onto a pale blue-white canvas with yellow actions to match the customer app\'s identity',
+        'Defined the shared design system: the yellow product tile, full-width black primary button, maroon purchase button, and the five-item bottom navigation used by both apps',
+        'Reviewed the finished canvas with fresh eyes and logged the gaps to close before handoff — a stray green save button, low-contrast text on yellow, missing empty/error states, and undersized social sign-in tap targets'
+      ],
+      architecture: [
+        {
+          title: 'Two Apps, One Catalog',
+          description: 'Customers read from the catalog while admins write to it; a checkout on the customer side appears as a new order on the admin side, making orders the thread that joins both apps.'
+        },
+        {
+          title: 'Maroon Only Means "Pay"',
+          description: 'Black handles routine actions like logging in or continuing. Maroon is reserved for committing money — "Buy Now" and placing an order — so the highest-stakes button is never confused with a normal one.'
+        },
+        {
+          title: 'Two-Pass Admin Redesign',
+          description: 'The first admin pass used black cards and grey lists and read as a different product; the second reused the customer app\'s cards, buttons, and navigation onto a lighter canvas so one component library serves both apps.'
+        }
+      ],
+      metrics: [
+        { label: 'Project Type', value: '2nd Year School Project' },
+        { label: 'Figma Frames', value: '40+ Screens' },
+        { label: 'Scope', value: 'Wireframe to Hi-Fi' },
+        { label: 'Design System', value: 'Yellow / Black / Maroon' }
+      ]
+    }
+  },
+  {
+    id: 'dorsu-library',
+    title: 'DOrSU-BC Library Management System — Staff Module',
+    subtitle: 'Find, Lend, and Track Every Book with Ease',
+    category: 'Campus Library & Academic Systems UI/UX Design',
+    typeCategory: 'uiux',
+    year: '2026',
+    role: 'Solo UI/UX Designer',
+    authors: 'Rico Alentijo',
+    description: 'A desktop UI/UX case study designed and built solo for Davao Oriental State University, Banaybanay Campus: a library staff system for managing books, borrowers, loans, and daily attendance, with QR codes to speed up checkout and returns.',
+    image: '/img/dorsu-library/dorsu-library-cover.png',
+    tags: ['Figma', 'UI/UX Design', 'Desktop Web', 'QR Code Workflows', 'Design Systems', 'Dashboard UI'],
+    screenshots: [
+      {
+        title: 'Marketing Cover Showcase',
+        url: '/img/dorsu-library/dorsu-library-cover.png',
+        caption: 'DOrSU-BC Library Management System cover showing the staff dashboard, sign-in screen, and live totals for staff, students, books, and attendance — built solo for DOrSU Banaybanay Campus.'
+      }
+    ],
+    caseStudy: {
+      overview: 'DOrSU-BC Library Management System is a desktop UI/UX case study designed and built solo for the library at Davao Oriental State University, Banaybanay Campus. It gives library staff a dashboard of what\'s happening today, searchable tables for books, borrowers, and transactions, daily attendance logging, and QR codes that identify a book or borrower with a scan instead of manual typing.',
+      challenge: 'A campus library runs on small, repeated tasks — adding a new title, lending a book to a student, taking it back, chasing an overdue return — that used to live in logbooks and spreadsheets. Staff need to find the right record fast, often with a student waiting at the counter, and manual logging makes it hard to know which books are out, overdue, or how the collection is actually being used.',
+      solution: 'Built a shared component sheet first — buttons, inputs, tabs, badges, and small cards in DOrSU blue — so every screen was assembled from the same parts. Designed a split-panel sign-in, a fixed sidebar with a dashboard of summary cards and charts, one consistent table pattern reused across books, borrowers, and transactions, and QR-driven add/edit/scan dialogs placed over dimmed screens to check sizing and focus before consolidating into a final screen set.',
+      keyFeatures: [
+        'Live dashboard totals for staff, students, books, and attendance, with a collection/loan breakdown chart and monthly borrow/return trend lines',
+        'One consistent table pattern (search bar, primary action button, inline row actions) reused across books, borrowers, and transactions so staff only have to learn it once',
+        'QR code generation for every book and borrower, turning a checkout into two scans and a confirmation instead of manual ID typing',
+        'Borrow and return tracking with monthly charts plus top-borrower and top-returner call-outs',
+        'Daily attendance logging to record and count library visits',
+        'Add, edit, confirm, and warning dialogs opened over the working table so staff never lose their place in a long list',
+        'Monthly reports summarizing catalog usage and library activity for the campus'
+      ],
+      responsibilities: [
+        'Designed and built the entire staff module solo, from screen mapping through high-fidelity Figma screens',
+        'Built a shared component sheet (buttons, inputs, tabs, status chips, cards) in DOrSU blue as the base for every subsequent screen',
+        'Designed the split-panel sign-in, dashboard, and one reusable table pattern shared by the books, borrowers, and transactions modules',
+        'Designed the QR code generation dialogs for books and borrowers, plus the add/edit, confirmation, and warning dialogs, with behavior notes for handoff',
+        'Placed every dialog over a dimmed background screen to verify sizing, focus, and context before consolidating the canvas into a final screen set',
+        'Audited the finished canvas for accessibility and real-world gaps — low-contrast secondary text, color-only warning states, missing empty/loading/scan-failed states, and dense row actions — and logged fixes for the next iteration'
+      ],
+      architecture: [
+        {
+          title: 'One Sidebar, One Table Pattern',
+          description: 'A persistent blue sidebar anchors every screen; tables are where staff find a record and modals are where they act on it, so the table underneath always stays in view.'
+        },
+        {
+          title: 'Scan Instead of Type',
+          description: 'QR codes for books and borrowers replace manual ID entry at the counter, turning a checkout into two scans and a confirmation.'
+        },
+        {
+          title: 'Confirm Before Anything Permanent',
+          description: 'Every destructive or saving action routes through a confirm or warning dialog, since library records are shared and hard to reconstruct once lost.'
+        }
+      ],
+      metrics: [
+        { label: 'Built By', value: 'Solo (Xein)' },
+        { label: 'Platform', value: 'Desktop Web' },
+        { label: 'Built For', value: 'DOrSU Banaybanay Campus' },
+        { label: 'Design System', value: 'DOrSU Blue' }
+      ]
+    }
+  },
+  {
+    id: 'edutrack',
+    title: 'EduTrack — Student Grades & Task Manager',
+    subtitle: 'Know Your Grades, Stay Ahead of Every Task',
+    category: 'Academic Mobile UI/UX & API-Driven Design',
+    typeCategory: 'uiux',
+    year: '2026',
+    role: 'Solo UI/UX Designer',
+    authors: 'Rico Alentijo',
+    description: 'A mobile UI/UX case study for a student grades and task manager: students never type a grade, since the app reads subjects, scores, and GWA straight from the school\'s admin system through an API, and only tasks and personal preferences are created on the phone.',
+    image: '/img/edutrack/edutrack-cover.png',
+    tags: ['Figma', 'Mobile UI/UX', 'iOS & Android', 'API-Driven Design', 'Design Systems', 'Prototyping'],
+    screenshots: [
+      {
+        title: 'Marketing Cover Showcase',
+        url: '/img/edutrack/edutrack-cover.png',
+        caption: 'EduTrack cover showing the log-in screen and the home dashboard with a 1.25 GWA ring, subject/task counts, and recent grade activity.'
+      }
+    ],
+    caseStudy: {
+      overview: 'EduTrack is a student app for grades and tasks. It rests on one rule: the school\'s admin system is the single source of truth for anything academic. Faculty post scores and the registrar computes GWA in the admin system; the mobile app displays that data and never edits it. Students add only what belongs to them — their own task list and app preferences.',
+      challenge: 'Grades reach students in pieces — a posted class record, a message in the class group chat, a login to a portal that isn\'t built for phones. Students who try to keep their own tracker have to copy every score by hand, and a single typo makes their computed GWA wrong.',
+      solution: 'Designed around data ownership first: every screen was decided by asking whether the admin system or the student owns that piece of data. Admin-owned data (accounts, enrolled subjects, scores, GWA) is shown read-only and refreshed from the API; student-owned data (tasks, contact details, app settings) is freely editable. Mapped the sign-in-to-token flow, cached the last API response for offline viewing, and drafted a proposed REST endpoint contract so the screens have a clear handoff to development.',
+      keyFeatures: [
+        'Home dashboard leading with a GWA progress ring on the university 1.0-highest scale, plus subject, exam, and task counts',
+        'My Grades screen with category averages (quizzes, exams, activities) and a card per enrolled subject',
+        'Subject detail listing every quiz, exam, and activity score with color-coded score badges',
+        'Recent Activity feed showing the latest scores faculty have posted, pulled straight from the API',
+        'Tasks grouped into Today and This Week, with subject chips filled from the student\'s actual enrolled subjects',
+        'Profile and settings for student-owned data only — phone, nickname, photo, address, notifications, language, and theme',
+        'Offline-friendly caching so the last known grades and GWA still display when the connection drops'
+      ],
+      responsibilities: [
+        'Designed the full data-ownership model mapping every field to either the admin system or the student, which shaped every screen\'s read-only vs. editable state',
+        'Designed the sign-in, home, My Grades, subject detail, tasks, and profile/settings screens in high-fidelity Figma',
+        'Mapped the sign-in-to-token sequence between student, admin API, and faculty, including cached offline viewing and push-triggered refresh',
+        'Drafted a proposed REST endpoint contract (auth, student profile, grade summary, subject grades, task-owned fields) as a starting point for developers',
+        'Defined the visual system: action blue for tappable elements and the GWA ring, navy for headline numbers, and green/amber/blue score badges',
+        'Audited the original screens against the API-only model and logged the mismatches to fix — a stray "Register" link and editable official fields on log-in/profile, missing loading/offline/empty states, generic notification toggles, and color-only score meaning'
+      ],
+      architecture: [
+        {
+          title: 'Single Source of Truth: The Admin API',
+          description: 'Accounts, enrolled subjects, every quiz/exam/activity score, and computed GWA are owned by the school\'s admin system; the app only ever reads and displays them.'
+        },
+        {
+          title: 'Token Session with Offline Cache',
+          description: 'Students sign in with their school account, the admin API returns an access token, and each screen requests only what it needs; the last response is cached so grades still show when offline.'
+        },
+        {
+          title: 'Proposed REST Contract for Handoff',
+          description: 'A starting set of endpoints (POST /auth/login, GET /students/me, GET /students/me/summary, GET /students/me/grades, GET /subjects/{id}/grades, PATCH /students/me/contact) mapped directly to the screens that consume them.'
+        }
+      ],
+      metrics: [
+        { label: 'Built By', value: 'Solo (Xein)' },
+        { label: 'Platform', value: 'iOS & Android' },
+        { label: 'Data Model', value: 'Read-Only Admin API' },
+        { label: 'Design System', value: 'Action Blue & Navy' }
+      ]
+    }
+  },
+  {
+    id: 'dorpay',
+    title: 'Dorpay — Student Payment & Accounting System',
+    subtitle: 'Every Payment Recorded, Every Balance Clear',
+    category: 'Campus Finance & Accounting UI/UX Design',
+    typeCategory: 'uiux',
+    year: '2026',
+    role: 'Solo UI/UX Designer',
+    authors: 'Rico Alentijo',
+    description: 'A desktop UI/UX case study designed and built solo for the DOrSU Banaybanay Campus accounting office: a system to track what each student owes, record payments, follow up on due dates, and handle promissory notes, one school year at a time.',
+    image: '/img/dorpay/dorpay-cover.png',
+    tags: ['Figma', 'UI/UX Design', 'Desktop Web', 'Accounting & Finance', 'Design Systems', 'Dashboard UI'],
+    screenshots: [
+      {
+        title: 'Marketing Cover Showcase',
+        url: '/img/dorpay/dorpay-cover.png',
+        caption: 'Dorpay cover showing the split sign-in screen and the accounting dashboard with total payments collected, total students, overdue payments, and top-5-payer tracking.'
+      }
+    ],
+    caseStudy: {
+      overview: 'Dorpay is a desktop UI/UX case study designed and built solo for the accounting office at Davao Oriental State University, Banaybanay Campus. Every semester the office needs to know, for each student, what they owe, what they\'ve paid, and when the rest is due — plus track promissory notes for students who can\'t pay on time. Dorpay brings all of it into one tool: a dashboard for the state of collections, one page per kind of record, and a school year selector that scopes everything to the right term.',
+      challenge: 'Fee records kept in ledgers and spreadsheets make simple questions slow to answer — who hasn\'t paid, how much has come in this month, which promissory notes are past their date. Each answer means cross-checking several files, and paper promissory notes are easy to misplace.',
+      solution: 'Built the Dorpay brand and a split sign-in screen first, then built reusable student-information, payables, and payment form blocks plus a standard table as components so every page would be assembled from the same parts. Designed a dashboard around the three numbers the office asks about most, applied one table-then-form-then-actions layout across Students, Payables, Due Dates, Payments, and School Year, and brought the office\'s own promissory note wording directly into the system next to the student\'s record.',
+      keyFeatures: [
+        'Dashboard leading with total amount collected, total students, and overdue payments, each with a trend line',
+        'Monthly bar chart of collected payments alongside a top-5-payers list and a latest-payments table with Paid/Partial status dots',
+        'One shared layout — table on top, detail form below, actions at the bottom — reused across Students, Payables, Due Dates, and Payments',
+        'School year selector in the same corner of every page, scoping balances, payables, and reports to the right term',
+        'Promissory notes carrying the accounting office\'s own wording, with blanks for the student, ID, course, amount, promised date, and signatures',
+        'Search and filters (year level, major) above every record table for fast student lookup'
+      ],
+      responsibilities: [
+        'Designed the Dorpay brand mark and a split sign-in screen with an illustrated panel and a short staff sign-in form',
+        'Built reusable form and table components (student information, payables, payment, actions, latest-payments table) that every page assembles from',
+        'Designed the dashboard around the three figures the office checks most, plus a monthly collections chart, top payers, and a latest payments feed',
+        'Applied one consistent table-form-actions pattern across the Students, Payables, Due Dates, Payments, and School Year pages',
+        'Brought the accounting office\'s actual promissory note text into the system, tied to the student\'s record and due dates',
+        'Audited the finished canvas for handoff gaps — low-contrast button text, an unguarded Delete action next to Update, a form that can sit off-screen below a long table, an inconsistent sidebar label, and missing empty/loading states — and logged fixes for the next iteration'
+      ],
+      architecture: [
+        {
+          title: 'School Year Scopes Everything',
+          description: 'A school year selector sits in the same corner of every page, so balances, payables, and reports are always read within one term and never mixed across years.'
+        },
+        {
+          title: 'One Layout for Every Record Page',
+          description: 'Students, Payables, Due Dates, and Payments all share the same table-then-form-then-actions structure, so staff who handle payments one day and due dates the next don\'t have to relearn the interface.'
+        },
+        {
+          title: 'Promissory Notes Live in the System',
+          description: 'The office\'s promissory note text sits next to the student\'s balance inside Dorpay instead of in a separate folder, so its promised date can be checked directly against due dates.'
+        }
+      ],
+      metrics: [
+        { label: 'Built By', value: 'Solo (Xein)' },
+        { label: 'Platform', value: 'Desktop Web' },
+        { label: 'Built For', value: 'DOrSU BC Accounting Office' },
+        { label: 'Design System', value: 'Indigo & Lavender' }
+      ]
+    }
+  },
+  {
+    id: 'footprint',
+    title: 'Footprint — A Field Guide to the Living World',
+    subtitle: 'Spot It, Snap It, Save It',
+    category: 'Environmental & Nature Mobile UI/UX Design',
+    typeCategory: 'uiux',
+    year: '2025',
+    role: 'Solo UI/UX Designer — School Project',
+    authors: 'Rico Alentijo',
+    description: 'A mobile UI/UX school project designed solo at DOrSU Banaybanay Campus: a pocket field guide for discovering trees, animals, plants, and grasses, where anyone can browse a photo-led catalog and add their own finds to the collection.',
+    image: '/img/footprint/footprint-cover.png',
+    tags: ['Figma', 'Mobile UI/UX', 'School Project', 'Design Systems', 'Prototyping'],
+    screenshots: [
+      {
+        title: 'Marketing Cover Showcase',
+        url: '/img/footprint/footprint-cover.png',
+        caption: 'Footprint cover showing the green log-in screen and a category-filtered species gallery with elephant, tiger, kangaroo, dolphin, eagle, and penguin entries.'
+      }
+    ],
+    caseStudy: {
+      overview: 'Footprint was designed as a school project at DOrSU Banaybanay Campus: a simple, friendly nature guide that anyone can open on their phone, with a clear photo, a type, a name, and a short description for every living thing. Beyond reading, users can contribute — an adding flow lets them upload a photo, name what they found, and describe it, so the guide grows with its community.',
+      challenge: 'Most nature references are either textbooks or long web articles — a lot to get through just to learn what a tree or animal is. The project set out to make it quick to find a living thing by category or search, show every entry the same way, and let users add their own finds to grow the collection, while practicing a complete app flow from first launch to logout.',
+      solution: 'Designed the Footprint mark and a short intro sequence, then built green sign-in and sign-up forms with social sign-in and a home screen with search plus one button per category. Designed a single entry layout — large photo, type, name, description — and filled it with six real examples each for trees, animals, plants, and grasses, then mirrored that same layout in the adding flow so a new contribution looks exactly like what it will become.',
+      keyFeatures: [
+        'Four clear categories — Trees, Animals, Plants, Grasses — each browsable as its own filtered photo grid',
+        'One consistent entry layout (photo, type, name, description) reused across all 24 designed species entries',
+        'Search bar and category quick filters on Home for jumping straight to a living thing',
+        'Social sign-in (Facebook, Google, Apple) alongside a standard username/password form',
+        'Add-entry flow with a photo upload area, name and description fields, mirroring the read layout',
+        'Profile menu with dark mode, settings, and a confirm-before-logout dialog to prevent accidental sign-outs'
+      ],
+      responsibilities: [
+        'Designed the Footprint brand mark and a four-frame intro sequence fading into a Get Started button',
+        'Built the sign-in, sign-up, and home screens, including social sign-in shortcuts and the search-plus-category home layout',
+        'Designed the dashboard photo grid, category chips, profile menu, settings page, and logout confirmation dialog',
+        'Designed one entry template and filled it with 24 real examples across trees, animals, plants, and grasses to prove it held up across very different subjects',
+        'Designed the add-entry flow, mirroring the read layout so contributors can picture their submission before posting it',
+        'Reviewed the finished canvas and logged the gaps to close before development — low-contrast text on mint fields, a missing category selector on the add form, an undersized back-button tap target, missing photo credits, no submission review step, and no empty/no-results states'
+      ],
+      architecture: [
+        {
+          title: 'One Template, Four Categories',
+          description: 'A single entry layout (photo, type, name, description) serves trees, animals, plants, and grasses alike, tested against 24 real examples rather than just one placeholder.'
+        },
+        {
+          title: 'Same Template for Reading and Adding',
+          description: 'The add-entry form mirrors the entry detail layout exactly, so a contributor can picture how their submission will appear before they submit it.'
+        },
+        {
+          title: 'Photo-First Recognition',
+          description: 'Every entry leads with a large photo before any text, matching how people recognize a living thing by sight before they know its name.'
+        }
+      ],
+      metrics: [
+        { label: 'Built By', value: 'Solo (Xein)' },
+        { label: 'Project Type', value: 'School Project' },
+        { label: 'Entries Designed', value: '24 Species Cards' },
+        { label: 'Design System', value: 'Leaf-to-Forest Green' }
+      ]
+    }
+  },
+  {
+    id: 'vero',
+    title: 'Vero — Community App for a Cleaner Planet',
+    subtitle: 'Save Planet Earth, One Action at a Time',
+    category: 'Environmental & Community Mobile UI/UX Design',
+    typeCategory: 'uiux',
+    year: '2025',
+    role: 'Solo UI/UX Designer — School Project',
+    authors: 'Rico Alentijo',
+    description: 'A mobile UI/UX school project designed solo at DOrSU Banaybanay Campus: an eco-volunteering app where people join environmental events like tree planting and coastal cleanups, earn coins for showing up, climb a leaderboard, and redeem rewards, while organisers post events and confirm attendance.',
+    image: '/img/vero/vero-cover.png',
+    tags: ['Figma', 'Mobile UI/UX', 'Dark Mode', 'School Project', 'Design Systems', 'Prototyping'],
+    screenshots: [
+      {
+        title: 'Marketing Cover Showcase',
+        url: '/img/vero/vero-cover.png',
+        caption: 'Vero cover showing the teal login screen and the home feed with upcoming, attending, and attended green events like Tree Planting, Bayanihan, and Sea Cleaning.'
+      }
+    ],
+    caseStudy: {
+      overview: 'Vero was designed as a school project at DOrSU Banaybanay Campus. Plenty of people want to help the environment but don\'t know where events are happening, and one-off volunteering rarely turns into a habit. Vero brings eco-events into one feed and adds a reason to keep coming back: every event a volunteer attends earns coins, coins lift them up a leaderboard, and coins can be redeemed for rewards. Organisers get their own screens to post events and approve attendance, so coins only go to people who actually showed up.',
+      challenge: 'Volunteers need a single place to discover upcoming, ongoing, and finished environmental events, see who else is going before committing, and feel like their participation is recognized rather than one-off. Organisers, meanwhile, need to create and edit events and confirm attendance so rewards can\'t be claimed by people who never showed up.',
+      solution: 'Built the whole app around one repeating core loop: discover an event, join it, attend and get approved by the organiser, earn coins and climb the leaderboard, then redeem rewards — which gives a reason to join the next event. Every screen was designed to support one step of that loop, from the teal-branded loading and sign-in sequence through the volunteer event feed, the organiser\'s approval and analytics dashboard, and a full dark mode pass across the core screens.',
+      keyFeatures: [
+        'Events feed filtered by Upcoming, Ongoing, and Finished, with address, date, time, and participant list on every event page',
+        'Coin rewards granted only after an organiser approves a volunteer\'s attendance, keeping the leaderboard fair',
+        'Leaderboard with a top-three podium above a ranked table, plus a rewards screen for redeeming coin balances',
+        'Organiser dashboard with participation totals, a percentage breakdown, and a bar chart above the leaderboard',
+        'Event management for organisers: add/edit forms with a photo slot, and an attendance approval list with approve/reject actions per volunteer',
+        'Full dark mode pass across login, sign-up, dashboard, and event detail screens',
+        'Waste classification and pickup requests extending the core loop beyond events into everyday sorting habits'
+      ],
+      responsibilities: [
+        'Designed the loading sequence, teal splash screen, and welcome flow that introduce the Vero brand',
+        'Designed the login and sign-up screens, including social sign-in, on a teal header with a leaf illustration',
+        'Designed the volunteer-facing dashboard, event list, and event detail pages showing coin rewards, address, date, time, and participants',
+        'Designed the organiser-facing admin dashboard, event add/edit forms, and the attendance approval flow with approve/reject actions',
+        'Designed the leaderboard podium, profile menu, redeem-rewards screen, and a full dark mode variant of the core screens',
+        'Reviewed the finished canvas and logged the gaps to close before development — coin icons that could read as a rating instead of a reward, a hard-to-read script logo, unlabeled approve/reject icons with no undo, no visible redemption rules, unclear organiser role assignment, and dark mode not yet covering every screen'
+      ],
+      architecture: [
+        {
+          title: 'One Core Loop Drives Every Screen',
+          description: 'Discover, join, attend, get approved, earn, rank, and redeem form a single repeating cycle, and every screen in the app supports exactly one step of it.'
+        },
+        {
+          title: 'Reward Only Verified Attendance',
+          description: 'Coins are only granted after an organiser approves attendance, so joining an event without showing up earns nothing and the leaderboard stays trustworthy.'
+        },
+        {
+          title: 'Gold Means Earned',
+          description: 'Coins, trophies, and the profile header are the only places gold appears, so users learn that gold always signals something they\'ve actually earned.'
+        }
+      ],
+      metrics: [
+        { label: 'Built By', value: 'Solo (Xein)' },
+        { label: 'Project Type', value: 'School Project' },
+        { label: 'Platform', value: 'Mobile, Light & Dark' },
+        { label: 'Design System', value: 'Deep Ocean Teal & Gold' }
       ]
     }
   }

@@ -1,12 +1,13 @@
 import React from 'react';
-import { 
-  Facebook, 
-  Linkedin, 
-  Mail, 
-  Instagram, 
+import {
+  Facebook,
+  Linkedin,
+  Mail,
+  Instagram,
   ArrowUp
 } from 'lucide-react';
 import { portfolioMeta } from '../data/portfolioData';
+import { VisitorBadge } from './VisitorBadge';
 
 interface FooterProps {
   onNavigate?: (sectionId: string) => void;
@@ -86,13 +87,17 @@ export const Footer: React.FC<FooterProps> = () => {
             <span>© {new Date().getFullYear()} {portfolioMeta.name}. All rights reserved.</span>
           </div>
 
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-1 text-zinc-500 hover:text-zinc-950 dark:hover:text-white transition cursor-pointer"
-          >
-            <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5" />
-          </button>
+          <div className="flex items-center gap-4">
+            <VisitorBadge />
+
+            <button
+              onClick={scrollToTop}
+              className="flex items-center gap-1 text-zinc-500 hover:text-zinc-950 dark:hover:text-white transition cursor-pointer"
+            >
+              <span>Back to top</span>
+              <ArrowUp className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

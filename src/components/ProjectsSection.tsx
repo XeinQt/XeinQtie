@@ -23,12 +23,17 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
     return p.typeCategory === filter;
   });
 
-  const displayedProjects = (filter === 'all' && !showAll) 
-    ? filteredProjects.slice(0, 4) 
-    : filteredProjects;
+  const displayedProjects = showAll
+    ? filteredProjects
+    : filteredProjects.slice(0, 4);
 
   const fullstackCount = projectsData.filter(p => p.typeCategory === 'fullstack').length;
   const uiuxCount = projectsData.filter(p => p.typeCategory === 'uiux').length;
+
+  const handleFilterChange = (next: 'all' | 'fullstack' | 'uiux') => {
+    setFilter(next);
+    setShowAll(false);
+  };
 
   return (
     <div className="w-full max-w-4xl mx-auto space-y-6">
@@ -47,7 +52,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
         {/* Filter Pills */}
         <div className="flex items-center gap-1.5 p-1 rounded-xl bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/80 dark:border-zinc-800 text-xs font-normal">
           <button
-            onClick={() => { setFilter('all'); }}
+            onClick={() => handleFilterChange('all')}
             className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
               filter === 'all'
                 ? 'bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white font-medium shadow-xs'
@@ -57,7 +62,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
             All ({projectsData.length})
           </button>
           <button
-            onClick={() => { setFilter('fullstack'); }}
+            onClick={() => handleFilterChange('fullstack')}
             className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
               filter === 'fullstack'
                 ? 'bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white font-medium shadow-xs'
@@ -67,7 +72,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
             Full-Stack ({fullstackCount})
           </button>
           <button
-            onClick={() => { setFilter('uiux'); }}
+            onClick={() => handleFilterChange('uiux')}
             className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
               filter === 'uiux'
                 ? 'bg-white dark:bg-zinc-800 text-zinc-950 dark:text-white font-medium shadow-xs'
@@ -91,14 +96,14 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
         ))}
       </div>
 
-      {/* View All / Show Less Button */}
-      {filter === 'all' && projectsData.length > 4 && (
+      {/* View More / Show Less Button */}
+      {filteredProjects.length > 4 && (
         <div className="flex justify-center pt-2">
           <button
             onClick={() => setShowAll(!showAll)}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-medium border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 shadow-xs transition-all duration-200 cursor-pointer active:scale-[0.98]"
           >
-            <span>{showAll ? 'Show Less' : `View All Projects (${projectsData.length})`}</span>
+            <span>{showAll ? 'Show Less' : `View More Projects (${filteredProjects.length - 4})`}</span>
             {showAll ? (
               <ChevronUp className="w-4 h-4 text-zinc-400" />
             ) : (
