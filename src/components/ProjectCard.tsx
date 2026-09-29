@@ -113,18 +113,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenCaseStu
               </a>
             )}
 
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-zinc-900 dark:hover:text-white transition flex items-center gap-0.5 font-normal"
-              >
-                <span>GitHub</span>
-                <ArrowUpRight className="w-3 h-3" />
-              </a>
-            )}
-
             {project.figmaUrl && (
               <a
                 href={project.figmaUrl}
