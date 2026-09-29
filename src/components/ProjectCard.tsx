@@ -82,7 +82,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenCaseStu
 
           {/* Tech Stack Tags with Official Logos */}
           <div className="flex flex-wrap gap-1.5 pt-1">
-            {project.tags.slice(0, 4).map((tag, idx) => (
+            {project.tags.map((tag, idx) => (
               <TechBadge key={idx} name={tag} size="sm" />
             ))}
           </div>
