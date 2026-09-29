@@ -892,6 +892,191 @@ export const projectsData: ProjectItem[] = [
     }
   },
   {
+    id: 'dorsu-library',
+    title: 'DOrSU-BC Library Management System — Staff Module',
+    subtitle: 'Find, Lend, and Track Every Book with Ease',
+    category: 'Campus Library & Academic Systems UI/UX Design',
+    typeCategory: 'uiux',
+    year: '2026',
+    role: 'Solo UI/UX Designer',
+    authors: 'Rico Alentijo',
+    description: 'A desktop UI/UX case study designed and built solo for Davao Oriental State University, Banaybanay Campus: a library staff system for managing books, borrowers, loans, and daily attendance, with QR codes to speed up checkout and returns.',
+    image: '/img/dorsu-library/dorsu-library-cover.png',
+    tags: ['Figma', 'UI/UX Design', 'Desktop Web', 'QR Code Workflows', 'Design Systems', 'Dashboard UI'],
+    screenshots: [
+      {
+        title: 'Marketing Cover Showcase',
+        url: '/img/dorsu-library/dorsu-library-cover.png',
+        caption: 'DOrSU-BC Library Management System cover showing the staff dashboard, sign-in screen, and live totals for staff, students, books, and attendance — built solo for DOrSU Banaybanay Campus.'
+      }
+    ],
+    caseStudy: {
+      overview: 'DOrSU-BC Library Management System is a desktop UI/UX case study designed and built solo for the library at Davao Oriental State University, Banaybanay Campus. It gives library staff a dashboard of what\'s happening today, searchable tables for books, borrowers, and transactions, daily attendance logging, and QR codes that identify a book or borrower with a scan instead of manual typing.',
+      challenge: 'A campus library runs on small, repeated tasks — adding a new title, lending a book to a student, taking it back, chasing an overdue return — that used to live in logbooks and spreadsheets. Staff need to find the right record fast, often with a student waiting at the counter, and manual logging makes it hard to know which books are out, overdue, or how the collection is actually being used.',
+      solution: 'Built a shared component sheet first — buttons, inputs, tabs, badges, and small cards in DOrSU blue — so every screen was assembled from the same parts. Designed a split-panel sign-in, a fixed sidebar with a dashboard of summary cards and charts, one consistent table pattern reused across books, borrowers, and transactions, and QR-driven add/edit/scan dialogs placed over dimmed screens to check sizing and focus before consolidating into a final screen set.',
+      keyFeatures: [
+        'Live dashboard totals for staff, students, books, and attendance, with a collection/loan breakdown chart and monthly borrow/return trend lines',
+        'One consistent table pattern (search bar, primary action button, inline row actions) reused across books, borrowers, and transactions so staff only have to learn it once',
+        'QR code generation for every book and borrower, turning a checkout into two scans and a confirmation instead of manual ID typing',
+        'Borrow and return tracking with monthly charts plus top-borrower and top-returner call-outs',
+        'Daily attendance logging to record and count library visits',
+        'Add, edit, confirm, and warning dialogs opened over the working table so staff never lose their place in a long list',
+        'Monthly reports summarizing catalog usage and library activity for the campus'
+      ],
+      responsibilities: [
+        'Designed and built the entire staff module solo, from screen mapping through high-fidelity Figma screens',
+        'Built a shared component sheet (buttons, inputs, tabs, status chips, cards) in DOrSU blue as the base for every subsequent screen',
+        'Designed the split-panel sign-in, dashboard, and one reusable table pattern shared by the books, borrowers, and transactions modules',
+        'Designed the QR code generation dialogs for books and borrowers, plus the add/edit, confirmation, and warning dialogs, with behavior notes for handoff',
+        'Placed every dialog over a dimmed background screen to verify sizing, focus, and context before consolidating the canvas into a final screen set',
+        'Audited the finished canvas for accessibility and real-world gaps — low-contrast secondary text, color-only warning states, missing empty/loading/scan-failed states, and dense row actions — and logged fixes for the next iteration'
+      ],
+      architecture: [
+        {
+          title: 'One Sidebar, One Table Pattern',
+          description: 'A persistent blue sidebar anchors every screen; tables are where staff find a record and modals are where they act on it, so the table underneath always stays in view.'
+        },
+        {
+          title: 'Scan Instead of Type',
+          description: 'QR codes for books and borrowers replace manual ID entry at the counter, turning a checkout into two scans and a confirmation.'
+        },
+        {
+          title: 'Confirm Before Anything Permanent',
+          description: 'Every destructive or saving action routes through a confirm or warning dialog, since library records are shared and hard to reconstruct once lost.'
+        }
+      ],
+      metrics: [
+        { label: 'Built By', value: 'Solo (Xein)' },
+        { label: 'Platform', value: 'Desktop Web' },
+        { label: 'Built For', value: 'DOrSU Banaybanay Campus' },
+        { label: 'Design System', value: 'DOrSU Blue' }
+      ]
+    }
+  },
+  {
+    id: 'edutrack',
+    title: 'EduTrack — Student Grades & Task Manager',
+    subtitle: 'Know Your Grades, Stay Ahead of Every Task',
+    category: 'Academic Mobile UI/UX & API-Driven Design',
+    typeCategory: 'uiux',
+    year: '2026',
+    role: 'Solo UI/UX Designer',
+    authors: 'Rico Alentijo',
+    description: 'A mobile UI/UX case study for a student grades and task manager: students never type a grade, since the app reads subjects, scores, and GWA straight from the school\'s admin system through an API, and only tasks and personal preferences are created on the phone.',
+    image: '/img/edutrack/edutrack-cover.png',
+    tags: ['Figma', 'Mobile UI/UX', 'iOS & Android', 'API-Driven Design', 'Design Systems', 'Prototyping'],
+    screenshots: [
+      {
+        title: 'Marketing Cover Showcase',
+        url: '/img/edutrack/edutrack-cover.png',
+        caption: 'EduTrack cover showing the log-in screen and the home dashboard with a 1.25 GWA ring, subject/task counts, and recent grade activity.'
+      }
+    ],
+    caseStudy: {
+      overview: 'EduTrack is a student app for grades and tasks. It rests on one rule: the school\'s admin system is the single source of truth for anything academic. Faculty post scores and the registrar computes GWA in the admin system; the mobile app displays that data and never edits it. Students add only what belongs to them — their own task list and app preferences.',
+      challenge: 'Grades reach students in pieces — a posted class record, a message in the class group chat, a login to a portal that isn\'t built for phones. Students who try to keep their own tracker have to copy every score by hand, and a single typo makes their computed GWA wrong.',
+      solution: 'Designed around data ownership first: every screen was decided by asking whether the admin system or the student owns that piece of data. Admin-owned data (accounts, enrolled subjects, scores, GWA) is shown read-only and refreshed from the API; student-owned data (tasks, contact details, app settings) is freely editable. Mapped the sign-in-to-token flow, cached the last API response for offline viewing, and drafted a proposed REST endpoint contract so the screens have a clear handoff to development.',
+      keyFeatures: [
+        'Home dashboard leading with a GWA progress ring on the university 1.0-highest scale, plus subject, exam, and task counts',
+        'My Grades screen with category averages (quizzes, exams, activities) and a card per enrolled subject',
+        'Subject detail listing every quiz, exam, and activity score with color-coded score badges',
+        'Recent Activity feed showing the latest scores faculty have posted, pulled straight from the API',
+        'Tasks grouped into Today and This Week, with subject chips filled from the student\'s actual enrolled subjects',
+        'Profile and settings for student-owned data only — phone, nickname, photo, address, notifications, language, and theme',
+        'Offline-friendly caching so the last known grades and GWA still display when the connection drops'
+      ],
+      responsibilities: [
+        'Designed the full data-ownership model mapping every field to either the admin system or the student, which shaped every screen\'s read-only vs. editable state',
+        'Designed the sign-in, home, My Grades, subject detail, tasks, and profile/settings screens in high-fidelity Figma',
+        'Mapped the sign-in-to-token sequence between student, admin API, and faculty, including cached offline viewing and push-triggered refresh',
+        'Drafted a proposed REST endpoint contract (auth, student profile, grade summary, subject grades, task-owned fields) as a starting point for developers',
+        'Defined the visual system: action blue for tappable elements and the GWA ring, navy for headline numbers, and green/amber/blue score badges',
+        'Audited the original screens against the API-only model and logged the mismatches to fix — a stray "Register" link and editable official fields on log-in/profile, missing loading/offline/empty states, generic notification toggles, and color-only score meaning'
+      ],
+      architecture: [
+        {
+          title: 'Single Source of Truth: The Admin API',
+          description: 'Accounts, enrolled subjects, every quiz/exam/activity score, and computed GWA are owned by the school\'s admin system; the app only ever reads and displays them.'
+        },
+        {
+          title: 'Token Session with Offline Cache',
+          description: 'Students sign in with their school account, the admin API returns an access token, and each screen requests only what it needs; the last response is cached so grades still show when offline.'
+        },
+        {
+          title: 'Proposed REST Contract for Handoff',
+          description: 'A starting set of endpoints (POST /auth/login, GET /students/me, GET /students/me/summary, GET /students/me/grades, GET /subjects/{id}/grades, PATCH /students/me/contact) mapped directly to the screens that consume them.'
+        }
+      ],
+      metrics: [
+        { label: 'Built By', value: 'Solo (Xein)' },
+        { label: 'Platform', value: 'iOS & Android' },
+        { label: 'Data Model', value: 'Read-Only Admin API' },
+        { label: 'Design System', value: 'Action Blue & Navy' }
+      ]
+    }
+  },
+  {
+    id: 'dorpay',
+    title: 'Dorpay — Student Payment & Accounting System',
+    subtitle: 'Every Payment Recorded, Every Balance Clear',
+    category: 'Campus Finance & Accounting UI/UX Design',
+    typeCategory: 'uiux',
+    year: '2026',
+    role: 'Solo UI/UX Designer',
+    authors: 'Rico Alentijo',
+    description: 'A desktop UI/UX case study designed and built solo for the DOrSU Banaybanay Campus accounting office: a system to track what each student owes, record payments, follow up on due dates, and handle promissory notes, one school year at a time.',
+    image: '/img/dorpay/dorpay-cover.png',
+    tags: ['Figma', 'UI/UX Design', 'Desktop Web', 'Accounting & Finance', 'Design Systems', 'Dashboard UI'],
+    screenshots: [
+      {
+        title: 'Marketing Cover Showcase',
+        url: '/img/dorpay/dorpay-cover.png',
+        caption: 'Dorpay cover showing the split sign-in screen and the accounting dashboard with total payments collected, total students, overdue payments, and top-5-payer tracking.'
+      }
+    ],
+    caseStudy: {
+      overview: 'Dorpay is a desktop UI/UX case study designed and built solo for the accounting office at Davao Oriental State University, Banaybanay Campus. Every semester the office needs to know, for each student, what they owe, what they\'ve paid, and when the rest is due — plus track promissory notes for students who can\'t pay on time. Dorpay brings all of it into one tool: a dashboard for the state of collections, one page per kind of record, and a school year selector that scopes everything to the right term.',
+      challenge: 'Fee records kept in ledgers and spreadsheets make simple questions slow to answer — who hasn\'t paid, how much has come in this month, which promissory notes are past their date. Each answer means cross-checking several files, and paper promissory notes are easy to misplace.',
+      solution: 'Built the Dorpay brand and a split sign-in screen first, then built reusable student-information, payables, and payment form blocks plus a standard table as components so every page would be assembled from the same parts. Designed a dashboard around the three numbers the office asks about most, applied one table-then-form-then-actions layout across Students, Payables, Due Dates, Payments, and School Year, and brought the office\'s own promissory note wording directly into the system next to the student\'s record.',
+      keyFeatures: [
+        'Dashboard leading with total amount collected, total students, and overdue payments, each with a trend line',
+        'Monthly bar chart of collected payments alongside a top-5-payers list and a latest-payments table with Paid/Partial status dots',
+        'One shared layout — table on top, detail form below, actions at the bottom — reused across Students, Payables, Due Dates, and Payments',
+        'School year selector in the same corner of every page, scoping balances, payables, and reports to the right term',
+        'Promissory notes carrying the accounting office\'s own wording, with blanks for the student, ID, course, amount, promised date, and signatures',
+        'Search and filters (year level, major) above every record table for fast student lookup'
+      ],
+      responsibilities: [
+        'Designed the Dorpay brand mark and a split sign-in screen with an illustrated panel and a short staff sign-in form',
+        'Built reusable form and table components (student information, payables, payment, actions, latest-payments table) that every page assembles from',
+        'Designed the dashboard around the three figures the office checks most, plus a monthly collections chart, top payers, and a latest payments feed',
+        'Applied one consistent table-form-actions pattern across the Students, Payables, Due Dates, Payments, and School Year pages',
+        'Brought the accounting office\'s actual promissory note text into the system, tied to the student\'s record and due dates',
+        'Audited the finished canvas for handoff gaps — low-contrast button text, an unguarded Delete action next to Update, a form that can sit off-screen below a long table, an inconsistent sidebar label, and missing empty/loading states — and logged fixes for the next iteration'
+      ],
+      architecture: [
+        {
+          title: 'School Year Scopes Everything',
+          description: 'A school year selector sits in the same corner of every page, so balances, payables, and reports are always read within one term and never mixed across years.'
+        },
+        {
+          title: 'One Layout for Every Record Page',
+          description: 'Students, Payables, Due Dates, and Payments all share the same table-then-form-then-actions structure, so staff who handle payments one day and due dates the next don\'t have to relearn the interface.'
+        },
+        {
+          title: 'Promissory Notes Live in the System',
+          description: 'The office\'s promissory note text sits next to the student\'s balance inside Dorpay instead of in a separate folder, so its promised date can be checked directly against due dates.'
+        }
+      ],
+      metrics: [
+        { label: 'Built By', value: 'Solo (Xein)' },
+        { label: 'Platform', value: 'Desktop Web' },
+        { label: 'Built For', value: 'DOrSU BC Accounting Office' },
+        { label: 'Design System', value: 'Indigo & Lavender' }
+      ]
+    }
+  },
+  {
     id: 'kamai',
     title: 'KamAI — Healthcare EMR Web Platform',
     subtitle: 'Electronic Medical Records & Clinical Portal',
@@ -1183,191 +1368,6 @@ export const projectsData: ProjectItem[] = [
         { label: 'Figma Frames', value: '40+ Screens' },
         { label: 'Scope', value: 'Wireframe to Hi-Fi' },
         { label: 'Design System', value: 'Yellow / Black / Maroon' }
-      ]
-    }
-  },
-  {
-    id: 'dorsu-library',
-    title: 'DOrSU-BC Library Management System — Staff Module',
-    subtitle: 'Find, Lend, and Track Every Book with Ease',
-    category: 'Campus Library & Academic Systems UI/UX Design',
-    typeCategory: 'uiux',
-    year: '2026',
-    role: 'Solo UI/UX Designer',
-    authors: 'Rico Alentijo',
-    description: 'A desktop UI/UX case study designed and built solo for Davao Oriental State University, Banaybanay Campus: a library staff system for managing books, borrowers, loans, and daily attendance, with QR codes to speed up checkout and returns.',
-    image: '/img/dorsu-library/dorsu-library-cover.png',
-    tags: ['Figma', 'UI/UX Design', 'Desktop Web', 'QR Code Workflows', 'Design Systems', 'Dashboard UI'],
-    screenshots: [
-      {
-        title: 'Marketing Cover Showcase',
-        url: '/img/dorsu-library/dorsu-library-cover.png',
-        caption: 'DOrSU-BC Library Management System cover showing the staff dashboard, sign-in screen, and live totals for staff, students, books, and attendance — built solo for DOrSU Banaybanay Campus.'
-      }
-    ],
-    caseStudy: {
-      overview: 'DOrSU-BC Library Management System is a desktop UI/UX case study designed and built solo for the library at Davao Oriental State University, Banaybanay Campus. It gives library staff a dashboard of what\'s happening today, searchable tables for books, borrowers, and transactions, daily attendance logging, and QR codes that identify a book or borrower with a scan instead of manual typing.',
-      challenge: 'A campus library runs on small, repeated tasks — adding a new title, lending a book to a student, taking it back, chasing an overdue return — that used to live in logbooks and spreadsheets. Staff need to find the right record fast, often with a student waiting at the counter, and manual logging makes it hard to know which books are out, overdue, or how the collection is actually being used.',
-      solution: 'Built a shared component sheet first — buttons, inputs, tabs, badges, and small cards in DOrSU blue — so every screen was assembled from the same parts. Designed a split-panel sign-in, a fixed sidebar with a dashboard of summary cards and charts, one consistent table pattern reused across books, borrowers, and transactions, and QR-driven add/edit/scan dialogs placed over dimmed screens to check sizing and focus before consolidating into a final screen set.',
-      keyFeatures: [
-        'Live dashboard totals for staff, students, books, and attendance, with a collection/loan breakdown chart and monthly borrow/return trend lines',
-        'One consistent table pattern (search bar, primary action button, inline row actions) reused across books, borrowers, and transactions so staff only have to learn it once',
-        'QR code generation for every book and borrower, turning a checkout into two scans and a confirmation instead of manual ID typing',
-        'Borrow and return tracking with monthly charts plus top-borrower and top-returner call-outs',
-        'Daily attendance logging to record and count library visits',
-        'Add, edit, confirm, and warning dialogs opened over the working table so staff never lose their place in a long list',
-        'Monthly reports summarizing catalog usage and library activity for the campus'
-      ],
-      responsibilities: [
-        'Designed and built the entire staff module solo, from screen mapping through high-fidelity Figma screens',
-        'Built a shared component sheet (buttons, inputs, tabs, status chips, cards) in DOrSU blue as the base for every subsequent screen',
-        'Designed the split-panel sign-in, dashboard, and one reusable table pattern shared by the books, borrowers, and transactions modules',
-        'Designed the QR code generation dialogs for books and borrowers, plus the add/edit, confirmation, and warning dialogs, with behavior notes for handoff',
-        'Placed every dialog over a dimmed background screen to verify sizing, focus, and context before consolidating the canvas into a final screen set',
-        'Audited the finished canvas for accessibility and real-world gaps — low-contrast secondary text, color-only warning states, missing empty/loading/scan-failed states, and dense row actions — and logged fixes for the next iteration'
-      ],
-      architecture: [
-        {
-          title: 'One Sidebar, One Table Pattern',
-          description: 'A persistent blue sidebar anchors every screen; tables are where staff find a record and modals are where they act on it, so the table underneath always stays in view.'
-        },
-        {
-          title: 'Scan Instead of Type',
-          description: 'QR codes for books and borrowers replace manual ID entry at the counter, turning a checkout into two scans and a confirmation.'
-        },
-        {
-          title: 'Confirm Before Anything Permanent',
-          description: 'Every destructive or saving action routes through a confirm or warning dialog, since library records are shared and hard to reconstruct once lost.'
-        }
-      ],
-      metrics: [
-        { label: 'Built By', value: 'Solo (Xein)' },
-        { label: 'Platform', value: 'Desktop Web' },
-        { label: 'Built For', value: 'DOrSU Banaybanay Campus' },
-        { label: 'Design System', value: 'DOrSU Blue' }
-      ]
-    }
-  },
-  {
-    id: 'edutrack',
-    title: 'EduTrack — Student Grades & Task Manager',
-    subtitle: 'Know Your Grades, Stay Ahead of Every Task',
-    category: 'Academic Mobile UI/UX & API-Driven Design',
-    typeCategory: 'uiux',
-    year: '2026',
-    role: 'Solo UI/UX Designer',
-    authors: 'Rico Alentijo',
-    description: 'A mobile UI/UX case study for a student grades and task manager: students never type a grade, since the app reads subjects, scores, and GWA straight from the school\'s admin system through an API, and only tasks and personal preferences are created on the phone.',
-    image: '/img/edutrack/edutrack-cover.png',
-    tags: ['Figma', 'Mobile UI/UX', 'iOS & Android', 'API-Driven Design', 'Design Systems', 'Prototyping'],
-    screenshots: [
-      {
-        title: 'Marketing Cover Showcase',
-        url: '/img/edutrack/edutrack-cover.png',
-        caption: 'EduTrack cover showing the log-in screen and the home dashboard with a 1.25 GWA ring, subject/task counts, and recent grade activity.'
-      }
-    ],
-    caseStudy: {
-      overview: 'EduTrack is a student app for grades and tasks. It rests on one rule: the school\'s admin system is the single source of truth for anything academic. Faculty post scores and the registrar computes GWA in the admin system; the mobile app displays that data and never edits it. Students add only what belongs to them — their own task list and app preferences.',
-      challenge: 'Grades reach students in pieces — a posted class record, a message in the class group chat, a login to a portal that isn\'t built for phones. Students who try to keep their own tracker have to copy every score by hand, and a single typo makes their computed GWA wrong.',
-      solution: 'Designed around data ownership first: every screen was decided by asking whether the admin system or the student owns that piece of data. Admin-owned data (accounts, enrolled subjects, scores, GWA) is shown read-only and refreshed from the API; student-owned data (tasks, contact details, app settings) is freely editable. Mapped the sign-in-to-token flow, cached the last API response for offline viewing, and drafted a proposed REST endpoint contract so the screens have a clear handoff to development.',
-      keyFeatures: [
-        'Home dashboard leading with a GWA progress ring on the university 1.0-highest scale, plus subject, exam, and task counts',
-        'My Grades screen with category averages (quizzes, exams, activities) and a card per enrolled subject',
-        'Subject detail listing every quiz, exam, and activity score with color-coded score badges',
-        'Recent Activity feed showing the latest scores faculty have posted, pulled straight from the API',
-        'Tasks grouped into Today and This Week, with subject chips filled from the student\'s actual enrolled subjects',
-        'Profile and settings for student-owned data only — phone, nickname, photo, address, notifications, language, and theme',
-        'Offline-friendly caching so the last known grades and GWA still display when the connection drops'
-      ],
-      responsibilities: [
-        'Designed the full data-ownership model mapping every field to either the admin system or the student, which shaped every screen\'s read-only vs. editable state',
-        'Designed the sign-in, home, My Grades, subject detail, tasks, and profile/settings screens in high-fidelity Figma',
-        'Mapped the sign-in-to-token sequence between student, admin API, and faculty, including cached offline viewing and push-triggered refresh',
-        'Drafted a proposed REST endpoint contract (auth, student profile, grade summary, subject grades, task-owned fields) as a starting point for developers',
-        'Defined the visual system: action blue for tappable elements and the GWA ring, navy for headline numbers, and green/amber/blue score badges',
-        'Audited the original screens against the API-only model and logged the mismatches to fix — a stray "Register" link and editable official fields on log-in/profile, missing loading/offline/empty states, generic notification toggles, and color-only score meaning'
-      ],
-      architecture: [
-        {
-          title: 'Single Source of Truth: The Admin API',
-          description: 'Accounts, enrolled subjects, every quiz/exam/activity score, and computed GWA are owned by the school\'s admin system; the app only ever reads and displays them.'
-        },
-        {
-          title: 'Token Session with Offline Cache',
-          description: 'Students sign in with their school account, the admin API returns an access token, and each screen requests only what it needs; the last response is cached so grades still show when offline.'
-        },
-        {
-          title: 'Proposed REST Contract for Handoff',
-          description: 'A starting set of endpoints (POST /auth/login, GET /students/me, GET /students/me/summary, GET /students/me/grades, GET /subjects/{id}/grades, PATCH /students/me/contact) mapped directly to the screens that consume them.'
-        }
-      ],
-      metrics: [
-        { label: 'Built By', value: 'Solo (Xein)' },
-        { label: 'Platform', value: 'iOS & Android' },
-        { label: 'Data Model', value: 'Read-Only Admin API' },
-        { label: 'Design System', value: 'Action Blue & Navy' }
-      ]
-    }
-  },
-  {
-    id: 'dorpay',
-    title: 'Dorpay — Student Payment & Accounting System',
-    subtitle: 'Every Payment Recorded, Every Balance Clear',
-    category: 'Campus Finance & Accounting UI/UX Design',
-    typeCategory: 'uiux',
-    year: '2026',
-    role: 'Solo UI/UX Designer',
-    authors: 'Rico Alentijo',
-    description: 'A desktop UI/UX case study designed and built solo for the DOrSU Banaybanay Campus accounting office: a system to track what each student owes, record payments, follow up on due dates, and handle promissory notes, one school year at a time.',
-    image: '/img/dorpay/dorpay-cover.png',
-    tags: ['Figma', 'UI/UX Design', 'Desktop Web', 'Accounting & Finance', 'Design Systems', 'Dashboard UI'],
-    screenshots: [
-      {
-        title: 'Marketing Cover Showcase',
-        url: '/img/dorpay/dorpay-cover.png',
-        caption: 'Dorpay cover showing the split sign-in screen and the accounting dashboard with total payments collected, total students, overdue payments, and top-5-payer tracking.'
-      }
-    ],
-    caseStudy: {
-      overview: 'Dorpay is a desktop UI/UX case study designed and built solo for the accounting office at Davao Oriental State University, Banaybanay Campus. Every semester the office needs to know, for each student, what they owe, what they\'ve paid, and when the rest is due — plus track promissory notes for students who can\'t pay on time. Dorpay brings all of it into one tool: a dashboard for the state of collections, one page per kind of record, and a school year selector that scopes everything to the right term.',
-      challenge: 'Fee records kept in ledgers and spreadsheets make simple questions slow to answer — who hasn\'t paid, how much has come in this month, which promissory notes are past their date. Each answer means cross-checking several files, and paper promissory notes are easy to misplace.',
-      solution: 'Built the Dorpay brand and a split sign-in screen first, then built reusable student-information, payables, and payment form blocks plus a standard table as components so every page would be assembled from the same parts. Designed a dashboard around the three numbers the office asks about most, applied one table-then-form-then-actions layout across Students, Payables, Due Dates, Payments, and School Year, and brought the office\'s own promissory note wording directly into the system next to the student\'s record.',
-      keyFeatures: [
-        'Dashboard leading with total amount collected, total students, and overdue payments, each with a trend line',
-        'Monthly bar chart of collected payments alongside a top-5-payers list and a latest-payments table with Paid/Partial status dots',
-        'One shared layout — table on top, detail form below, actions at the bottom — reused across Students, Payables, Due Dates, and Payments',
-        'School year selector in the same corner of every page, scoping balances, payables, and reports to the right term',
-        'Promissory notes carrying the accounting office\'s own wording, with blanks for the student, ID, course, amount, promised date, and signatures',
-        'Search and filters (year level, major) above every record table for fast student lookup'
-      ],
-      responsibilities: [
-        'Designed the Dorpay brand mark and a split sign-in screen with an illustrated panel and a short staff sign-in form',
-        'Built reusable form and table components (student information, payables, payment, actions, latest-payments table) that every page assembles from',
-        'Designed the dashboard around the three figures the office checks most, plus a monthly collections chart, top payers, and a latest payments feed',
-        'Applied one consistent table-form-actions pattern across the Students, Payables, Due Dates, Payments, and School Year pages',
-        'Brought the accounting office\'s actual promissory note text into the system, tied to the student\'s record and due dates',
-        'Audited the finished canvas for handoff gaps — low-contrast button text, an unguarded Delete action next to Update, a form that can sit off-screen below a long table, an inconsistent sidebar label, and missing empty/loading states — and logged fixes for the next iteration'
-      ],
-      architecture: [
-        {
-          title: 'School Year Scopes Everything',
-          description: 'A school year selector sits in the same corner of every page, so balances, payables, and reports are always read within one term and never mixed across years.'
-        },
-        {
-          title: 'One Layout for Every Record Page',
-          description: 'Students, Payables, Due Dates, and Payments all share the same table-then-form-then-actions structure, so staff who handle payments one day and due dates the next don\'t have to relearn the interface.'
-        },
-        {
-          title: 'Promissory Notes Live in the System',
-          description: 'The office\'s promissory note text sits next to the student\'s balance inside Dorpay instead of in a separate folder, so its promised date can be checked directly against due dates.'
-        }
-      ],
-      metrics: [
-        { label: 'Built By', value: 'Solo (Xein)' },
-        { label: 'Platform', value: 'Desktop Web' },
-        { label: 'Built For', value: 'DOrSU BC Accounting Office' },
-        { label: 'Design System', value: 'Indigo & Lavender' }
       ]
     }
   },

@@ -18,10 +18,12 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
     }
   };
 
-  const filteredProjects = projectsData.filter((p) => {
-    if (filter === 'all') return true;
-    return p.typeCategory === filter;
-  });
+  const filteredProjects = projectsData
+    .filter((p) => {
+      if (filter === 'all') return true;
+      return p.typeCategory === filter;
+    })
+    .sort((a, b) => parseInt(b.year, 10) - parseInt(a.year, 10));
 
   const displayedProjects = showAll
     ? filteredProjects
