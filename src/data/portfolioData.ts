@@ -75,7 +75,7 @@ export const portfolioMeta: PortfolioMeta = {
   skillsSummary: [
     'AI-Assisted Workflows',
     'Cursor & Codex',
-    'Claude & GPT-4o',
+    'Claude',
     'Gemini & Antigravity',
     'UI/UX Design & Figma',
     'Laravel',

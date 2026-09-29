@@ -12,7 +12,7 @@ export const EducationSection: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-8 pt-1">
         {/* Left Column: Date Range */}
         <div className="w-full sm:w-48 shrink-0 text-xs sm:text-sm text-zinc-400 dark:text-zinc-500 font-normal">
-          2025
+          2026
         </div>
 
         {/* Right Column: Degree & University */}

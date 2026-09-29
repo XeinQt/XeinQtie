@@ -8,7 +8,6 @@ const row1 = [
   'Gemini',
   'Antigravity',
   'Codex',
-  'GPT-4o',
   'React',
   'Next.js 14',
   'TypeScript',
@@ -46,7 +45,7 @@ const row3 = [
 const categorizedTech = [
   {
     category: 'AI Assistants & Workflows',
-    items: ['Claude', 'Cursor', 'Gemini', 'Antigravity', 'Codex', 'GPT-4o', 'OpenAI API', 'Groq API']
+    items: ['Claude', 'Cursor', 'Gemini', 'Antigravity', 'Codex', 'OpenAI API', 'Groq API']
   },
   {
     category: 'UI/UX & Frontend Architecture',

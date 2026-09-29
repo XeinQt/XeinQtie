@@ -115,7 +115,6 @@ export const HomePage: React.FC<HomePageProps> = ({
           {/* AI Workflow Badges */}
           <div className="flex flex-wrap items-center gap-2 pt-0.5">
             <TechBadge name="Claude" size="sm" variant="dashed" />
-            <TechBadge name="GPT-4o" size="sm" variant="dashed" />
             <TechBadge name="Gemini" size="sm" variant="dashed" />
             <TechBadge name="Cursor" size="sm" variant="dashed" />
             <TechBadge name="Codex" size="sm" variant="dashed" />

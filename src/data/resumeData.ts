@@ -119,7 +119,7 @@ export const resumeData = {
     {
       degree: 'Bachelor of Science in Information Technology',
       institution: 'Davao Oriental State University - Banaybanay Campus',
-      year: '2025'
+      year: '2026'
     }
   ],
   skills: [
