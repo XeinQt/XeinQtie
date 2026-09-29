@@ -41,7 +41,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'exp-1',
     role: 'Full-Stack Developer & UI/UX Designer',
-    company: 'Kaban, Checkpoint, & Liem Barbershop – Freelance / Independent',
+    company: 'Kaban, Checkpoint, and Liem Barbershop – Freelance',
     companyInitials: 'FL',
     companyLogoBg: 'from-zinc-700 to-zinc-950',
     companyUrl: 'https://treasurer-system.vercel.app',
@@ -136,7 +136,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'exp-4',
     role: 'Freelance UI/UX Designer',
-    company: 'Solar E-Bike, Footprint, & Vero – Freelance',
+    company: 'Solar E-Bike Store, Footprint, Vero – Independent / Freelance',
     companyInitials: 'FL',
     companyLogoBg: 'from-zinc-700 to-zinc-950',
     companyUrl: 'https://example.com',
