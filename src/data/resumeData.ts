@@ -66,10 +66,10 @@ export const resumeData = {
     },
     {
       role: 'Freelance UI/UX Designer',
-      company: 'Independent / Freelance',
+      company: 'Solar E-Bike, Footprint, & Vero – Freelance',
       period: 'Aug 2024 – Dec 2024',
       bullets: [
-        'Designed responsive UI/UX mockups, wireframes, and prototypes in Figma tailored to custom client requirements.',
+        'Designed responsive UI/UX mockups, wireframes, and prototypes in Figma for diverse platforms including Solar E-Bike Store, Footprint, and Vero.',
         'Developed structured user flows to outline clean, friction-free user journeys.',
         'Iterated quickly on client feedback to deliver modern and accessible UI assets.'
       ]
