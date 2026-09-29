@@ -36,7 +36,7 @@ export const resumeData = {
   experience: [
     {
       role: 'Full-Stack Developer & UI/UX Designer',
-      company: 'Kaban, Checkpoint, & Liem Barbershop – Freelance / Independent',
+      company: 'Kaban, Checkpoint, and Liem Barbershop (Mobile App) – Freelance / Independent',
       period: 'July 2026 – Present',
       bullets: [
         'Designed and developed end-to-end web applications, ensuring seamless integration between front-end interfaces and scalable back-end databases.',
@@ -78,8 +78,8 @@ export const resumeData = {
   projects: [
     {
       title: 'Checkpoint — AI Face Recognition Attendance System',
-      link: 'attendance-system-nine.vercel.app',
-      url: 'https://attendance-system-nine.vercel.app',
+      link: 'attendance-system-nine.vercel.app/login',
+      url: 'https://attendance-system-nine.vercel.app/login',
       bullets: [
         'Integrated ArcFace and FAISS vector search with MiniFASNet anti-spoofing to achieve sub-130ms 512-D face matching and block photo/screen spoof attacks.',
         'Developed a React web dashboard featuring automated facial quality gating (blur, lighting, scale) and live camera scanning for event check-ins.',
@@ -105,7 +105,7 @@ export const resumeData = {
       ]
     },
     {
-      title: 'Figma Design Portfolio — KamAI, BizCard, Champion, Liem Barber Shop',
+      title: 'Figma — KamAI, BizCard, Champion, Liem Barber Shop',
       link: 'figma.com/design/Pre-Designs',
       url: 'https://www.figma.com/design/Pre-Designs',
       bullets: [
@@ -128,16 +128,16 @@ export const resumeData = {
       skills: 'Figma, Wireframing, Prototyping, Design Systems'
     },
     {
-      category: 'Languages',
-      skills: 'JavaScript, TypeScript, Python, PHP, Dart, HTML5, CSS3'
+      category: 'Languages & Frameworks',
+      skills: 'JavaScript, TypeScript, Python, PHP, Dart, HTML5, CSS3, Laravel, Next.js 14, React, Node.js, Flutter, Tailwind CSS'
     },
     {
-      category: 'Database & Cloud',
-      skills: 'Supabase, PostgreSQL, Firebase, MySQL, SQLite'
+      category: 'Database and Cloud',
+      skills: 'Supabase, PostgreSQL, Firebase, MySQL, SQLite, WordPress'
     },
     {
       category: 'Developer Tools & AI',
-      skills: 'Git, GitHub, Docker, Vite, Cursor, AntiGravity, Claude, ChatGPT, Gemini, REST APIs'
+      skills: 'Git, GitHub, Docker, Vite, Cursor, Antigravity, Claude, ChatGPT, Gemini, Codex, OpenAI API'
     }
   ]
 };
