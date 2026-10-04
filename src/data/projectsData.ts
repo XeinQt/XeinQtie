@@ -19,6 +19,7 @@ export interface FunctionalModule {
 
 export interface ProjectItem {
   id: string;
+  hidden?: boolean;
   title: string;
   subtitle?: string;
   category: string;
@@ -1130,6 +1131,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: 'bizcard',
+    hidden: true,
     title: 'BizCard — Digital Identity & Contact Sharing',
     subtitle: 'Smart Digital Business Card & Networking Suite',
     category: 'Mobile & Tablet UI/UX Design',
@@ -1175,6 +1177,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: 'champion',
+    hidden: true,
     title: 'Champion — Refer & Earn Mobile App',
     subtitle: 'Referral Marketing & Gamified Rewards App',
     category: 'Mobile & Tablet UI/UX Design',

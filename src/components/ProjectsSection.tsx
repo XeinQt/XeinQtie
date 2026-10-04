@@ -18,7 +18,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
     }
   };
 
-  const filteredProjects = projectsData
+  const visibleProjects = projectsData.filter((p) => !p.hidden);
+
+  const filteredProjects = visibleProjects
     .filter((p) => {
       if (filter === 'all') return true;
       return p.typeCategory === filter;
@@ -29,8 +31,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
     ? filteredProjects
     : filteredProjects.slice(0, 4);
 
-  const fullstackCount = projectsData.filter(p => p.typeCategory === 'fullstack').length;
-  const uiuxCount = projectsData.filter(p => p.typeCategory === 'uiux').length;
+  const fullstackCount = visibleProjects.filter(p => p.typeCategory === 'fullstack').length;
+  const uiuxCount = visibleProjects.filter(p => p.typeCategory === 'uiux').length;
 
   const handleFilterChange = (next: 'all' | 'fullstack' | 'uiux') => {
     setFilter(next);
@@ -61,7 +63,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
                 : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white'
             }`}
           >
-            All ({projectsData.length})
+            All ({visibleProjects.length})
           </button>
           <button
             onClick={() => handleFilterChange('fullstack')}
