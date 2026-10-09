@@ -1131,7 +1131,6 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: 'bizcard',
-    hidden: true,
     title: 'BizCard — Digital Identity & Contact Sharing',
     subtitle: 'Smart Digital Business Card & Networking Suite',
     category: 'Mobile & Tablet UI/UX Design',
@@ -1168,6 +1167,20 @@ export const projectsData: ProjectItem[] = [
         'Built tablet layout adaptations for all mobile views ensuring visual symmetry on wider screens',
         'Developed high-fidelity prototypes in Figma to simulate sharing and card previews'
       ],
+      architecture: [
+        {
+          title: 'Responsive Dual-Breakpoint Layout',
+          description: 'Adaptive Figma component architecture covering mobile touch viewports and expanded dual-pane tablet layouts.'
+        },
+        {
+          title: 'Interactive vCard & QR Flow',
+          description: 'Frictionless digital identity exchange with instantaneous contactless QR code rendering and vCard contact export.'
+        },
+        {
+          title: 'Design System & Tokenization',
+          description: 'Standardized design library with reusable card styles, typography tokens, status indicators, and custom branding controls.'
+        }
+      ],
       metrics: [
         { label: 'Platform Support', value: 'Mobile & Tablet' },
         { label: 'Figma Screens', value: '34+ Screens' },
@@ -1177,7 +1190,6 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: 'champion',
-    hidden: true,
     title: 'Champion — Refer & Earn Mobile App',
     subtitle: 'Referral Marketing & Gamified Rewards App',
     category: 'Mobile & Tablet UI/UX Design',
@@ -1213,6 +1225,20 @@ export const projectsData: ProjectItem[] = [
         'Designed the referral flow: unique link sharing, champions list, and referral status tracking',
         'Created contest and rewards screens to encourage ongoing engagement',
         'Designed a tablet layout adapting all key screens to larger screen sizes'
+      ],
+      architecture: [
+        {
+          title: 'Gamified Referral Mechanics',
+          description: 'High-energy orange visual identity paired with progress indicators, leaderboard rankings, and transparent reward tiers.'
+        },
+        {
+          title: 'Frictionless 3-Tap Invite Loop',
+          description: 'Optimized user journey focusing on rapid referral link copying, QR code generation, and multi-platform social invites.'
+        },
+        {
+          title: 'Multi-Screen Breakpoint Adaptation',
+          description: 'Unified layout rules scaling from compact smartphone screens to rich multi-column tablet dashboards with detailed referee analytics.'
+        }
       ],
       metrics: [
         { label: 'Device Support', value: 'Mobile & Tablet' },
