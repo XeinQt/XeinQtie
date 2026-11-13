@@ -491,8 +491,8 @@ export const projectsData: ProjectItem[] = [
       'State Management',
       'UI/UX Design'
     ],
-    liveUrl: 'http://localhost:3000',
-    githubUrl: 'https://github.com/ricoalentijo/pickleball-management-system',
+    liveUrl: 'https://norbertos.vercel.app/',
+
     screenshots: [
       {
         title: 'Club Hero & Brand Experience',
