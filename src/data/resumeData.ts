@@ -36,7 +36,7 @@ export const resumeData = {
   experience: [
     {
       role: 'Full-Stack Developer & UI/UX Designer',
-      company: 'Kaban, Checkpoint, and Liem Barbershop – Freelance',
+      company: "Norberto's Pickle Kitchen, Kaban, Checkpoint, and Liem Barbershop – Freelance",
       period: 'July 2026 – Present',
       bullets: [
         'Designed and developed end-to-end web applications, ensuring seamless integration between front-end interfaces and scalable back-end databases',

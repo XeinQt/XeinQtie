@@ -41,7 +41,7 @@ export const experiences: ExperienceItem[] = [
   {
     id: 'exp-1',
     role: 'Full-Stack Developer & UI/UX Designer',
-    company: 'Kaban, Checkpoint, and Liem Barbershop – Freelance',
+    company: "Norberto's Pickle Kitchen, Kaban, Checkpoint, and Liem Barbershop – Freelance",
     companyInitials: 'FL',
     companyLogoBg: 'from-zinc-700 to-zinc-950',
     companyUrl: 'https://treasurer-system.vercel.app',
@@ -63,6 +63,7 @@ export const experiences: ExperienceItem[] = [
       'Implemented responsive design systems to ensure visual and functional consistency across all mobile, tablet, and desktop viewports.'
     ],
     skills: [
+      { name: 'Next.js', category: 'frontend' },
       { name: 'React', category: 'frontend' },
       { name: 'TypeScript', category: 'frontend' },
       { name: 'Tailwind CSS', category: 'frontend' },
