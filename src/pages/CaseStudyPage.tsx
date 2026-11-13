@@ -145,6 +145,15 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId, onBack 
               </span>
             </>
           )}
+          {project.id === 'pickleball-management-system' && (
+            <>
+              <span>·</span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30">
+                <ShieldCheck className="w-3 h-3" />
+                Sports Facility SaaS
+              </span>
+            </>
+          )}
         </div>
 
         <h1 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-white tracking-tight leading-snug">
@@ -174,14 +183,14 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ projectId, onBack 
         </div>
 
         {/* Caption (Only for KABAN) */}
-        {project.id === 'kaban' && currentCaption && (
+        {currentCaption && (
           <p className="text-xs text-zinc-500 dark:text-zinc-400 italic text-center px-4">
             {currentCaption}
           </p>
         )}
 
         {/* Thumbnail Selector - ONLY for KABAN */}
-        {project.id === 'kaban' && screenshots.length > 1 && (
+        {screenshots.length > 1 && (
           <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1">
             {screenshots.map((s, idx) => (
               <button

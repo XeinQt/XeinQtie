@@ -63,6 +63,12 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({ pr
                   Laravel 12 MVC
                 </span>
               )}
+              {project.id === 'pickleball-management-system' && (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-mono bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/30">
+                  <ShieldCheck className="w-3 h-3" />
+                  Sports Facility SaaS
+                </span>
+              )}
             </div>
             <h3 className="text-xl font-bold text-zinc-900 dark:text-white mt-1">
               {project.title}
