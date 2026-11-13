@@ -472,7 +472,6 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: 'pickleball-management-system',
-    hidden: true,
     title: "Norberto's Pickle Kitchen — Sports Facility & Court Management SaaS",
     subtitle: 'Full-Stack Court Booking, Open Play Matchmaking & Club Operations Platform',
     category: 'Full-Stack Web Application',
@@ -482,8 +481,8 @@ export const projectsData: ProjectItem[] = [
     client: "Norberto's Pickle Kitchen",
     authors: 'Rico Alentijo',
     description:
-      'A modern, high-performance sports management SaaS powering real-time court scheduling, DUPR-tiered community matchmaking, coaching reservations, and administrative club analytics.',
-    image: '/img/pickleball-management-system/cover.png',
+      'A modern, high-performance sports management SaaS powering real-time court scheduling, DUPR-tiered community matchmaking, coaching reservations, equipment rentals, and administrative club analytics.',
+    image: '/img/pickleball-management-system/cover.jpg',
     tags: [
       'Next.js 14',
       'TypeScript',
@@ -496,34 +495,58 @@ export const projectsData: ProjectItem[] = [
     githubUrl: 'https://github.com/ricoalentijo/pickleball-management-system',
     screenshots: [
       {
-        title: 'Customer Club Portal & Hero Experience',
-        url: '/img/pickleball-management-system/screen-home.png',
+        title: 'Club Hero & Brand Experience',
+        url: '/img/pickleball-management-system/cover.jpg',
         caption:
-          'High-energy hero banner featuring active court photography, live player DUPR status, and direct booking entry points.'
+          'High-energy hero banner showcasing covered pickleball courts in Banaybanay, operating hours (7 AM–2 AM), and direct booking entry points.'
       },
       {
-        title: 'Interactive Multi-Court Grid & Reservation System',
+        title: 'Customer Club Portal & Overview',
+        url: '/img/pickleball-management-system/screen-home.jpg',
+        caption:
+          'Customer home portal featuring quick-booking shortcuts, court availability cards, and PWA install prompt.'
+      },
+      {
+        title: 'Interactive Multi-Court Booking Grid',
         url: '/img/pickleball-management-system/screen-booking.png',
         caption:
-          'Real-time visual schedule grid across 7 indoor courts with conflict prevention, multi-slot selection, and sticky checkout calculation.'
+          'Multi-court reservation timeline with touch-friendly date selection, time slot picking, and tiered morning/evening rates.'
       },
       {
-        title: 'Open Play Matchmaking & Tournament Hub',
-        url: '/img/pickleball-management-system/screen-openplay.png',
+        title: 'Administrative Revenue & Operations Cockpit',
+        url: '/img/pickleball-management-system/screen-admin-dashboard.png',
         caption:
-          'Community session discovery with real-time capacity meters, skill-tier badges, and 2v2 Auto Match queue management.'
+          'Comprehensive manager dashboard showing total revenue trends, booking breakdown donut chart, and transaction logs.'
       },
       {
-        title: 'Certified Coaching Marketplace & Private Lessons',
-        url: '/img/pickleball-management-system/screen-coaches.png',
+        title: 'Court Schedule & Multi-Court Calendar',
+        url: '/img/pickleball-management-system/screen-calendar.png',
         caption:
-          'Dedicated pro-instructor profiles highlighting DUPR certification, specialties, lesson rates, and one-click session checkout.'
+          'Master schedule timeline tracking morning, afternoon, and evening court bookings with real-time slot occupancy.'
       },
       {
-        title: 'Administrative Operations & Revenue Analytics Suite',
-        url: '/img/pickleball-management-system/screen-admin.png',
+        title: 'Booking Management & Transaction Ledger',
+        url: '/img/pickleball-management-system/screen-booking-management.jpg',
         caption:
-          'Comprehensive club operations cockpit for real-time occupancy monitoring, payment reconciliations, court controls, and activity logs.'
+          'Audit-ready transaction records with booking IDs, customer phone numbers, payment statuses, and walk-in reconciliation.'
+      },
+      {
+        title: 'Venue & Court Configuration Suite',
+        url: '/img/pickleball-management-system/screen-courts.jpg',
+        caption:
+          'Court management console for setting day/evening hourly rates, player capacities, lighting, and amenity tags.'
+      },
+      {
+        title: 'Customer Bookings & Receipts Portal',
+        url: '/img/pickleball-management-system/screen-my-bookings.png',
+        caption:
+          'Player self-service hub showing upcoming matches, group classes, official booking references, and digital receipts.'
+      },
+      {
+        title: 'Pro Shop & Equipment Rentals',
+        url: '/img/pickleball-management-system/screen-shop.png',
+        caption:
+          'Equipment rental marketplace featuring automated ball machine reservations and carbon fiber demo paddle rentals.'
       }
     ],
     techStackTable: [
@@ -557,7 +580,7 @@ export const projectsData: ProjectItem[] = [
       {
         title: 'Interactive Multi-Court Scheduling Engine',
         features: [
-          'Dynamic 7-court timeline with visual status indicators (Available, Booked, Mine, Open Play, Coaching)',
+          'Dynamic multi-court timeline with visual status indicators (Available, Booked, Mine, Open Play, Coaching)',
           'Conflict-free multi-slot selection with automatic subtotal and gateway fee recalculation',
           'Horizontal touch-enabled date strip supporting rapid 14-day scheduling and native calendar fallback',
           'Sticky floating checkout bar on mobile and desktop preventing abandonment during multi-hour bookings'
@@ -598,7 +621,7 @@ export const projectsData: ProjectItem[] = [
       solution:
         'Engineered an integrated Next.js application featuring an interactive court availability matrix, an automated DUPR-tiered matchmaking engine, and a unified administrative control center. Elevated the brand aesthetic through a custom, strictly enforced 3-color design system (#FAFCFB canvas, #1BADC3 brand ink, #C9E31F energetic accent) that creates visual depth through brand-tinted elevation, directional photography scrims, and disciplined sports typography.',
       keyFeatures: [
-        'Real-Time Multi-Court Timeline: Visual matrix across 7 indoor courts with live slot states and instant multi-hour booking capability.',
+        'Real-Time Multi-Court Timeline: Visual matrix across covered courts with live slot states and instant multi-hour booking capability.',
         'Algorithmic Auto Matchmaking: Queue-driven 2v2 matchmaking engine grouping players by verified DUPR ratings.',
         'Community Open Play Hub: Session explorer featuring live player counts, capacity progress bars, and single-click registration.',
         'Instructor Marketplace: Certified coaching profiles with ratings, specialties, and integrated calendar booking.',
@@ -630,8 +653,8 @@ export const projectsData: ProjectItem[] = [
         }
       ],
       metrics: [
-        { label: 'Courts Managed', value: '7 Indoor Courts' },
-        { label: 'Platform Views', value: '25+ Tailored Screens' },
+        { label: 'Courts Managed', value: 'Covered Courts' },
+        { label: 'Operating Hours', value: '7 AM – 2 AM' },
         { label: 'Interaction Latency', value: '< 100ms' },
         { label: 'Design System', value: '100% Strict 3-Color' }
       ]
