@@ -472,6 +472,7 @@ export const projectsData: ProjectItem[] = [
   },
   {
     id: 'pickleball-management-system',
+    hidden: true,
     title: "Norberto's Pickle Kitchen — Sports Facility & Court Management SaaS",
     subtitle: 'Full-Stack Court Booking, Open Play Matchmaking & Club Operations Platform',
     category: 'Full-Stack Web Application',
