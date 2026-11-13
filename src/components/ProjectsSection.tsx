@@ -89,9 +89,14 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenCaseStud
       </div>
 
       {/* 2-Column Minimalist Card Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 items-stretch">
         {displayedProjects.map((project, index) => (
-          <ScrollReveal key={project.id} delay={(index % 2) * 0.08} y={20}>
+          <ScrollReveal 
+            key={project.id} 
+            delay={(index % 2) * 0.08} 
+            y={20}
+            className="h-full flex flex-col"
+          >
             <ProjectCard
               project={project}
               onOpenCaseStudy={handleOpen}

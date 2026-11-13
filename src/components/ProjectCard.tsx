@@ -27,12 +27,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenCaseStu
   };
 
   return (
-    <div className="group rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 hover:bg-white dark:hover:bg-zinc-900 shadow-2xs hover:shadow-sm hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 overflow-hidden flex flex-col justify-between p-5 sm:p-6 space-y-4">
+    <div className="group rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-white/70 dark:bg-zinc-900/50 hover:bg-white dark:hover:bg-zinc-900 shadow-2xs hover:shadow-sm hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300 overflow-hidden flex flex-col justify-between p-5 sm:p-6 gap-4 h-full w-full">
       
       {/* Top Media Preview Container */}
       <div 
         onClick={() => onOpenCaseStudy(project)}
-        className="w-full h-44 sm:h-48 bg-zinc-100 dark:bg-zinc-850 rounded-xl overflow-hidden relative border border-zinc-200/60 dark:border-zinc-800 flex items-center justify-center cursor-pointer"
+        className="w-full h-44 sm:h-48 bg-zinc-100 dark:bg-zinc-850 rounded-xl overflow-hidden relative border border-zinc-200/60 dark:border-zinc-800 flex items-center justify-center cursor-pointer shrink-0"
       >
         {!hasError ? (
           <img 
@@ -58,13 +58,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenCaseStu
       </div>
 
       {/* Card Content Area */}
-      <div className="space-y-3 flex-1 flex flex-col justify-between">
+      <div className="flex-1 flex flex-col justify-between gap-3">
         
         <div className="space-y-2">
           {/* Category & Year Header Row */}
-          <div className="flex items-center justify-between text-[11px] text-zinc-400 dark:text-zinc-500 font-normal">
-            <span>{project.category}</span>
-            <span className="font-mono">{project.year}</span>
+          <div className="flex items-center justify-between text-[11px] text-zinc-400 dark:text-zinc-500 font-normal gap-2">
+            <span className="truncate">{project.category}</span>
+            <span className="font-mono shrink-0">{project.year}</span>
           </div>
 
           {/* Project Title */}
@@ -76,7 +76,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenCaseStu
           </h3>
 
           {/* Project Description */}
-          <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal line-clamp-2">
+          <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal line-clamp-2 min-h-[2.5rem]">
             {project.description}
           </p>
 
@@ -89,7 +89,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onOpenCaseStu
         </div>
 
         {/* Bottom Actions Row */}
-        <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs">
+        <div className="pt-3 border-t border-zinc-100 dark:border-zinc-800/80 flex items-center justify-between text-xs mt-auto">
           {/* Read Case Study Button */}
           <button
             onClick={() => onOpenCaseStudy(project)}
