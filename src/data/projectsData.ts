@@ -58,191 +58,231 @@ export interface ProjectItem {
 export const projectsData: ProjectItem[] = [
   {
     id: 'pickleball-management-system',
-    title: "Norberto's Pickle Kitchen — Sports Facility & Court Management SaaS",
-    subtitle: 'Full-Stack Court Booking, Open Play Matchmaking & Club Operations Platform',
-    category: 'Full-Stack Web Application',
+    title: "Norberto's Pickle Kitchen",
+    subtitle: 'End-to-End Court Booking, Open Play Matchmaking & Club Operations Platform',
+    category: 'Full-Stack Web Application / Sports Facility SaaS',
     typeCategory: 'fullstack',
     year: '2026',
     role: 'Lead Full-Stack Developer & UI/UX Designer',
-    client: "Norberto's Pickle Kitchen",
+    client: "Norberto's Pickle Kitchen (Banaybanay Facility)",
     authors: 'Rico Alentijo',
     description:
-      'A modern, high-performance sports management SaaS powering real-time court scheduling, DUPR-tiered community matchmaking, coaching reservations, equipment rentals, and administrative club analytics.',
-    image: '/img/pickleball-management-system/cover.jpg',
+      'A production booking and operations platform for a covered pickleball club in Banaybanay. Players book courts, join open play, enter tournaments and pay by QR from their phones. Staff run the desk, check players in, verify payments and export every transaction from one role-based admin console. Double-booking is ruled out at the database level.',
+    image: '/img/pickleball-management-system/hero.png',
     tags: [
-      'Next.js 14',
+      'Next.js 16',
+      'React 19',
       'TypeScript',
+      'Supabase',
+      'PostgreSQL',
       'Tailwind CSS',
+      'Base UI',
+      'Vercel',
       'Design Systems',
-      'State Management',
-      'UI/UX Design'
+      'UI/UX'
     ],
-    liveUrl: 'https://norbertos.vercel.app/',
-
+    liveUrl: 'https://norbertos.vercel.app',
     screenshots: [
       {
         title: 'Club Hero & Brand Experience',
-        url: '/img/pickleball-management-system/cover.jpg',
+        url: '/img/pickleball-management-system/hero.png',
         caption:
-          'High-energy hero banner showcasing covered pickleball courts in Banaybanay, operating hours (7 AM–2 AM), and direct booking entry points.'
+          'Landing experience built on the club palette: #FAFCFB canvas, #1BADC3 teal and a #C9E31F lime highlight that always sits under dark ink text.'
       },
       {
         title: 'Customer Club Portal & Overview',
-        url: '/img/pickleball-management-system/screen-home.jpg',
+        url: '/img/pickleball-management-system/portal-home.png',
         caption:
-          'Customer home portal featuring quick-booking shortcuts, court availability cards, and PWA install prompt.'
+          "The player's home: upcoming bookings, today's open play, tournaments and group coaching classes, with one-tap Add Players on sessions already joined."
       },
       {
         title: 'Interactive Multi-Court Booking Grid',
-        url: '/img/pickleball-management-system/screen-booking.png',
+        url: '/img/pickleball-management-system/court-booking.png',
         caption:
-          'Multi-court reservation timeline with touch-friendly date selection, time slot picking, and tiered morning/evening rates.'
+          'Court-by-time grid grouped into Morning, Afternoon, Evening and Late Night. Multi-slot selection recalculates time-of-day pricing on the fly.'
       },
       {
         title: 'Administrative Revenue & Operations Cockpit',
-        url: '/img/pickleball-management-system/screen-admin-dashboard.png',
+        url: '/img/pickleball-management-system/admin-dashboard.png',
         caption:
-          'Comprehensive manager dashboard showing total revenue trends, booking breakdown donut chart, and transaction logs.'
+          'Revenue by source and payment method, court utilization and daily activity. Each revenue source keeps the same colour on every chart, legend and badge.'
       },
       {
         title: 'Court Schedule & Multi-Court Calendar',
-        url: '/img/pickleball-management-system/screen-calendar.png',
+        url: '/img/pickleball-management-system/admin-calendar.png',
         caption:
-          'Master schedule timeline tracking morning, afternoon, and evening court bookings with real-time slot occupancy.'
+          'Every court on one calendar: private bookings, open play across several courts, coaching sessions and tournaments.'
       },
       {
         title: 'Booking Management & Transaction Ledger',
-        url: '/img/pickleball-management-system/screen-booking-management.jpg',
+        url: '/img/pickleball-management-system/admin-bookings.png',
         caption:
-          'Audit-ready transaction records with booking IDs, customer phone numbers, payment statuses, and walk-in reconciliation.'
+          'Desk and online bookings with QR payment proofs, approve and reject actions, and a ledger that tracks every GCash reference.'
       },
       {
         title: 'Venue & Court Configuration Suite',
-        url: '/img/pickleball-management-system/screen-courts.jpg',
+        url: '/img/pickleball-management-system/admin-courts.png',
         caption:
-          'Court management console for setting day/evening hourly rates, player capacities, lighting, and amenity tags.'
+          'Court types, photos, per-court rates and status toggles (Available, Maintenance, Inactive) that take a court out of online booking immediately.'
       },
       {
         title: 'Customer Bookings & Receipts Portal',
-        url: '/img/pickleball-management-system/screen-my-bookings.png',
+        url: '/img/pickleball-management-system/my-bookings.png',
         caption:
-          'Player self-service hub showing upcoming matches, group classes, official booking references, and digital receipts.'
+          'Each player sees their bookings, payment status, emailed receipts and the QR pass staff scan at check-in.'
       },
       {
         title: 'Pro Shop & Equipment Rentals',
-        url: '/img/pickleball-management-system/screen-shop.png',
+        url: '/img/pickleball-management-system/equipment-rentals.png',
         caption:
-          'Equipment rental marketplace featuring automated ball machine reservations and carbon fiber demo paddle rentals.'
+          'Paddle rentals and pro shop sales recorded alongside court revenue, so the end-of-day totals match the till.'
       }
     ],
     techStackTable: [
       {
         layer: 'Framework & Architecture',
-        tech: 'Next.js 14 (App Router), React 18, TypeScript',
-        purpose: 'Server and client component orchestration, route-level layouts, and strict type safety.'
+        tech: 'Next.js 16 (App Router), React 19, TypeScript',
+        purpose:
+          'Route groups split the customer portal from the admin console. Server route handlers own every write, and strict types run from database row to UI.'
       },
       {
-        layer: 'Design System & Styling',
-        tech: 'Tailwind CSS, Strict 3-Color Design Tokens',
-        purpose: 'Immutable 3-color palette (#FAFCFB, #1BADC3, #C9E31F) with directional photo scrims and sports typography.'
+        layer: 'Database & Integrity',
+        tech: 'Supabase (PostgreSQL), row-level security, gist exclusion constraints',
+        purpose:
+          'A synced court_slots table and a tstzrange exclusion constraint make overlapping court bookings impossible, whichever path created them. Only the server can read or write.'
       },
       {
         layer: 'State & Domain Logic',
-        tech: 'Custom Reactive Store, Date-Fns, AutoMatch Engine',
-        purpose: 'Multi-slot reservation state, automated 2v2 player queue matching, and scheduling algorithms.'
+        tech: 'React context store, Supabase Realtime, date-fns',
+        purpose:
+          'A shared client store updates live from the server. Scheduling logic is pinned to Asia/Manila time and corrects for wrong device clocks against the server.'
       },
       {
-        layer: 'UI Primitives & Feedback',
-        tech: 'Base UI Primitives, Lucide Icons, Custom Modals',
-        purpose: 'Accessible dialog overlays, touch-optimized date strips, and responsive drawer navigation.'
+        layer: 'Design System & Styling',
+        tech: 'Tailwind CSS with a single-source token file',
+        purpose:
+          'One theme.ts defines every colour: a 3-colour brand palette (#FAFCFB, #1BADC3, #C9E31F) plus neutral and status tokens. The Tailwind palette is limited to those tokens, and text pairs are tuned for WCAG AA.'
       },
       {
-        layer: 'Payments & Verification',
-        tech: 'PaymentModal Engine, QR Ph & E-Wallet Simulators',
-        purpose: 'Simulated multi-channel checkout with instant reference code generation and booking status updates.'
+        layer: 'UI Primitives & Data Viz',
+        tech: 'Base UI, Lucide Icons, Recharts',
+        purpose:
+          'Accessible dialogs and menus, a responsive mobile drawer, and dashboard charts that use the same token colours.'
+      },
+      {
+        layer: 'Payments & Check-in',
+        tech: 'GCash / InstaPay QR, qrcode, jsQR',
+        purpose:
+          'Players pay by QR and upload proof, and each reference can be used only once. Slots are held for 15 minutes during checkout, and QR passes are scanned at the desk.'
+      },
+      {
+        layer: 'Security & Operations',
+        tech: 'Signed httpOnly sessions, scrypt, admin PIN, Cloudflare Turnstile, Vercel (sin1)',
+        purpose:
+          'Role-based admin access with a PIN required for owners and managers, shared rate limits, CSP and CSRF protection, a full activity log and nightly encrypted backups.'
       }
     ],
     modules: [
       {
-        title: 'Interactive Multi-Court Scheduling Engine',
+        title: 'Multi-Court Scheduling Engine',
         features: [
-          'Dynamic multi-court timeline with visual status indicators (Available, Booked, Mine, Open Play, Coaching)',
-          'Conflict-free multi-slot selection with automatic subtotal and gateway fee recalculation',
-          'Horizontal touch-enabled date strip supporting rapid 14-day scheduling and native calendar fallback',
-          'Sticky floating checkout bar on mobile and desktop preventing abandonment during multi-hour bookings'
+          'Court-by-time grid showing Available, Booked, Mine, Open Play and Coaching slots',
+          'Multi-slot, multi-court selection with live subtotals from time-of-day price tiers',
+          'Operating hours, slot length and pricing periods set by the owner, with validation',
+          '15-minute checkout holds so two players can never pay for the same slot',
+          'Online booking closes overnight while desk bookings continue'
         ]
       },
       {
-        title: 'DUPR Matchmaking & Open Play Hub',
+        title: 'Open Play, Auto Match & Tournaments',
         features: [
-          'Queue-based Auto Match algorithm grouping 4 available players by comparable DUPR skill tiers',
-          'Daily open play community games with live participant stacks and slot-capacity gauges',
-          'Tournament registration directory featuring live event status, team rosters, and category breakdowns',
-          'Instant toast feedback pipeline confirming queue entries, slot joins, and match notifications'
+          'Open play sessions that can span several courts, with live participant lists',
+          'Auto Match queues players by skill tier and splits four players into the most evenly rated 2v2 teams',
+          'Rating updates and match history after each game',
+          'Tournament directory with registration, one active entry per player and a payment flow'
         ]
       },
       {
-        title: 'Coach Directory & Marketplace',
+        title: 'Coaching & Group Classes',
         features: [
-          'Instructor profiles showcasing credentials, years of experience, hourly rates, and verified reviews',
-          'Direct lesson scheduling linked directly into court availability to prevent double-booking instructors',
-          'Integrated multi-tender payment flow covering QR Ph, GCash, Maya, and walk-in counter settlement'
+          'Players request a private lesson and management assigns the coach',
+          'Flat per-session coaching fee on top of hourly court time, at the desk and online',
+          'Group coaching classes players can enrol in from the portal',
+          'Database rules allow only one session per coach, and one per court, in each slot'
         ]
       },
       {
-        title: 'Unified Administration & Club Operations Portal',
+        title: 'Club Operations Console',
         features: [
-          'Overview dashboard with net revenue, utilization rates, active players, and peak hour distributions',
-          'Court management module allowing staff to toggle court operational states and create custom blocks',
-          'Financial transaction audit log detailing payment method, reference IDs, and customer phone records',
-          'Role-separated authentication flow maintaining customer sessions apart from club management access'
+          'Revenue dashboard broken down by source (courts, open play, tournaments, coaching, rentals, sales) and payment method',
+          'Payment verification queue with private proof screenshots',
+          'QR check-in, walk-in bookings, promo codes, staff management and player accounts',
+          "Owners can open a player's portal to help them, and every change is logged",
+          'Transaction report exported to Excel with totals, full booking details and GCash references'
         ]
       }
     ],
     caseStudy: {
       overview:
-        "Norberto's Pickle Kitchen is a specialized pickleball facility management platform built to unify customer court reservations, community open play games, coach bookings, and venue administration into a cohesive digital ecosystem. Designed to replace fragmented group chats and manual spreadsheets, the platform delivers an agile, sports-club experience engineered for rapid booking on mobile and data-dense management on desktop.",
+        "Norberto's Pickle Kitchen runs covered courts in Banaybanay from early morning until after midnight. Before this platform, bookings came in through chat messages and paper, and payments were checked by hand against GCash screenshots. I designed and built the whole system: a customer club portal and a role-based admin console on one Next.js 16 codebase backed by Supabase Postgres, in production on Vercel.",
       challenge:
-        'Modern sports facilities frequently suffer from booking friction: overlapping reservation requests, chaotic walk-in scheduling, and disjointed coordination for open play sessions where players often arrive to find mismatched skill levels or filled courts. Additionally, facility managers lacked a single source of truth for revenue, equipment, and occupancy tracking across morning, peak, and evening hours.',
+        'The club needed online booking without risking double-booked courts. Desk walk-ins, online checkouts, open play spanning several courts and coaching sessions all compete for the same court time. Payments are manual QR transfers that staff must verify, phones in the field often have wrong clocks, and the owner needed every peso traceable to a transaction and a payment reference for the end-of-day reconciliation.',
       solution:
-        'Engineered an integrated Next.js application featuring an interactive court availability matrix, an automated DUPR-tiered matchmaking engine, and a unified administrative control center. Elevated the brand aesthetic through a custom, strictly enforced 3-color design system (#FAFCFB canvas, #1BADC3 brand ink, #C9E31F energetic accent) that creates visual depth through brand-tinted elevation, directional photography scrims, and disciplined sports typography.',
+        'I moved the no-overlap guarantee into the database. Every booking, hold, submission and open play game writes its court time into a single court_slots table, and a Postgres gist exclusion constraint on (court, time range) rejects any overlap atomically, whichever screen created it. Checkout holds a slot for 15 minutes while the player pays by QR. One-use payment references stop the same receipt being reused, and all scheduling logic runs on server-corrected Asia/Manila time. On the design side, a single token file drives a restrained 3-colour brand system that is consistent across 49 routes.',
       keyFeatures: [
-        'Real-Time Multi-Court Timeline: Visual matrix across covered courts with live slot states and instant multi-hour booking capability.',
-        'Algorithmic Auto Matchmaking: Queue-driven 2v2 matchmaking engine grouping players by verified DUPR ratings.',
-        'Community Open Play Hub: Session explorer featuring live player counts, capacity progress bars, and single-click registration.',
-        'Instructor Marketplace: Certified coaching profiles with ratings, specialties, and integrated calendar booking.',
-        'Admin Operations Cockpit: Centralized venue metrics, court maintenance switches, staff permissions, and transaction auditing.',
-        'Strict Tokenized Design System: Bespoke 3-color palette delivering high optical contrast without visual saturation.'
+        'Postgres exclusion constraint makes double-booking a court impossible across every booking path',
+        'Multi-court booking grid with time-of-day pricing and live subtotals',
+        '15-minute slot holds and one-use payment references for QR checkout',
+        'Auto Match queues by skill tier and balances 2v2 teams by rating',
+        'Open play sessions that span several courts',
+        'Role-based admin console for Owner, Manager, Staff and Cashier, with a PIN required for senior roles',
+        'QR check-in passes and emailed booking receipts',
+        'Excel transaction export with totals and full payment details for reconciliation'
       ],
       responsibilities: [
-        'Architected the full frontend system in Next.js 14 App Router and TypeScript, achieving zero layout shift and sub-100ms UI interaction latency.',
-        'Engineered the strict 3-color design system token pipeline (#FAFCFB, #1BADC3, #C9E31F), systematically eliminating extraneous CSS framework colors across 70+ components.',
-        'Built the multi-court slot selection engine with dynamic conflict resolution, date-strip scrolling, and synchronized checkout state.',
-        'Developed the Auto Match queue simulator and open-play roster management system with real-time status transitions.',
-        'Created the complete back-office administrator portal with financial audit tables, occupancy statistics, and court maintenance controls.'
+        'Architected the Next.js 16 App Router application, with separate route groups for the customer portal and the admin console',
+        'Designed the Supabase Postgres schema (28 tables) with row-level security, triggers and exclusion constraints that guarantee conflict-free scheduling',
+        'Engineered the checkout pipeline: slot holds, QR payment proofs, reference de-duplication and staff verification',
+        'Built the Auto Match engine, open play, tournament and coaching flows end to end',
+        'Designed the token-based design system and every screen, tuning contrast for WCAG AA',
+        'Standardized timezone-safe scheduling utilities and corrected for device clock skew against the server',
+        'Hardened the platform with signed sessions, an admin PIN, rate limiting, Turnstile, CSP and CSRF protection, activity logging and encrypted nightly backups',
+        'Wrote 29 test suites for the domain logic covering pricing, schedules, revenue, promos, exports and security edge cases'
       ],
       architecture: [
         {
-          title: 'Strict Micro-Design Token System',
+          title: 'Conflict-Free Booking Matrix',
           description:
-            'Rather than relying on default Tailwind color families, the theme configuration was isolated strictly to three core brand tokens (#FAFCFB, #1BADC3, #C9E31F). Visual hierarchy is driven by strategic opacity steps, directional photography gradients, and brand-tinted shadows.'
+            'Triggers on bookings, holds, submissions and open games keep an app.court_slots table in sync. An exclusion constraint (court_id WITH =, during WITH &&), deferred until commit, rejects any overlapping time range in the same transaction, so concurrent checkouts cannot both win.'
         },
         {
-          title: 'Reactive State & Scheduling Synchronization',
+          title: 'Server-Owned Writes',
           description:
-            'Constructed a centralized store managing court reservations, community roster sizes, and revenue metrics in tandem, ensuring booking mutations instantly reflect across player feeds and admin dashboards.'
+            'Every change goes through Next.js route handlers that check the session, role, rate limit and CSRF token. Postgres row-level security blocks all direct client access, and the browser never holds database credentials.'
         },
         {
-          title: 'Dual-Shell Responsive Pattern',
+          title: 'Live Client Store',
           description:
-            'Designed two purpose-built shell layouts: an ergonomic, bottom-nav mobile layout optimized for players on the court, paired with an expansive desktop sidebar layout for venue managers handling data-intensive operations.'
+            'A React context store holds the club state on the client and refreshes from Supabase Realtime, so the booking grid and admin calendar update without a page reload.'
+        },
+        {
+          title: 'Club-Time Scheduling',
+          description:
+            'All scheduling maths runs in Asia/Manila time, independent of the device. A server time endpoint corrects skewed phone and PC clocks, so holds and booking windows never expire early.'
+        },
+        {
+          title: 'Single-Source Design Tokens',
+          description:
+            'theme.ts is the only file allowed to define colours. Tailwind and the chart library both read from it, and the Tailwind palette is limited to those tokens, so off-brand colours cannot creep in.'
         }
       ],
       metrics: [
-        { label: 'Courts Managed', value: 'Covered Courts' },
-        { label: 'Operating Hours', value: '7 AM – 2 AM' },
-        { label: 'Interaction Latency', value: '< 100ms' },
-        { label: 'Design System', value: '100% Strict 3-Color' }
+        { label: 'Routes Shipped', value: '49 (20 portal · 27 admin)' },
+        { label: 'Database Tables', value: '28 with row-level security' },
+        { label: 'Double-Bookings Possible', value: '0, enforced by Postgres' },
+        { label: 'Operating Hours', value: '7 AM – 3 AM' },
+        { label: 'Test Suites', value: '29' },
+        { label: 'Brand Palette', value: '3 colours, 1 token source' }
       ]
     }
   },
