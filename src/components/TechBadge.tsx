@@ -541,6 +541,29 @@ export const TechIcon: React.FC<{ name: string; className?: string }> = ({ name,
     );
   }
 
+  // Excel & PDF Dual Export
+  if ((norm.includes('excel') || norm.includes('sheet')) && (norm.includes('pdf') || norm.includes('jspdf'))) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect x="2" y="3" width="9" height="18" rx="2" fill="#107C41" />
+        <path d="M4.5 8h4M4.5 12h4M4.5 16h4" stroke="white" strokeWidth="1.2" strokeLinecap="round" />
+        <rect x="13" y="3" width="9" height="18" rx="2" fill="#E11D48" />
+        <path d="M15.5 8h4M15.5 12h3M15.5 16h3.5" stroke="white" strokeWidth="1.2" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // PDF / jsPDF
+  if (norm.includes('pdf')) {
+    return (
+      <svg className={className} viewBox="0 0 24 24" fill="none">
+        <rect x="3" y="2" width="18" height="20" rx="3" fill="#E11D48" />
+        <path d="M7 16V8h3a2 2 0 0 1 0 4H7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M13 8v8m0-4h2.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
   // SheetJS / Excel / Spreadsheet / PapaParse
   if (norm.includes('sheet') || norm.includes('papaparse') || norm.includes('excel')) {
     return (

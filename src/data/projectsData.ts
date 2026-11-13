@@ -73,9 +73,10 @@ export const projectsData: ProjectItem[] = [
       'Next.js 16',
       'React 19',
       'TypeScript',
-      'Supabase',
-      'PostgreSQL',
+      'Supabase & PostgreSQL',
       'Tailwind CSS',
+      'Cloudflare',
+      'Excel & PDF Export',
       'Base UI',
       'Vercel',
       'Design Systems',
@@ -150,6 +151,12 @@ export const projectsData: ProjectItem[] = [
         tech: 'Supabase (PostgreSQL), row-level security, gist exclusion constraints',
         purpose:
           'A synced court_slots table and a tstzrange exclusion constraint make overlapping court bookings impossible, whichever path created them. Only the server can read or write.'
+      },
+      {
+        layer: 'Reporting & Data Export',
+        tech: 'Excel (XLSX) & PDF Export Engines',
+        purpose:
+          'Export audit-ready Excel transaction workbooks with full booking details, customer logs, and GCash references, plus downloadable PDF check-in passes.'
       },
       {
         layer: 'State & Domain Logic',
